@@ -1,0 +1,185 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<title>Carrossel Zoe</title>
+<style>
+@font-face{font-family:P;src:url(fonts/Poppins-Regular.ttf);font-weight:400}
+@font-face{font-family:P;src:url(fonts/Poppins-Medium.ttf);font-weight:500}
+@font-face{font-family:P;src:url(fonts/Poppins-SemiBold.ttf);font-weight:600}
+@font-face{font-family:P;src:url(fonts/Poppins-Bold.ttf);font-weight:700}
+@font-face{font-family:P;src:url(fonts/Poppins-ExtraBold.ttf);font-weight:800}
+@font-face{font-family:C;src:url(fonts/Caveat.ttf);font-weight:400 700}
+
+:root{
+  --ink:#17131F; --cream:#F6F1E9; --lilac:#B9A7F3; --pink:#EC4899; --muted:#6E667A;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:#000;font-family:P,sans-serif;-webkit-font-smoothing:antialiased}
+
+.card{width:1080px;height:1350px;position:relative;overflow:hidden;background:var(--cream);color:var(--ink)}
+.card.dark{background:var(--ink);color:var(--cream)}
+
+/* barra de progresso do carrossel */
+.bar{position:absolute;top:44px;left:72px;right:72px;display:flex;gap:10px;z-index:5}
+.bar i{flex:1;height:6px;border-radius:3px;background:rgba(255,255,255,.35)}
+.bar i.on{background:#fff}
+
+.tag{position:absolute;top:76px;left:72px;z-index:5;font-weight:700;font-size:26px;letter-spacing:.14em;text-transform:uppercase;color:#fff;
+  text-shadow:0 2px 12px rgba(0,0,0,.35)}
+.tag b{color:var(--lilac)}
+
+/* layout A: foto inteira + texto sobre degradê */
+.full img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.full::after{content:"";position:absolute;inset:0;
+  background:linear-gradient(180deg,rgba(15,11,20,.45) 0%,rgba(15,11,20,0) 22%,rgba(15,11,20,0) 42%,rgba(15,11,20,.88) 78%,rgba(15,11,20,.96) 100%)}
+.full .txt{position:absolute;left:72px;right:72px;bottom:96px;z-index:3;color:#fff}
+
+/* layout B: foto em cima, painel de texto embaixo */
+.split img{position:absolute;top:0;left:0;width:100%;height:var(--ph,760px);object-fit:cover}
+.split::before{content:"";position:absolute;top:0;left:0;right:0;height:260px;z-index:1;
+  background:linear-gradient(180deg,rgba(15,11,20,.55),rgba(15,11,20,0))}
+.split .txt{position:absolute;left:72px;right:72px;top:calc(var(--ph,760px) + 56px);bottom:80px;z-index:3;display:flex;flex-direction:column;justify-content:center}
+
+/* tipografia */
+.h{font-weight:800;font-size:84px;line-height:1.02;letter-spacing:-.025em}
+.h2{font-weight:800;font-size:62px;line-height:1.06;letter-spacing:-.02em}
+.p{font-weight:500;font-size:40px;line-height:1.3;letter-spacing:-.005em}
+.p.s{font-size:36px}
+.lead{font-weight:400;font-size:40px;line-height:1.3;opacity:.92}
+.hand{font-family:C;font-weight:700;font-size:62px;line-height:1;color:var(--pink);transform:rotate(-2deg);transform-origin:left}
+.full .hand{color:var(--lilac)}
+.sp{height:28px}.sp2{height:44px}
+.hl{color:var(--pink)} .full .hl, .dark .hl{color:var(--lilac)}
+.mk{background:linear-gradient(transparent 58%,rgba(185,167,243,.55) 58%);padding:0 .06em}
+.dark .mk{background:linear-gradient(transparent 60%,rgba(236,72,153,.55) 60%)}
+
+.swipe{position:absolute;right:72px;bottom:100px;z-index:4;font-weight:600;font-size:26px;letter-spacing:.12em;text-transform:uppercase;color:#fff;opacity:.85}
+.foot{position:absolute;left:72px;right:72px;bottom:56px;z-index:4;display:flex;justify-content:space-between;font-weight:600;font-size:24px;letter-spacing:.12em;text-transform:uppercase;opacity:.55}
+
+/* card 6: estética documental */
+.doc img{filter:grayscale(1) contrast(1.1) brightness(.9)}
+.rec{position:absolute;top:118px;right:72px;z-index:5;display:flex;align-items:center;gap:12px;color:#fff;font-weight:700;font-size:26px;letter-spacing:.12em}
+.rec::before{content:"";width:18px;height:18px;border-radius:50%;background:#FF3B3B}
+.big6{font-weight:800;font-size:150px;line-height:.9;letter-spacing:-.04em;color:var(--lilac)}
+
+/* card 5: cartaz */
+.poster img{filter:none}
+.chips{display:flex;flex-wrap:wrap;gap:12px}
+.chips span{font-weight:600;font-size:28px;padding:10px 22px;border-radius:40px;border:2px solid rgba(246,241,233,.35)}
+</style>
+</head>
+<body>
+
+<!-- 1 · CAPA -->
+<section class="card full">
+  <img src="img/1.jpg" alt="">
+  <div class="bar"><i class="on"></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+  <div class="txt">
+    <div class="h">Oi, eu sou<br>a <span class="hl">Zoe.</span></div>
+    <div class="sp"></div>
+    <div class="lead">Fiquei famosa por motivos que<br>meus pais não recomendam.</div>
+    <div class="sp2"></div>
+    <div class="hand">deixa eu me apresentar direito…</div>
+  </div>
+</section>
+
+<!-- 2 · ANTES DE TUDO -->
+<section class="card split" style="--ph:800px">
+  <img src="img/2.jpg" alt="">
+  <div class="bar"><i class="on"></i><i class="on"></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+  <div class="txt">
+    <div class="h2">Minha vida era<br>bem tranquila.</div>
+    <div class="sp"></div>
+    <div class="p" style="color:var(--muted)">Casa, comida, passeio, creche, carinho…</div>
+    <div class="sp2"></div>
+    <div class="p">Eu tinha meus humanos <span class="mk">muito bem treinados.</span></div>
+  </div>
+</section>
+
+<!-- 3 · COMEÇA A CONFUSÃO -->
+<section class="card full">
+  <img src="img/3.jpg" alt="" style="object-position:50% 40%">
+  <div class="bar"><i class="on"></i><i class="on"></i><i class="on"></i><i></i><i></i><i></i><i></i><i></i></div>
+  <div class="txt">
+    <div class="lead">Até que meus pais falaram:</div>
+    <div class="h2" style="margin-top:8px">“Nós vamos viajar.”</div>
+    <div class="sp2"></div>
+    <div class="lead">Eu entendi:</div>
+    <div class="h2 hl" style="margin-top:8px">“Todo mundo vai passear.”</div>
+    <div class="sp2"></div>
+    <div class="hand">houve uma pequena falha de comunicação.</div>
+  </div>
+</section>
+
+<!-- 4 · A FUGA -->
+<section class="card split dark" style="--ph:780px">
+  <img src="img/4.jpg" alt="">
+  <div class="bar"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i></i><i></i><i></i><i></i></div>
+  <div class="txt" style="top:828px;bottom:64px">
+    <div class="p s">Eles viajaram.<br>Eu fiquei com uma pessoa de confiança.<br>Saí para passear…</div>
+    <div class="sp"></div>
+    <div class="h2" style="font-size:52px">e resolvi passear um pouquinho mais do que o combinado.</div>
+    <div class="h hl" style="font-size:88px;margin-top:10px">Bem mais.</div>
+  </div>
+</section>
+
+<!-- 5 · A CIDADE ENTRA NA HISTÓRIA -->
+<section class="card split dark poster" style="--ph:640px">
+  <img src="img/5.jpg" alt="" style="object-position:50% 40%">
+  <div class="bar"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i></i><i></i><i></i></div>
+  <div class="txt">
+    <div class="p" style="opacity:.75">Quando percebi,</div>
+    <div class="h2" style="margin-top:6px">minha foto estava por toda <span class="hl">Passo Fundo.</span></div>
+    <div class="sp2"></div>
+    <div class="chips"><span>Instagram</span><span>WhatsApp</span><span>Facebook</span><span>Cartazes</span><span>Grupos</span></div>
+    <div class="sp2"></div>
+    <div class="p s">Gente que nunca tinha me visto estava me procurando.</div>
+  </div>
+</section>
+
+<!-- 6 · OS SEIS DIAS -->
+<section class="card split dark doc" style="--ph:520px">
+  <img src="img/6.jpg" alt="" style="object-position:50% 50%">
+  <div class="bar"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i></i><i></i></div>
+  <div class="rec">REC</div>
+  <div class="txt" style="top:560px">
+    <div style="display:flex;align-items:flex-end;gap:28px">
+      <div class="big6">6 dias.</div>
+    </div>
+    <div class="sp2"></div>
+    <div class="p s" style="line-height:1.4">Meus pais procuraram nas ruas.<br>Amigos procuraram.<br>Desconhecidos procuraram.<br><span style="opacity:.7">Em câmeras, terrenos, bairros…</span></div>
+    <div class="sp2"></div>
+    <div class="h2" style="font-size:56px">E eu? <span class="hand" style="display:inline-block;font-size:54px;color:var(--lilac);margin-left:10px">essa parte ainda é segredo meu.</span></div>
+  </div>
+</section>
+
+<!-- 7 · O REENCONTRO -->
+<section class="card full">
+  <img src="img/7.jpg" alt="" style="object-position:50% 35%">
+  <div class="bar"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i></i></div>
+  <div class="txt">
+    <div class="p" style="line-height:1.45">Até que uma pessoa me viu.<br>Reconheceu.<br>Avisou.</div>
+    <div class="sp2"></div>
+    <div class="h2">E minha mãe me chamou.</div>
+    <div class="h hl" style="margin-top:6px">Dessa vez, eu fui.</div>
+  </div>
+</section>
+
+<!-- 8 · A HISTÓRIA CONTINUA -->
+<section class="card split" style="--ph:520px">
+  <img src="img/8.jpg" alt="">
+  <div class="bar"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i></div>
+  <div class="txt" style="top:572px;bottom:64px">
+    <div class="h2" style="font-size:58px">Voltei para casa.</div>
+    <div class="sp"></div>
+    <div class="p s" style="color:var(--muted);font-size:34px">Depois de ver tanta gente parar a própria vida para procurar uma cachorra que nem conhecia, meus humanos e eu decidimos uma coisa:</div>
+    <div class="sp"></div>
+    <div class="p" style="font-weight:700;font-size:42px;line-height:1.22">Se tanta gente ajudou a me encontrar, agora eu posso ajudar <span class="mk">outros a serem encontrados</span> também.</div>
+    <div class="sp2"></div>
+    <div class="hand" style="font-size:50px">e vocês ainda vão ter que me aguentar por aqui.</div>
+  </div>
+</section>
+
+</body>
+</html>

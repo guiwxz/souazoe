@@ -1,0 +1,20 @@
+# Mídia bruta — vem do Google Drive via rclone
+drive/
+videos/
+audios/
+
+# Renders (regeneráveis)
+saida/
+
+# Config local do Claude Code
+.claude/settings.local.json
+
+# Diversos
+*.mp4
+*.MP4
+*.mov
+*.MOV
+*.HEIC
+*.ogg
+__pycache__/
+.DS_Store
