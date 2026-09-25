@@ -67,6 +67,15 @@ body{background:#000;font-family:P,sans-serif;-webkit-font-smoothing:antialiased
 .poster img{filter:none}
 .chips{display:flex;flex-wrap:wrap;gap:12px}
 .chips span{font-weight:600;font-size:28px;padding:10px 22px;border-radius:40px;border:2px solid rgba(246,241,233,.35)}
+
+/* card 9: chamada para seguir */
+.follow{display:flex;align-items:center;gap:22px;padding:18px 18px 18px 18px;border-radius:28px;background:rgba(246,241,233,.12);border:2px solid rgba(246,241,233,.22);backdrop-filter:blur(8px)}
+.follow .av{width:92px;height:92px;border-radius:50%;object-fit:cover;position:static;border:3px solid var(--lilac)}
+.follow .nm{flex:1;font-weight:700;font-size:34px;line-height:1.15}
+.follow .nm small{display:block;font-weight:500;font-size:24px;opacity:.7;letter-spacing:.02em}
+.follow .bt{font-weight:700;font-size:32px;padding:18px 40px;border-radius:18px;background:var(--pink);color:#fff}
+.list{font-weight:500;font-size:36px;line-height:1.45;opacity:.9}
+.list b{color:var(--lilac);font-weight:700;margin-right:12px}
 </style>
 </head>
 <body>
@@ -74,7 +83,7 @@ body{background:#000;font-family:P,sans-serif;-webkit-font-smoothing:antialiased
 <!-- 1 · CAPA -->
 <section class="card full">
   <img src="img/1.jpg" alt="">
-  <div class="bar"><i class="on"></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+  <div class="bar"><i class="on"></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
   <div class="txt">
     <div class="h">Oi, eu sou<br>a <span class="hl">Zoe.</span></div>
     <div class="sp"></div>
@@ -85,9 +94,9 @@ body{background:#000;font-family:P,sans-serif;-webkit-font-smoothing:antialiased
 </section>
 
 <!-- 2 · ANTES DE TUDO -->
-<section class="card split" style="--ph:800px">
+<section class="card split" style="--ph:860px">
   <img src="img/2.jpg" alt="">
-  <div class="bar"><i class="on"></i><i class="on"></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+  <div class="bar"><i class="on"></i><i class="on"></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
   <div class="txt">
     <div class="h2">Minha vida era<br>bem tranquila.</div>
     <div class="sp"></div>
@@ -100,7 +109,7 @@ body{background:#000;font-family:P,sans-serif;-webkit-font-smoothing:antialiased
 <!-- 3 · COMEÇA A CONFUSÃO -->
 <section class="card full">
   <img src="img/3.jpg" alt="" style="object-position:50% 40%">
-  <div class="bar"><i class="on"></i><i class="on"></i><i class="on"></i><i></i><i></i><i></i><i></i><i></i></div>
+  <div class="bar"><i class="on"></i><i class="on"></i><i class="on"></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
   <div class="txt">
     <div class="lead">Até que meus pais falaram:</div>
     <div class="h2" style="margin-top:8px">“Nós vamos viajar.”</div>
@@ -115,7 +124,7 @@ body{background:#000;font-family:P,sans-serif;-webkit-font-smoothing:antialiased
 <!-- 4 · A FUGA -->
 <section class="card split dark" style="--ph:780px">
   <img src="img/4.jpg" alt="">
-  <div class="bar"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i></i><i></i><i></i><i></i></div>
+  <div class="bar"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i></i><i></i><i></i><i></i><i></i></div>
   <div class="txt" style="top:828px;bottom:64px">
     <div class="p s">Eles viajaram.<br>Eu fiquei com uma pessoa de confiança.<br>Saí para passear…</div>
     <div class="sp"></div>
@@ -127,7 +136,7 @@ body{background:#000;font-family:P,sans-serif;-webkit-font-smoothing:antialiased
 <!-- 5 · A CIDADE ENTRA NA HISTÓRIA -->
 <section class="card split dark poster" style="--ph:640px">
   <img src="img/5.jpg" alt="" style="object-position:50% 40%">
-  <div class="bar"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i></i><i></i><i></i></div>
+  <div class="bar"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i></i><i></i><i></i><i></i></div>
   <div class="txt">
     <div class="p" style="opacity:.75">Quando percebi,</div>
     <div class="h2" style="margin-top:6px">minha foto estava por toda <span class="hl">Passo Fundo.</span></div>
@@ -141,7 +150,7 @@ body{background:#000;font-family:P,sans-serif;-webkit-font-smoothing:antialiased
 <!-- 6 · OS SEIS DIAS -->
 <section class="card split dark doc" style="--ph:520px">
   <img src="img/6.jpg" alt="" style="object-position:50% 50%">
-  <div class="bar"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i></i><i></i></div>
+  <div class="bar"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i></i><i></i><i></i></div>
   <div class="rec">REC</div>
   <div class="txt" style="top:560px">
     <div style="display:flex;align-items:flex-end;gap:28px">
@@ -157,7 +166,7 @@ body{background:#000;font-family:P,sans-serif;-webkit-font-smoothing:antialiased
 <!-- 7 · O REENCONTRO -->
 <section class="card full">
   <img src="img/7.jpg" alt="" style="object-position:50% 35%">
-  <div class="bar"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i></i></div>
+  <div class="bar"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i></i><i></i></div>
   <div class="txt">
     <div class="p" style="line-height:1.45">Até que uma pessoa me viu.<br>Reconheceu.<br>Avisou.</div>
     <div class="sp2"></div>
@@ -169,7 +178,7 @@ body{background:#000;font-family:P,sans-serif;-webkit-font-smoothing:antialiased
 <!-- 8 · A HISTÓRIA CONTINUA -->
 <section class="card split" style="--ph:520px">
   <img src="img/8.jpg" alt="">
-  <div class="bar"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i></div>
+  <div class="bar"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i></i></div>
   <div class="txt" style="top:572px;bottom:64px">
     <div class="h2" style="font-size:58px">Voltei para casa.</div>
     <div class="sp"></div>
@@ -178,6 +187,29 @@ body{background:#000;font-family:P,sans-serif;-webkit-font-smoothing:antialiased
     <div class="p" style="font-weight:700;font-size:42px;line-height:1.22">Se tanta gente ajudou a me encontrar, agora eu posso ajudar <span class="mk">outros a serem encontrados</span> também.</div>
     <div class="sp2"></div>
     <div class="hand" style="font-size:50px">e vocês ainda vão ter que me aguentar por aqui.</div>
+  </div>
+</section>
+
+<!-- 9 · SEGUE A ZOE -->
+<section class="card split dark" style="--ph:620px">
+  <img src="img/9.jpg" alt="" style="object-position:50% 36%">
+  <div class="bar"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i></div>
+  <div class="txt" style="top:620px;bottom:40px">
+    <div class="h2">A minha história<br>continua <span class="hl">aqui.</span></div>
+    <div class="sp"></div>
+    <div class="list">
+      <div><b>—</b>minha rotina (e minhas ideias)</div>
+      <div><b>—</b>o que fazer quando um animal some</div>
+      <div><b>—</b>outros bichos procurando casa</div>
+    </div>
+    <div class="sp2"></div>
+    <div class="follow">
+      <img class="av" src="img/1.jpg" alt="" style="object-position:30% 30%">
+      <div class="nm">Zoe | Causas Animais<small>Passo Fundo/RS</small></div>
+      <div class="bt">Seguir</div>
+    </div>
+    <div class="sp2"></div>
+    <div class="hand" style="font-size:54px;color:var(--lilac)">dessa vez, quem me encontra é você.</div>
   </div>
 </section>
 

@@ -56,15 +56,23 @@ videos/, audios/  # cópias locais de trabalho usadas na geração (NÃO version
 editor/       # pipeline dos Reels em ffmpeg
   build_01.py   # monta o Reel 01 "Como encontramos a Zoe" (1080x1920, 30fps) → saida/video/video1/
   words-01.json # timestamps por palavra (faster-whisper) da narração audios/1.ogg
+  build_02.py   # Reel "Como encontraram a Zoe?" (~58s, história em texto na tela + áudio real) → saida/video/video2/ (com e sem trilha)
+  build_03.py   # cópia do build_02 (v2): meio mais enxuto, menos drama, fechamento "decidimos criar este perfil" → saida/video/video3/
   fonts/        # Poppins
 carrossel/    # template padronizado dos carrosséis (versionado)
-  index.html    # 8 cards de 1080x1350, com a identidade visual
+  index.html    # 9 cards de 1080x1350, com a identidade visual (o 9º é a chamada para seguir)
   render.sh     # Chrome headless → saida/carrossel/<nome>/zoe-XX.png + _preview.jpg (ex.: ./render.sh carrossel2; padrão carrossel1)
-  img/          # fotos já recortadas para cada card (1.jpg..8.jpg)
+  img/          # fotos já recortadas para cada card (1.jpg..9.jpg)
   fonts/        # Poppins + Caveat (manuscrita)
+capa/         # template da capa dos Reels (1080x1920, texto dentro do recorte 3:4 do grid)
+  index.html    # foto + título (mesma identidade do carrossel)
+  render.sh     # Chrome headless → saida/video/<pasta>/capa.png + capa-grid.jpg (ex.: ./render.sh video2; padrão video3)
+  img/capa.jpg  # foto usada na capa
 saida/        # renders finais (versionado), um agrupamento por peça
-  carrossel/carrossel1/   # zoe-01..08.png + _preview.jpg (carrossel de apresentação)
+  carrossel/carrossel1/   # zoe-01..09.png + _preview.jpg (carrossel de apresentação)
   video/video1/           # 01-como-encontramos-a-zoe.mp4 + legendas-01.ass
+  video/video2/           # 01-como-encontraram-a-zoe.mp4 (+ -sem-trilha): Reel de lançamento em Collab
+  video/video3/           # 01-como-encontraram-a-zoe-v2.mp4 (+ -sem-trilha): versão alternativa, ~62s
 ```
 
 Novas peças entram em `saida/carrossel/carrosselN/` e `saida/video/videoN/`, numeradas em sequência.
