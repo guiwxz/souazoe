@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<title>Capa Reel Zoe</title>
+<style>
+@font-face{font-family:P;src:url(fonts/Poppins-SemiBold.ttf);font-weight:600}
+@font-face{font-family:P;src:url(fonts/Poppins-ExtraBold.ttf);font-weight:800}
+@font-face{font-family:C;src:url(fonts/Caveat.ttf);font-weight:400 700}
+:root{--ink:#17131F;--cream:#F6F1E9;--lilac:#B9A7F3;--pink:#EC4899}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:#000;font-family:P,sans-serif;-webkit-font-smoothing:antialiased}
+/* capa 9:16; o texto fica dentro da área 3:4 central (recorte do grid do perfil) */
+.cover{width:1080px;height:1920px;position:relative;overflow:hidden}
+.cover img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:42% 30%}
+.cover::after{content:"";position:absolute;inset:0;
+  background:linear-gradient(180deg,rgba(15,11,20,.35) 0%,rgba(15,11,20,0) 14%,rgba(15,11,20,0) 40%,rgba(15,11,20,.82) 62%,rgba(15,11,20,.92) 100%)}
+.txt{position:absolute;left:80px;right:80px;top:1150px;z-index:3;color:#fff}
+.h{font-weight:800;font-size:96px;line-height:1.02;letter-spacing:-.03em;text-shadow:0 4px 24px rgba(0,0,0,.35)}
+.hl{color:var(--lilac)}
+.hand{font-family:C;font-weight:700;font-size:64px;color:var(--pink);transform:rotate(-2deg);transform-origin:left;margin-top:28px}
+.tag{position:absolute;top:290px;left:80px;z-index:3;font-weight:600;font-size:28px;letter-spacing:.14em;text-transform:uppercase;color:#fff;text-shadow:0 2px 12px rgba(0,0,0,.45)}
+.tag b{color:var(--lilac)}
+</style>
+</head>
+<body>
+<section class="cover">
+  <img src="img/capa.jpg" alt="">
+  <div class="txt">
+    <div class="h">Ninguém esperava que eu fosse encontrada <span class="hl">assim</span></div>
+  </div>
+</section>
+</body>
+</html>
