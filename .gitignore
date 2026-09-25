@@ -3,18 +3,16 @@ drive/
 videos/
 audios/
 
-# Renders (regeneráveis)
-saida/
-
 # Config local do Claude Code
 .claude/settings.local.json
 
-# Diversos
-*.mp4
+# Mídia bruta fora das pastas acima (renders em saida/ são versionados)
 *.MP4
 *.mov
 *.MOV
 *.HEIC
 *.ogg
+*.mp4
+!saida/**/*.mp4
 __pycache__/
 .DS_Store

@@ -1,0 +1,43 @@
+[Script Info]
+ScriptType: v4.00+
+PlayResX: 1080
+PlayResY: 1920
+WrapStyle: 2
+
+[V4+ Styles]
+Format: Name, Fontname, Fontsize, PrimaryColour, SecondaryColour, OutlineColour, BackColour, Bold, Italic, Underline, StrikeOut, ScaleX, ScaleY, Spacing, Angle, BorderStyle, Outline, Shadow, Alignment, MarginL, MarginR, MarginV, Encoding
+Style: Cap,Poppins ExtraBold,124,&H00FFFFFF,&H00FFFFFF,&H00000000,&H96000000,-1,0,0,0,100,100,0,0,1,8,4,5,60,60,0
+Style: Hook,Poppins ExtraBold,82,&H00FFFFFF,&H00FFFFFF,&H00000000,&H00000000,-1,0,0,0,100,100,0,0,3,26,0,8,90,90,260
+
+[Events]
+Format: Layer, Start, End, Style, Name, MarginL, MarginR, MarginV, Effect, Text
+Dialogue: 1,0:00:00.00,0:00:00.92,Cap,,0,0,0,,{\pos(540,1180)\fscx108\fscy108\t(0,90,\fscx100\fscy100)}{\c&H00D7FF&}A{\c&HFFFFFF&} ZOE FOI
+Dialogue: 1,0:00:00.92,0:00:01.08,Cap,,0,0,0,,{\pos(540,1180)}A {\c&H00D7FF&}ZOE{\c&HFFFFFF&} FOI
+Dialogue: 1,0:00:01.08,0:00:01.38,Cap,,0,0,0,,{\pos(540,1180)}A ZOE {\c&H00D7FF&}FOI{\c&HFFFFFF&}
+Dialogue: 1,0:00:01.38,0:00:01.96,Cap,,0,0,0,,{\pos(540,1180)\fscx108\fscy108\t(0,90,\fscx100\fscy100)}{\c&H00D7FF&}ENCONTRADA{\c&HFFFFFF&} NO DIA
+Dialogue: 1,0:00:01.96,0:00:02.18,Cap,,0,0,0,,{\pos(540,1180)}ENCONTRADA {\c&H00D7FF&}NO{\c&HFFFFFF&} DIA
+Dialogue: 1,0:00:02.18,0:00:02.46,Cap,,0,0,0,,{\pos(540,1180)}ENCONTRADA NO {\c&H00D7FF&}DIA{\c&HFFFFFF&}
+Dialogue: 1,0:00:02.46,0:00:03.00,Cap,,0,0,0,,{\pos(540,1180)\fscx108\fscy108\t(0,90,\fscx100\fscy100)}{\c&H00D7FF&}24{\c&HFFFFFF&} DE SETEMBRO
+Dialogue: 1,0:00:03.00,0:00:03.24,Cap,,0,0,0,,{\pos(540,1180)}24 {\c&H00D7FF&}DE{\c&HFFFFFF&} SETEMBRO
+Dialogue: 1,0:00:03.24,0:00:04.00,Cap,,0,0,0,,{\pos(540,1180)}24 DE {\c&H00D7FF&}SETEMBRO{\c&HFFFFFF&}
+Dialogue: 1,0:00:04.00,0:00:04.12,Cap,,0,0,0,,{\pos(540,1180)\fscx108\fscy108\t(0,90,\fscx100\fscy100)}{\c&H00D7FF&}ÀS{\c&HFFFFFF&} 16H
+Dialogue: 1,0:00:04.12,0:00:05.00,Cap,,0,0,0,,{\pos(540,1180)}ÀS {\c&H00D7FF&}16H{\c&HFFFFFF&}
+Dialogue: 1,0:00:05.00,0:00:05.10,Cap,,0,0,0,,{\pos(540,1180)\fscx108\fscy108\t(0,90,\fscx100\fscy100)}{\c&H00D7FF&}NO{\c&HFFFFFF&} INSTITUTO
+Dialogue: 1,0:00:05.10,0:00:05.54,Cap,,0,0,0,,{\pos(540,1180)}NO {\c&H00D7FF&}INSTITUTO{\c&HFFFFFF&}
+Dialogue: 1,0:00:05.54,0:00:05.88,Cap,,0,0,0,,{\pos(540,1180)\fscx108\fscy108\t(0,90,\fscx100\fscy100)}{\c&H00D7FF&}MENINO{\c&HFFFFFF&} DEUS
+Dialogue: 1,0:00:05.88,0:00:06.98,Cap,,0,0,0,,{\pos(540,1180)}MENINO {\c&H00D7FF&}DEUS{\c&HFFFFFF&}
+Dialogue: 1,0:00:06.98,0:00:07.16,Cap,,0,0,0,,{\pos(540,1180)\fscx108\fscy108\t(0,90,\fscx100\fscy100)}{\c&H00D7FF&}ELA{\c&HFFFFFF&} ESTAVA VIVENDO
+Dialogue: 1,0:00:07.16,0:00:07.46,Cap,,0,0,0,,{\pos(540,1180)}ELA {\c&H00D7FF&}ESTAVA{\c&HFFFFFF&} VIVENDO
+Dialogue: 1,0:00:07.46,0:00:07.92,Cap,,0,0,0,,{\pos(540,1180)}ELA ESTAVA {\c&H00D7FF&}VIVENDO{\c&HFFFFFF&}
+Dialogue: 1,0:00:07.92,0:00:08.38,Cap,,0,0,0,,{\pos(540,1180)\fscx108\fscy108\t(0,90,\fscx100\fscy100)}{\c&H00D7FF&}SOZINHA{\c&HFFFFFF&} NO MATO
+Dialogue: 1,0:00:08.38,0:00:08.54,Cap,,0,0,0,,{\pos(540,1180)}SOZINHA {\c&H00D7FF&}NO{\c&HFFFFFF&} MATO
+Dialogue: 1,0:00:08.54,0:00:09.52,Cap,,0,0,0,,{\pos(540,1180)}SOZINHA NO {\c&H00D7FF&}MATO{\c&HFFFFFF&}
+Dialogue: 1,0:00:09.52,0:00:09.62,Cap,,0,0,0,,{\pos(540,1180)\fscx108\fscy108\t(0,90,\fscx100\fscy100)}{\c&H00D7FF&}SEM{\c&HFFFFFF&} FERIMENTOS
+Dialogue: 1,0:00:09.62,0:00:10.38,Cap,,0,0,0,,{\pos(540,1180)}SEM {\c&H00D7FF&}FERIMENTOS{\c&HFFFFFF&}
+Dialogue: 1,0:00:10.38,0:00:10.52,Cap,,0,0,0,,{\pos(540,1180)\fscx108\fscy108\t(0,90,\fscx100\fscy100)}{\c&H00D7FF&}E{\c&HFFFFFF&} FICOU MUITO
+Dialogue: 1,0:00:10.52,0:00:10.64,Cap,,0,0,0,,{\pos(540,1180)}E {\c&H00D7FF&}FICOU{\c&HFFFFFF&} MUITO
+Dialogue: 1,0:00:10.64,0:00:10.96,Cap,,0,0,0,,{\pos(540,1180)}E FICOU {\c&H00D7FF&}MUITO{\c&HFFFFFF&}
+Dialogue: 1,0:00:10.96,0:00:11.22,Cap,,0,0,0,,{\pos(540,1180)\fscx108\fscy108\t(0,90,\fscx100\fscy100)}{\c&H00D7FF&}FELIZ{\c&HFFFFFF&} AO ENCONTRÁ-LOS
+Dialogue: 1,0:00:11.22,0:00:11.94,Cap,,0,0,0,,{\pos(540,1180)}FELIZ {\c&H00D7FF&}AO{\c&HFFFFFF&} ENCONTRÁ-LOS
+Dialogue: 1,0:00:11.94,0:00:13.33,Cap,,0,0,0,,{\pos(540,1180)}FELIZ AO {\c&H00D7FF&}ENCONTRÁ-LOS{\c&HFFFFFF&}
+Dialogue: 2,0:00:00.00,0:00:02.46,Hook,,0,0,0,,{\3c&H5A3CE6&\fad(0,200)}COMO ENCONTRAMOS A ZOE

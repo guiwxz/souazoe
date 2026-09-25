@@ -7,7 +7,7 @@ V = ROOT / "videos"
 AUDIO = ROOT / "audios" / "1.ogg"
 WORDS = Path(sys.argv[1])          # words.json gerado pelo whisper
 FONTS = Path(sys.argv[2])          # pasta com Poppins
-OUT = ROOT / "saida" / "01-como-encontramos-a-zoe.mp4"
+OUT = ROOT / "saida" / "video" / "video1" / "01-como-encontramos-a-zoe.mp4"
 W, H, FPS = 1080, 1920, 30
 
 DUR = float(subprocess.check_output(
@@ -118,7 +118,7 @@ Format: Layer, Start, End, Style, Name, MarginL, MarginR, MarginV, Effect, Text
 
 
 def main():
-    OUT.parent.mkdir(exist_ok=True)
+    OUT.parent.mkdir(parents=True, exist_ok=True)
     ass = OUT.parent / "legendas-01.ass"
     build_ass(ass)
     inputs, parts = build_video_filters()

@@ -54,16 +54,20 @@ drive/        # espelho do Google Drive (NÃO versionado): fonte da verdade da m
   instagram/apresentação / # material para o carrossel de apresentação (a pasta tem um espaço no final do nome)
 videos/, audios/  # cópias locais de trabalho usadas na geração (NÃO versionadas)
 editor/       # pipeline dos Reels em ffmpeg
-  build_01.py   # monta o Reel 01 "Como encontramos a Zoe" (1080x1920, 30fps)
+  build_01.py   # monta o Reel 01 "Como encontramos a Zoe" (1080x1920, 30fps) → saida/video/video1/
   words-01.json # timestamps por palavra (faster-whisper) da narração audios/1.ogg
   fonts/        # Poppins
 carrossel/    # template padronizado dos carrosséis (versionado)
   index.html    # 8 cards de 1080x1350, com a identidade visual
-  render.sh     # Chrome headless → saida/carrossel/zoe-XX.png + _preview.jpg
+  render.sh     # Chrome headless → saida/carrossel/<nome>/zoe-XX.png + _preview.jpg (ex.: ./render.sh carrossel2; padrão carrossel1)
   img/          # fotos já recortadas para cada card (1.jpg..8.jpg)
   fonts/        # Poppins + Caveat (manuscrita)
-saida/        # renders finais (NÃO versionado; regenerável)
+saida/        # renders finais (versionado), um agrupamento por peça
+  carrossel/carrossel1/   # zoe-01..08.png + _preview.jpg (carrossel de apresentação)
+  video/video1/           # 01-como-encontramos-a-zoe.mp4 + legendas-01.ass
 ```
+
+Novas peças entram em `saida/carrossel/carrosselN/` e `saida/video/videoN/`, numeradas em sequência.
 
 ### Identidade visual (carrossel/index.html)
 
@@ -105,4 +109,4 @@ ffmpeg/ffprobe, python3 + Pillow, google-chrome (headless para os carrosséis), 
 
 - Nunca inventar fatos da história da Zoe. Se faltar informação, perguntar.
 - Os nomes das pastas do Drive têm caracteres especiais (`Set／26` usa uma barra fullwidth, e `apresentação ` tem um espaço no final): sempre usar aspas nos caminhos.
-- Mídia bruta e renders não vão para o git. Só vão scripts, templates, fontes, imagens recortadas do template e documentos.
+- Mídia bruta (drive/, videos/, audios/) não vai para o git. Renders finais em saida/ vão, assim como scripts, templates, fontes, imagens recortadas e documentos.
