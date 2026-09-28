@@ -68,12 +68,13 @@ carrossel/    # template padronizado dos carrosséis (versionado)
   render.sh     # Chrome headless → saida/carrossel/<nome>/zoe-XX.png + _preview.jpg (ex.: ./render.sh carrossel2; padrão carrossel1)
   img/          # fotos já recortadas para cada card (1.jpg..8.jpg)
   fonts/        # Poppins + Caveat (manuscrita)
-perdidos/     # artes recebidas de animais desaparecidos (ex.: garibaldi.jpeg)
+perdidos/     # artes recebidas de animais desaparecidos (ex.: garibaldi.jpeg, bob.jpeg)
 templates/    # templates reutilizáveis na identidade da Zoe, sem o nome escrito (versionado)
   fonts/        # Poppins + Caveat compartilhadas pelos templates
   desaparecidos/  # alerta de desaparecido: feed 1080x1350 + Stories 1080x1920 do mesmo index.html
     index.html    # fundo lilás, degradê ink, tag em caixa ink, nomes em Caveat, telefone em caixa rosa
-    render.sh     # Chrome headless → saida/<nome>-feed.png e saida/<nome>-story.png (ex.: ./render.sh garibaldi-masha)
+    render.sh     # Chrome headless → saida/<nome>-feed.png e saida/<nome>-story.png (ex.: ./render.sh garibaldi-masha); usa <nome>.html se existir
+    bob.html      # variante com foto comum no topo (em vez do recorte) e linha extra de características (caso Bob)
     recorte.py    # recorta os cães da arte recebida (rembg + opencv num venv temporário) → img/
 saida/        # renders finais (versionado), um agrupamento por peça
   carrossel/carrossel1/   # zoe-01..08.png + _preview.jpg (carrossel de apresentação)
