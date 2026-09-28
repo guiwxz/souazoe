@@ -30,11 +30,10 @@ body{background:#000;font-family:P,sans-serif;-webkit-font-smoothing:antialiased
   background:radial-gradient(ellipse 70% 45% at 50% 38%,#C9BAF6 0%,var(--lilac) 100%);
   /* foto: escala e posição da faixa recortada (a faixa começa em y=440 na arte original) */
   --py:-304px;--top:56px;--bottom:70px;--fade:150px}
-.card.story{height:1920px;--py:0px;--top:320px;--bottom:120px;--fade:170px}
+.card.story{height:1920px;--py:-39px;--top:225px;--bottom:210px;--fade:170px}
 
 .recorte{position:absolute;left:var(--x);top:var(--y);width:calc(1145px * var(--s))}
 .foto{position:absolute;left:0;top:var(--py);width:1080px}
-.story .foto{left:-24px;width:1129px}  /* Stories: um pouco maior, para a foto descer junto com o texto sem sobrar fundo em cima */
 
 /* tag em destaque: caixa ink com a sombra rosa deslocada (como o "TCHAU, CARTAZ" do Reel 02) */
 .tag{position:absolute;top:var(--top);left:72px;z-index:3;background:var(--ink);color:#fff;
@@ -48,7 +47,7 @@ body{background:#000;font-family:P,sans-serif;-webkit-font-smoothing:antialiased
   transform:rotate(-4deg);-webkit-text-stroke:8px var(--ink);paint-order:stroke fill;
   text-shadow:0 3px 0 rgba(23,19,31,.5)}
 
-.story .nome{left:110px;top:430px}  /* Stories: ao lado da orelha, abaixo da tag */
+.story .nome{left:120px;top:345px}  /* Stories: ao lado da orelha, abaixo da tag */
 .txt{position:absolute;left:72px;right:72px;bottom:var(--bottom);z-index:3}
 /* degradê ink só atrás do texto, até o pé do card */
 .txt::before{content:"";position:absolute;z-index:-1;left:-72px;right:-72px;
