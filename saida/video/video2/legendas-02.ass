@@ -1,0 +1,30 @@
+[Script Info]
+ScriptType: v4.00+
+PlayResX: 1080
+PlayResY: 1920
+WrapStyle: 2
+
+[V4+ Styles]
+Format: Name, Fontname, Fontsize, PrimaryColour, SecondaryColour, OutlineColour, BackColour, Bold, Italic, Underline, StrikeOut, ScaleX, ScaleY, Spacing, Angle, BorderStyle, Outline, Shadow, Alignment, MarginL, MarginR, MarginV, Encoding
+Style: Big,Poppins ExtraBold,175,&H00FFFFFF,&H00FFFFFF,&H001F1317,&H801F1317,-1,0,0,0,100,100,0,0,1,9,5,5,40,40,0
+Style: Title,Poppins ExtraBold,265,&H00FFFFFF,&H00FFFFFF,&H001F1317,&H009948EC,-1,0,0,0,100,100,0,0,1,11,14,5,40,40,0
+Style: Label,Poppins ExtraBold,105,&H001F1317,&H001F1317,&H00F3A7B9,&H00000000,-1,0,0,0,100,100,4,0,3,20,0,5,40,40,0
+Style: Hand,Caveat,185,&H00FFFFFF,&H00FFFFFF,&H001F1317,&H801F1317,0,0,0,0,100,100,0,0,1,8,4,5,40,40,0
+Style: Box,Poppins ExtraBold,128,&H00FFFFFF,&H00FFFFFF,&H001F1317,&H00000000,-1,0,0,0,100,100,0,0,3,24,0,5,40,40,0
+Style: BoxPink,Poppins ExtraBold,150,&H00FFFFFF,&H00FFFFFF,&H009948EC,&H00000000,-1,0,0,0,100,100,0,0,3,26,0,5,40,40,0
+
+[Events]
+Format: Layer, Start, End, Style, Name, MarginL, MarginR, MarginV, Effect, Text
+Dialogue: 1,0:00:00.12,0:00:01.95,Big,,0,0,0,,{\pos(540,500)\fscx114\fscy114\t(0,120,\fscx100\fscy100)\fad(0,110)}EU JÁ TÔ
+Dialogue: 1,0:00:00.12,0:00:01.95,Big,,0,0,0,,{\pos(540,640)\fscx114\fscy114\t(0,120,\fscx100\fscy100)\fad(0,110)}EM CASA.
+Dialogue: 1,0:00:02.05,0:00:03.90,Big,,0,0,0,,{\pos(540,1250)\fs112\fscx114\fscy114\t(0,120,\fscx100\fscy100)\fad(0,110)}MAS MEUS CARTAZES,
+Dialogue: 1,0:00:02.30,0:00:03.90,Big,,0,0,0,,{\pos(540,1395)\c&H9948EC&\fscx114\fscy114\t(0,120,\fscx100\fscy100)\fad(0,110)}AINDA NÃO.
+Dialogue: 1,0:00:04.00,0:00:05.55,Label,,0,0,0,,{\pos(540,330)\fscx180\fscy180\frz-9\t(0,130,\fscx100\fscy100\frz-3)\fad(0,150)}OPERAÇÃO
+Dialogue: 1,0:00:04.00,0:00:05.55,Title,,0,0,0,,{\pos(540,520)\fscx180\fscy180\frz-9\t(0,130,\fscx100\fscy100\frz-3)\fad(0,150)}TCHAU,
+Dialogue: 1,0:00:04.00,0:00:05.55,Title,,0,0,0,,{\pos(540,700)\fscx180\fscy180\frz-9\t(0,130,\fscx100\fscy100\frz-3)\fad(0,150)}CARTAZ
+Dialogue: 1,0:00:06.05,0:00:07.20,Hand,,0,0,0,,{\pos(540,420)\frz4\fscx88\fscy88\t(0,140,\fscx100\fscy100)\fad(90,140)}nessa foto eu\Ntava linda
+Dialogue: 1,0:00:10.08,0:00:11.30,Hand,,0,0,0,,{\pos(540,370)\frz-4\fscx88\fscy88\t(0,140,\fscx100\fscy100)\fad(90,140)}deixa que\Neu ajudo
+Dialogue: 1,0:00:12.08,0:00:12.98,Hand,,0,0,0,,{\pos(700,640)\frz-6\fs230\fscx88\fscy88\t(0,140,\fscx100\fscy100)\fad(90,140)}fácil.
+Dialogue: 1,0:00:13.05,0:00:14.95,Hand,,0,0,0,,{\pos(540,1440)\frz3\fscx88\fscy88\t(0,140,\fscx100\fscy100)\fad(90,140)}fiscalizando\No serviço
+Dialogue: 1,0:00:16.25,0:00:19.50,Box,,0,0,0,,{\pos(540,1265)\fscx114\fscy114\t(0,120,\fscx100\fscy100)\fad(120,0)}NÃO PRECISA MAIS\NME PROCURAR.
+Dialogue: 1,0:00:17.25,0:00:19.50,BoxPink,,0,0,0,,{\pos(540,1505)\fscx114\fscy114\t(0,120,\fscx100\fscy100)\fad(120,0)}É SÓ ME SEGUIR.

@@ -51,20 +51,34 @@ Bio: `Fiquei 6 dias perdida. Uma cidade inteira ajudou a me trazer pra casa. ❤
 drive/        # espelho do Google Drive (NÃO versionado): fonte da verdade da mídia bruta
   dia do encontro/        # vídeos/fotos do reencontro (24/09) + Reel 01 já exportado
   Set／26/                # fotos/vídeos de setembro (HEIC/MOV do iPhone)
+    cartazes/             # vídeos/fotos dos cartazes da busca
   instagram/apresentação / # material para o carrossel de apresentação (a pasta tem um espaço no final do nome)
+  posts/                  # o que já foi publicado (Reel 01 v2, capa, carrossel1 com 9 cards)
+  Meme/                   # imagens avulsas
 videos/, audios/  # cópias locais de trabalho usadas na geração (NÃO versionadas)
 editor/       # pipeline dos Reels em ffmpeg
   build_01.py   # monta o Reel 01 "Como encontramos a Zoe" (1080x1920, 30fps) → saida/video/video1/
   words-01.json # timestamps por palavra (faster-whisper) da narração audios/1.ogg
-  fonts/        # Poppins
+  build_02.py   # monta o Reel 02 "Tchau, cartaz" (retirada dos cartazes, 19,5 s, sem narração) → saida/video/video2/
+  trilha_02.py  # trilha original do Reel 02 (120 BPM, sintetizada com numpy+scipy) → audios/trilha-02.wav
+  capa_02.py    # capa do Reel 02 (Pillow, padrão da capa do Reel 01, telefones do cartaz borrados) → saida/video/video2/capa-02.png
+  fonts/        # Poppins + Caveat
 carrossel/    # template padronizado dos carrosséis (versionado)
   index.html    # 8 cards de 1080x1350, com a identidade visual
   render.sh     # Chrome headless → saida/carrossel/<nome>/zoe-XX.png + _preview.jpg (ex.: ./render.sh carrossel2; padrão carrossel1)
   img/          # fotos já recortadas para cada card (1.jpg..8.jpg)
   fonts/        # Poppins + Caveat (manuscrita)
+perdidos/     # artes recebidas de animais desaparecidos (ex.: garibaldi.jpeg)
+templates/    # templates reutilizáveis na identidade da Zoe, sem o nome escrito (versionado)
+  fonts/        # Poppins + Caveat compartilhadas pelos templates
+  desaparecidos/  # alerta de desaparecido: feed 1080x1350 + Stories 1080x1920 do mesmo index.html
+    index.html    # fundo lilás, degradê ink, tag em caixa ink, nomes em Caveat, telefone em caixa rosa
+    render.sh     # Chrome headless → saida/<nome>-feed.png e saida/<nome>-story.png (ex.: ./render.sh garibaldi-masha)
+    recorte.py    # recorta os cães da arte recebida (rembg + opencv num venv temporário) → img/
 saida/        # renders finais (versionado), um agrupamento por peça
   carrossel/carrossel1/   # zoe-01..08.png + _preview.jpg (carrossel de apresentação)
   video/video1/           # 01-como-encontramos-a-zoe.mp4 + legendas-01.ass
+  video/video2/           # 02-tchau-cartaz.mp4 (+ -sem-musica.mp4, para usar áudio em alta no app) + capa-02.png + legendas-02.ass
 ```
 
 Novas peças entram em `saida/carrossel/carrosselN/` e `saida/video/videoN/`, numeradas em sequência.
@@ -83,6 +97,8 @@ Novas peças entram em `saida/carrossel/carrosselN/` e `saida/video/videoN/`, nu
 - Áudio: highpass + afftdn + loudnorm (-14 LUFS). Saída em H.264 CRF 18 com AAC 192k.
 - Transcrição: faster-whisper num venv temporário (não está instalado globalmente), gerando uma lista `[{"w","s","e"}]`.
 - Uso: `python3 editor/build_01.py editor/words-01.json editor/fonts`
+- Tamanho de fonte no ASS: o `Fontsize` do libass é a altura da linha, não o "em". Na Poppins, a maiúscula tem ~0,41 × Fontsize (use 150–270 para títulos em 1080x1920).
+- Reel 02 (sem narração): cortes no tempo da trilha própria (1 tempo = 0,5 s) e cada cartaz rasga num tempo forte. Primeiro `python editor/trilha_02.py audios/trilha-02.wav` (numpy+scipy num venv temporário), depois `python3 editor/build_02.py`. Lê direto de `drive/set26/`; as fotos (HEIC e o quadro único do IMG_8445) são convertidas para `videos/` na primeira execução.
 
 ## Sincronização do Google Drive (rclone)
 
@@ -103,10 +119,12 @@ A mídia vem do Google Drive e é sincronizada **manualmente, de tempos em tempo
 
 ## Ferramentas
 
-ffmpeg/ffprobe, python3 + Pillow, google-chrome (headless para os carrosséis), node/npx (MCP do Remotion em `.mcp.json` e skills do Remotion em `.claude/skills/`, caso algum vídeo seja feito em Remotion). Os arquivos HEIC/MOV do iPhone precisam ser convertidos antes do uso.
+ffmpeg/ffprobe, python3 + Pillow, google-chrome (headless para os carrosséis), node/npx (MCP do Remotion em `.mcp.json` e skills do Remotion em `.claude/skills/`, caso algum vídeo seja feito em Remotion). Os arquivos HEIC/MOV do iPhone precisam ser convertidos antes do uso (o ffmpeg 7.1+ lê HEIC direto; os vídeos atuais são H.264 SDR, sem HDR).
+
+No Windows (Git Bash), o ffmpeg e o rclone vêm do winget (`Gyan.FFmpeg`, `Rclone.Rclone`), e o Chrome fica em `C:\Program Files\Google\Chrome\Application\chrome.exe`. `build_01.py` e `render.sh` funcionam nos dois sistemas.
 
 ## Regras de trabalho
 
 - Nunca inventar fatos da história da Zoe. Se faltar informação, perguntar.
-- Os nomes das pastas do Drive têm caracteres especiais (`Set／26` usa uma barra fullwidth, e `apresentação ` tem um espaço no final): sempre usar aspas nos caminhos.
+- Os nomes das pastas do Drive têm caracteres especiais (`Set／26` usa uma barra fullwidth, e `apresentação ` tem um espaço no final): sempre usar aspas nos caminhos. No Windows, o rclone grava esse espaço final como `␠` (U+2420), então a pasta local é `drive/instagram/apresentação␠`.
 - Mídia bruta (drive/, videos/, audios/) não vai para o git. Renders finais em saida/ vão, assim como scripts, templates, fontes, imagens recortadas e documentos.
