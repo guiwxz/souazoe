@@ -73,7 +73,7 @@ templates/    # templates reutilizáveis na identidade da Zoe, sem o nome escrit
   fonts/        # Poppins + Caveat compartilhadas pelos templates
   desaparecidos/  # alerta de desaparecido: feed 1080x1350 + Stories 1080x1920 do mesmo index.html
     index.html    # fundo lilás, degradê ink, tag em caixa ink, nomes em Caveat, telefone em caixa rosa
-                  # telefone 62 px (68 no Story) com o ícone oficial do WhatsApp; no Story, tag em top 225 e texto a 210 px do pé
+                  # telefone 62 px (68 no Story) com o ícone oficial do WhatsApp em 1,1em (altura dos parênteses); no Story, tag em top 225 e texto a 210 px do pé
     render.sh     # Chrome headless → saida/<nome>-feed.png e saida/<nome>-story.png (ex.: ./render.sh garibaldi-masha); usa <nome>.html se existir
     bob.html      # variante com foto comum no topo (em vez do recorte) e linha extra de características (caso Bob)
     recorte.py    # recorta os cães da arte recebida (rembg + opencv num venv temporário) → img/
