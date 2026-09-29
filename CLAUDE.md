@@ -4,7 +4,7 @@ Produção de conteúdo (Reels, carrosséis, Stories) para o lançamento do perf
 
 A Zoe é uma cachorra que ficou **6 dias desaparecida** e foi encontrada em **24/09/2026, às 16h, perto do Instituto Menino Deus**, depois de uma grande mobilização da cidade. Os tutores são **Isabela** e **Guilherme**. A estratégia digital é de **Gabriela Fabian**.
 
-A tese da marca: *"A Zoe não será a cachorra que viralizou porque sumiu. Ela será a cachorra que voltou porque uma comunidade se mobilizou, e que agora mobiliza essa comunidade por outros animais."*
+A tese da marca: _"A Zoe não será a cachorra que viralizou porque sumiu. Ela será a cachorra que voltou porque uma comunidade se mobilizou, e que agora mobiliza essa comunidade por outros animais."_
 
 ## Documentos de referência (ler antes de criar conteúdo)
 
@@ -21,6 +21,7 @@ Para ler: `pdftotext -layout <arquivo>.pdf -`
 Bio: `Fiquei 6 dias perdida. Uma cidade inteira ajudou a me trazer pra casa. ❤️ / Agora minha história vai ajudar outros animais. 🐾 / 📍 Passo Fundo/RS`
 
 **Lançamento.** Não anunciar um perfil vazio: publicar 3 conteúdos antes do chamado público.
+
 1. **Como encontramos a Zoe**: Collab com a Isabela, é o principal conteúdo de transferência de audiência. A veterinária a reconhece saindo do mato perto do Instituto Menino Deus, avisa a família, a equipe procura, uma câmera mostra uma fração de segundo, a Isabela chama e a Zoe aparece.
 2. **O que aconteceu nesses 6 dias?**: "a gente não sabe". NUNCA inventar o período desconhecido. Mostrar só o que se sabe (chuva, distância, estado físico, minutos reconstruídos pelas câmeras).
 3. **O golpe durante a busca**: utilidade pública (pedido de dinheiro para gasolina, depois para um suposto problema no carro). CTA: "Salva esse vídeo."
@@ -76,11 +77,14 @@ carrossel/    # template padronizado dos carrosséis (versionado)
 roteiros/     # roteiros de trabalho (versionado)
   serie-6-dias/   # série de 3 Reels narrados pela Isabela (dias 1-2, 3-4, 5-6): roteiro.md + painéis de mídia por episódio
 perdidos/     # artes recebidas de animais desaparecidos (ex.: garibaldi.jpeg)
+perdidos/     # artes recebidas de animais desaparecidos (ex.: garibaldi.jpeg, bob.jpeg)
 templates/    # templates reutilizáveis na identidade da Zoe, sem o nome escrito (versionado)
   fonts/        # Poppins + Caveat compartilhadas pelos templates
   desaparecidos/  # alerta de desaparecido: feed 1080x1350 + Stories 1080x1920 do mesmo index.html
     index.html    # fundo lilás, degradê ink, tag em caixa ink, nomes em Caveat, telefone em caixa rosa
-    render.sh     # Chrome headless → saida/<nome>-feed.png e saida/<nome>-story.png (ex.: ./render.sh garibaldi-masha)
+                  # telefone 62 px (68 no Story) com o ícone oficial do WhatsApp em 1,1em (altura dos parênteses); no Story, tag em top 225 e texto a 210 px do pé
+    render.sh     # Chrome headless → saida/<nome>-feed.png e saida/<nome>-story.png (ex.: ./render.sh garibaldi-masha); usa <nome>.html se existir
+    bob.html      # variante com foto comum no topo (em vez do recorte) e linha extra de características (caso Bob)
     recorte.py    # recorta os cães da arte recebida (rembg + opencv num venv temporário) → img/
 saida/        # renders finais (versionado), um agrupamento por peça
   carrossel/carrossel1/   # zoe-01..08.png + _preview.jpg (carrossel de apresentação)
