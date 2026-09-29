@@ -17,7 +17,7 @@ Para ler: `pdftotext -layout <arquivo>.pdf -`
 
 **Posicionamento.** A Zoe é a personagem que cria vínculo, a experiência vivida gera utilidade e as causas animais dão o propósito. O perfil não é um perfil genérico de pet nem uma página pesada de sofrimento animal. Três eixos: HISTÓRIA (6 dias, mobilização, reencontro), PERSONALIDADE (rotina, humor, família, recuperação) e PROPÓSITO (desaparecidos, adoção, identificação, prevenção).
 
-**Identidade.** O nome de exibição é "Zoe | Causas Animais", com o mesmo @ nas duas redes. Evitar "SOS", "procura-se" e "desaparecida".
+**Identidade.** O nome de exibição é "Zoe | Causas Animais", com o mesmo @ nas duas redes: **@souazoe.pf**. Evitar "SOS", "procura-se" e "desaparecida".
 Bio: `Fiquei 6 dias perdida. Uma cidade inteira ajudou a me trazer pra casa. ❤️ / Agora minha história vai ajudar outros animais. 🐾 / 📍 Passo Fundo/RS`
 
 **Lançamento.** Não anunciar um perfil vazio: publicar 3 conteúdos antes do chamado público.
@@ -50,8 +50,9 @@ Bio: `Fiquei 6 dias perdida. Uma cidade inteira ajudou a me trazer pra casa. ❤
 ```
 drive/        # espelho do Google Drive (NÃO versionado): fonte da verdade da mídia bruta
   dia do encontro/        # vídeos/fotos do reencontro (24/09) + Reel 01 já exportado
-  Set／26/                # fotos/vídeos de setembro (HEIC/MOV do iPhone)
-    cartazes/             # vídeos/fotos dos cartazes da busca
+  set26/                  # fotos/vídeos de setembro (HEIC/MOV do iPhone)
+    cartazes/             # vídeos/fotos da retirada dos cartazes (26/09)
+    divulgacao/           # prints dos posts de divulgação durante a busca (Screenshot_AAAAMMDD_HHMMSS = hora do print)
   instagram/apresentação / # material para o carrossel de apresentação (a pasta tem um espaço no final do nome)
   posts/                  # o que já foi publicado (Reel 01 v2, capa, carrossel1 com 9 cards)
   Meme/                   # imagens avulsas
@@ -62,12 +63,18 @@ editor/       # pipeline dos Reels em ffmpeg
   build_02.py   # monta o Reel 02 "Tchau, cartaz" (retirada dos cartazes, 19,5 s, sem narração) → saida/video/video2/
   trilha_02.py  # trilha original do Reel 02 (120 BPM, sintetizada com numpy+scipy) → audios/trilha-02.wav
   capa_02.py    # capa do Reel 02 (Pillow, padrão da capa do Reel 01, telefones do cartaz borrados) → saida/video/video2/capa-02.png
+  build_03.py   # monta o Reel 03 "Os 6 dias da Zoe · Parte 1" (dias 1 e 2, narração da Isabela em audios/1..8.ogg, ~68 s) → saida/video/video3/. Venv Python 3.9 com numpy+scipy+Pillow (`py -3.9 -m venv`); ver a docstring
+  words-03.json # timestamps por palavra (faster-whisper medium) da narração do Reel 03, já na linha do tempo final
+  trilha_03.py  # trilha original do Reel 03 (75 BPM, piano abafado + pad; zera no bloco do silêncio), chamada pelo build_03
+  mapa.py       # mapas 1080x1920 com as ruas reais de Passo Fundo (OpenStreetMap, cache em videos/osm-passo-fundo.json) na identidade da Zoe, via Chrome headless (ex.: python editor/mapa.py ep1)
   fonts/        # Poppins + Caveat
 carrossel/    # template padronizado dos carrosséis (versionado)
   index.html    # 8 cards de 1080x1350, com a identidade visual
   render.sh     # Chrome headless → saida/carrossel/<nome>/zoe-XX.png + _preview.jpg (ex.: ./render.sh carrossel2; padrão carrossel1)
   img/          # fotos já recortadas para cada card (1.jpg..8.jpg)
   fonts/        # Poppins + Caveat (manuscrita)
+roteiros/     # roteiros de trabalho (versionado)
+  serie-6-dias/   # série de 3 Reels narrados pela Isabela (dias 1-2, 3-4, 5-6): roteiro.md + painéis de mídia por episódio
 perdidos/     # artes recebidas de animais desaparecidos (ex.: garibaldi.jpeg)
 templates/    # templates reutilizáveis na identidade da Zoe, sem o nome escrito (versionado)
   fonts/        # Poppins + Caveat compartilhadas pelos templates
@@ -78,6 +85,7 @@ templates/    # templates reutilizáveis na identidade da Zoe, sem o nome escrit
 saida/        # renders finais (versionado), um agrupamento por peça
   carrossel/carrossel1/   # zoe-01..08.png + _preview.jpg (carrossel de apresentação)
   video/video1/           # 01-como-encontramos-a-zoe.mp4 + legendas-01.ass
+  video/video3/           # 03-os-6-dias-parte-1.mp4 (+ -sem-musica.mp4) + legendas-03.ass
   video/video2/           # 02-tchau-cartaz.mp4 (+ -sem-musica.mp4, para usar áudio em alta no app) + capa-02.png + legendas-02.ass
 ```
 
@@ -121,10 +129,10 @@ A mídia vem do Google Drive e é sincronizada **manualmente, de tempos em tempo
 
 ffmpeg/ffprobe, python3 + Pillow, google-chrome (headless para os carrosséis), node/npx (MCP do Remotion em `.mcp.json` e skills do Remotion em `.claude/skills/`, caso algum vídeo seja feito em Remotion). Os arquivos HEIC/MOV do iPhone precisam ser convertidos antes do uso (o ffmpeg 7.1+ lê HEIC direto; os vídeos atuais são H.264 SDR, sem HDR).
 
-No Windows (Git Bash), o ffmpeg e o rclone vêm do winget (`Gyan.FFmpeg`, `Rclone.Rclone`), e o Chrome fica em `C:\Program Files\Google\Chrome\Application\chrome.exe`. `build_01.py` e `render.sh` funcionam nos dois sistemas.
+No Windows (Git Bash), o ffmpeg e o rclone vêm do winget (`Gyan.FFmpeg`, `Rclone.Rclone`), e o Chrome fica em `C:\Program Files\Google\Chrome\Application\chrome.exe`. Os atalhos do winget ficam em `~/AppData/Local/Microsoft/WinGet/Links`, que pode não estar no PATH do Git Bash: `export PATH="$PATH:$HOME/AppData/Local/Microsoft/WinGet/Links"`. A data real de captura dos MOV/MP4 do iPhone está na tag `com.apple.quicktime.creationdate` (ffprobe). Os HEIC não trazem data legível, então vale a ordem da numeração IMG_XXXX. `build_01.py` e `render.sh` funcionam nos dois sistemas.
 
 ## Regras de trabalho
 
 - Nunca inventar fatos da história da Zoe. Se faltar informação, perguntar.
-- Os nomes das pastas do Drive têm caracteres especiais (`Set／26` usa uma barra fullwidth, e `apresentação ` tem um espaço no final): sempre usar aspas nos caminhos. No Windows, o rclone grava esse espaço final como `␠` (U+2420), então a pasta local é `drive/instagram/apresentação␠`.
+- Alguns nomes de pastas do Drive têm caracteres especiais (`apresentação ` tem um espaço no final): sempre usar aspas nos caminhos. No Windows, o rclone grava esse espaço final como `␠` (U+2420), então a pasta local é `drive/instagram/apresentação␠`.
 - Mídia bruta (drive/, videos/, audios/) não vai para o git. Renders finais em saida/ vão, assim como scripts, templates, fontes, imagens recortadas e documentos.
