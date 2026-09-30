@@ -68,7 +68,12 @@ editor/       # pipeline dos Reels em ffmpeg
   words-03.json # timestamps por palavra (faster-whisper medium) da narração do Reel 03, já na linha do tempo final
   trilha_03.py  # trilha original do Reel 03 (75 BPM, piano abafado + pad; zera no bloco do silêncio), chamada pelo build_03
   capa_03.py    # capa do Reel 03 (Pillow, padrão das capas 01/02 + contador de 6 dias e "OS 6 DIAS DA ZOE · PARTE N" para a série) → saida/video/video3/capa-03.png
-  mapa.py       # mapas 1080x1920 com as ruas reais de Passo Fundo (OpenStreetMap, cache em videos/osm-passo-fundo.json) na identidade da Zoe, via Chrome headless (ex.: python editor/mapa.py ep1)
+  build_04.py   # monta o Reel 04 "Os 6 dias da Zoe · Parte 2" (dias 3 a 5, narração em audios/dias3e4e5/1..6.ogg, ~64 s): parecidas com "NÃO ERA ELA",
+                # golpes com "GERADA POR IA", as duas câmeras de 18/09 em câmera lenta com círculo e zoom, o mapa uma rua adiante → saida/video/video4/. Mesmo venv do build_03
+  words-04.json # timestamps por palavra da narração do Reel 04, já na linha do tempo final
+  trilha_04.py  # trilha do Reel 04: contida (75 BPM) até o golpe, abre "animadinha" (104 BPM) no vislumbre das câmeras; chamada pelo build_04
+  capa_04.py    # capa do Reel 04 (padrão da capa_03, 5 de 6 dias cheios) → saida/video/video4/capa-04.png
+  mapa.py       # mapas 1080x1920 com as ruas reais de Passo Fundo (OpenStreetMap, cache em videos/osm-passo-fundo.json) na identidade da Zoe, via Chrome headless (ex.: python editor/mapa.py ep1; ep2 e ep2-camadas para o Reel 04)
   fonts/        # Poppins + Caveat
 carrossel/    # template padronizado dos carrosséis (versionado)
   index.html    # 8 cards de 1080x1350, com a identidade visual
@@ -76,7 +81,7 @@ carrossel/    # template padronizado dos carrosséis (versionado)
   img/          # fotos já recortadas para cada card (1.jpg..8.jpg)
   fonts/        # Poppins + Caveat (manuscrita)
 roteiros/     # roteiros de trabalho (versionado)
-  serie-6-dias/   # série de 3 Reels narrados pela Isabela (dias 1-2, 3-4, 5-6): roteiro.md + painéis de mídia por episódio
+  serie-6-dias/   # série de 3 Reels narrados pela Isabela (dias 1-2, 3-5, 6): roteiro.md, README.md (status e como continuar) + painéis de mídia por episódio
 perdidos/     # artes recebidas de animais desaparecidos (ex.: garibaldi.jpeg, bob.jpeg, thor.jpeg)
 templates/    # templates reutilizáveis na identidade da Zoe, sem o nome escrito (versionado)
   fonts/        # Poppins + Caveat compartilhadas pelos templates
@@ -109,6 +114,7 @@ saida/        # renders finais (versionado), um agrupamento por peça
   video/video1/           # 01-como-encontramos-a-zoe.mp4 + legendas-01.ass
   video/video3/           # 03-os-6-dias-parte-1.mp4 (+ -sem-musica.mp4) + legendas-03.ass + capa-03.png + legenda-03.txt (texto do post: Instagram e TikTok)
   video/video2/           # 02-tchau-cartaz.mp4 (+ -sem-musica.mp4, para usar áudio em alta no app) + capa-02.png + legendas-02.ass
+  video/video4/           # 04-os-6-dias-parte-2.mp4 (+ -sem-musica.mp4) + legendas-04.ass + capa-04.png + legenda-04.txt (Instagram e TikTok)
 ```
 
 Novas peças entram em `saida/carrossel/carrosselN/` e `saida/video/videoN/`, numeradas em sequência.

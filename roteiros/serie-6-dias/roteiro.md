@@ -1,6 +1,6 @@
 # Série "Os 6 dias da Zoe": roteiros
 
-Três Reels, um para cada dois dias de busca, narrados pela Isabela. Este arquivo é o documento de trabalho: os fatos entram aos poucos e o roteiro vai sendo fechado episódio por episódio.
+Três Reels sobre os dias de busca, narrados pela Isabela. Este arquivo é o documento de trabalho: os fatos entram aos poucos e o roteiro vai sendo fechado episódio por episódio.
 
 `[?]` = fato que ainda falta confirmar. Nada marcado assim vai para a gravação sem confirmação.
 
@@ -10,7 +10,7 @@ Três Reels, um para cada dois dias de busca, narrados pela Isabela. Este arquiv
 
 | | |
 |---|---|
-| Episódios | **Ep. 1**: dias 1 e 2 (sex 18 e sáb 19/09) · **Ep. 2**: dias 3 e 4 (dom 20 e seg 21/09) · **Ep. 3**: dias 5 e 6 (ter 22 e qua 23/09) |
+| Episódios | **Ep. 1**: dias 1 e 2 (sex 18 e sáb 19/09) · **Ep. 2**: dias 3, 4 e 5 (dom 20 a ter 22/09) · **Ep. 3**: dia 6 (qua 23/09), levando ao reencontro |
 | Quem narra | Isabela, em 1ª pessoa ("a gente", "eu") |
 | Duração | 60 a 70 s cada (≈ 150 palavras de narração; a Isabela fala a ~2,4 palavras/s, medido no Reel 01) |
 | Eixo | HISTÓRIA (e ARQUIVO) |
@@ -133,18 +133,134 @@ Com isso aprovado, a Isabela já pode gravar.
 
 ---
 
-## Ep. 2: Dias 3 e 4 (dom 20 e seg 21/09)
+## Ep. 2: Dias 3, 4 e 5 · "O primeiro vislumbre"
 
-Fatos e material já conhecidos:
-- Domingo (20/09): Isabela e Guilherme voltam para Passo Fundo.
-- Domingo (20/09): a Rádio Planalto publica ("Você viu a Zoe?!"), com o cartaz "Procura-se Zoe". O Reel "Ajude encontrar a Zoe" é repostado.
-- Rota de bicicleta da Emanuelle Schneider pela cidade ("hoje às 15h41", recebida no WhatsApp em 20/09) `[?]` confirmar o dia e se ela autoriza aparecer com o nome.
-- *(aguardando os demais fatos)*
+### Fatos (fonte: Guilherme, 29/09)
+
+- **Domingo (20/09):** Isabela e Guilherme voltam para Passo Fundo. Passam praticamente o dia todo na rua, com várias pessoas, a pé e em 5 carros. Nada concreto. No mesmo dia, a Rádio Planalto publica "Você viu a Zoe?!" (print datado de 20/09).
+- **A partir daí:** começam a chegar muitas mensagens e fotos de cachorros parecidos, de gente que achava que era ela. Muitos sustos. Nessa altura, os dois já duvidavam se era ela ou não.
+- **O golpe "estava liberado":** várias tentativas. As Zoes geradas por IA são as fotos das conversas de golpe (#12 e #13).
+- **Terça (22/09):** conseguem finalmente acesso às câmeras dos primeiros passos dela. Até então, não havia nenhum vislumbre. A partir disso, começam a seguir o percurso dela pelas câmeras.
+- As duas gravações são de **sex 18/09**, logo depois da fuga. Nesses dias, ela só foi vista nessas duas:
+  - **Câmera 03**, às 08h43: ela passa correndo atrás de um portão, de 5,3 a 6,8 s do clipe.
+  - **CAM 5**, às 08h44 (celular filmando o monitor, de lado): ela atravessa a rua, de 6,0 a 7,5 s.
+- **O trajeto no mapa** vai uma rua além do Ep. 1: segue pela Lava Pés, da Fagundes dos Reis até a Capitão Eleutério (Guilherme, 30/09). Há outras gravações de câmera, que ficam para o Ep. 3.
+- A segunda-feira (21/09) não tem um fato próprio: ela fica dentro do bloco das mensagens e dos sustos.
+
+### A ideia: muitas Zoes, e só um pontinho era ela
+
+O Ep. 1 era o silêncio: ninguém viu nada. O Ep. 2 é o contrário, e quase pior: **chega resposta demais, e nenhuma é ela.** São fotos nítidas de cachorros parecidos, golpistas e até Zoes feitas por IA. Com tanto sinal falso, a própria família começa a duvidar.
+
+Aí vem a virada, sem palavras: numa gravação de câmera de segurança, borrada e de longe, **um pontinho escuro cruzando o quadro**. Esse era ela. A edição faz o contraste: as fotos erradas aparecem grandes e claras, uma por vez, cada uma com o carimbo **NÃO ERA ELA**. A certa aparece minúscula, marcada só com um círculo lilás. A música, contida até ali, se abre nesse momento (é a pausa "animadinha" pedida).
+
+No fecho, a Zoe hoje em **close**, o rosto inteiro na tela: quem assiste vê de perto o que eles, na terça, só tinham visto de longe.
+
+**As duas gravações entram em vídeo, não em quadro parado:** a passagem inteira dela, em câmera lenta, com um zoom lento até ela e o círculo acompanhando. Depois vem o mapa do Ep. 1, com a linha avançando uma rua. O golpe fica numa frase (P3), porque tem vídeo próprio.
+
+### Narração (texto para a Isabela gravar)
+
+> **P1.** No domingo, a gente voltou pra Passo Fundo. E foi praticamente o dia todo na rua, com várias pessoas, a pé e em cinco carros. Mas nada concreto.
+>
+> **P2.** A partir daí, começaram a chegar muitas mensagens e fotos de cachorros parecidos, de gente achando que era ela. Foram muitos sustos. Nessa altura, até a gente já tava duvidando se era ou não.
+>
+> **P3.** E o golpe tava liberado: foram várias tentativas, e até algumas Zoes geradas por IA.
+>
+> **P4.** Mas foi na terça que a gente pôde respirar de novo. Finalmente, a gente conseguiu acesso às câmeras dos primeiros passos que ela deu.
+>
+> *(pausa sem voz: entra a música, com a primeira gravação)*
+>
+> **P5.** Até então, a gente não tinha nenhum vislumbre dela.
+>
+> **P6.** E a partir disso, a gente começou a seguir todo o percurso dela pelas câmeras.
+
+124 palavras. No ritmo real da Isabela no Ep. 1 (2,8 palavras/s), são ≈ 44 s de fala. Com as três cartelas, as duas gravações em câmera lenta, o mapa e o fecho, o vídeo fica em **≈ 63 s**, perto dos 67 s do Ep. 1.
+
+São **seis áudios, um por parágrafo**, em `audios/dias3e4e5/1.ogg` a `6.ogg`. P4 e P5 em áudios separados, porque a pausa da música fica entre os dois.
+
+**Como a Isabela gravou** (30/09; transcrição bruta do faster-whisper medium em `videos/ep2/palavras-brutas.json`). Na tela vale a fala, com estas diferenças em relação ao texto acima:
+- P2: "…**começamos a receber** muitas mensagens e fotos de cachorros parecidos, de gente **que achava** que era ela. **Tomamos vários sustos**, e nessa altura até a gente **estava** duvidando se era **ela** ou não."
+- P3: "E o golpe **estava** liberado, **porque tivemos** várias tentativas, Zoes geradas por IA **e gente falando que ia ficar com ela**." O whisper escreveu "zoos" e "I…": são "Zoes" e "IA".
+- P4: "Mas foi na terça que a gente **começou a ver uma luz no final do túnel**. Finalmente, a gente conseguiu acesso às câmeras dos primeiros passos que ela deu **ainda na sexta**." O whisper escreveu "cesta": é "sexta". A transcrição bruta dizia "acessar as", mas o large-v3 e o whisper no mix final ouvem "acesso às", que é o texto do roteiro.
+- P1, P5 e P6 saíram como no texto (P1 com "para" no lugar de "pra").
+
+Durações: 9,7 / 13,2 / 7,9 / 9,8 / 2,8 / 4,8 s, total de 48,1 s. As pausas internas ficam entre 0,3 e 0,6 s.
+
+**Edição das pausas** (medidas pelo envelope de energia; a transcrição do whisper vem adiantada cerca de 0,5 s no começo de cada arquivo):
+
+| Onde | Decisão |
+|---|---|
+| P1, entre "Passo Fundo" e "e foi" (sem pausa na fala) | **Abrir 1,0 s** para a cartela DIA 3. O corte fica em 2,44 s do `1.ogg`, num vale de -33 dB, conferido pela transcrição dos dois lados, com fades de ~20 ms |
+| P1 → P2 | 1,0 s (cartela DIA 4) |
+| P2 → P3 | 0,45 s |
+| P3 → P4 | 1,0 s (cartela DIA 5) |
+| P4, entre "câmeras" e "dos primeiros passos" (0,40 s, hesitação no meio da frase) | **Cortar para ~0,18 s**: sai o trecho de 6,34 a 6,56 s do `4.ogg` |
+| P4 → P5 | ~4,5 s sem voz: a Zoe passa na Câmera 03, com a música aberta |
+| P5 | sincronizado para "vislumbre dela" cair com ela atravessando na CAM 5 |
+| P5 → P6 | ~1,0 s |
+| As outras pausas internas (0,26 a 0,52 s) | ficam como estão |
+
+A ideia se mantém com a fala real. "Luz no final do túnel" cai sobre o céu aberto (#14). "Ainda na sexta" cai sobre a Câmera 03 rodando, com o relógio dela à vista ("09-18-2026 Sex 08:43"). "Gente falando que ia ficar com ela" fica sobre o segundo print do golpe (#13).
+
+### Mapa de tempo
+
+| Tempo | Bloco | Narração | Na tela | Mídia (painel) |
+|---|---|---|---|---|
+| 0 a 3 s | **Gancho** | "No domingo, a gente voltou pra Passo Fundo." | OS 6 DIAS DA ZOE · PARTE 2. O contador já aparece com 2 de 6 segmentos cheios. | #01 |
+| 3 a 4 s | **Cartela** | — | DIA 3 · DOM 20/09 (3º segmento) | — |
+| 4 a 11 s | **A rua** | "E foi praticamente o dia todo na rua… Mas nada concreto." | Um por vez, com zoom lento. | #01 → #02 Rádio Planalto (telefones borrados) |
+| 11 a 12 s | **Cartela** | — | DIA 4 · SEG 21/09 (4º segmento) | — |
+| 12 a 26 s | **Os sustos** | P2 | As parecidas, uma por vez e inteiras (~2 s cada), cada uma com um carimbo pequeno **NÃO ERA ELA**. A mais parecida vai por último. | #06 → #07 → #09 → #05 → #11 → #08 → #04 (vídeo) |
+| 26 a 32 s | **O golpe** | P3 | Dois prints, um por vez, com a etiqueta **GERADA POR IA** na foto do cachorro. | #12 → #13 (números e fotos de perfil borrados) |
+| 32 a 33 s | **Cartela** | — | DIA 5 · TER 22/09 (5º segmento) | — |
+| 33 a 42 s | **A terça** | P4 | Céu aberto na "luz no final do túnel". No "Finalmente", a Câmera 03 começa a rodar do início do clipe, em velocidade normal, com o relógio "Sex 08:43" à vista (no "ainda na sexta", uma etiqueta SEX 18/09 · 08h43). | #14 → #17 |
+| 42 a 47 s | **O vislumbre** | *(sem voz, música "animadinha")* | Continua a Câmera 03 até 8,0 s do clipe. Ela passa atrás do portão de 5,3 a 6,8 s: essa parte vai em câmera lenta (0,5x), com um zoom lento até ela e um círculo lilás acompanhando. Não passar dos 12 s (depois aparece uma pessoa correndo). | #17 |
+| 45 a 50 s | **Até então** | P5 | **Vídeo** da CAM 5 (08h44), girado, trecho de 5,0 a 8,0 s. A travessia (6,0 a 7,5 s) vai em câmera lenta, com o círculo. As notificações do celular ficam fora do recorte. | #18 |
+| 50 a 58 s | **O percurso** | P6 | O mapa do Ep. 1 já desenhado, com o "?" na Fagundes dos Reis. A linha avança uma rua pela Lava Pés, até a Capitão Eleutério, e o "?" vai junto (~3 s). Depois, as fachadas com a câmera circulada em verde (a marcação original deles), sem o cartão de endereço do Google. | mapa ([ep2-mapa.jpg](ep2-mapa.jpg)) → #19 → #20 → #21 |
+| 58 a 63 s | **Fecho** | *(sem voz)* | A Zoe hoje, em close. PARTE 3 · DIA 6 →, e o @ discreto. | #24 |
+
+**Trilha:** contida no domingo e nos sustos, como no Ep. 1. Quase some no golpe. **Abre** no vislumbre (mais clara e mais rápida) e segue assim até o fecho. Sai também a versão sem música.
+
+### Mídia do Ep. 2
+
+Painel: [ep2-candidatos.jpg](ep2-candidatos.jpg). Fonte: `drive/set26/dia 3e4e5/`, mais dois prints de `drive/set26/divulgacao/`. Os arquivos sem extensão (`filmagemzoe1`, `filmagemzoe2`, `golpe1`, `golpe 2`, `zoeerrada*`, `possiveiscaminhosfinaldia`) são MP4 e JPEG normais.
+
+| # | O que é | Uso |
+|---|---|---|
+| 01 | Vídeo da busca a pé, dom 20/09 (`VID-20260920-WA0017`) | gancho, a rua |
+| 02 | Rádio Planalto, "Você viu a Zoe?!", 20/09 | a rua (telefones borrados) |
+| 03 | Rota de bicicleta da Emanuelle Schneider, 20/09, 15h41 | não entra: bicicleta e medalhas de recorde não combinam com "a pé e em cinco carros" |
+| 04 | Vídeo de uma cachorra muito parecida deitada na rua, 20/09 | sustos, por último |
+| 05 a 10 | Fotos de cachorros parecidos (`zoeerrada*`, sem data) | sustos. #07: nome "Elisa" borrado. #09: número da casa (91A) borrado. A #10 fica de fora: é um post cheio de texto, com o nome da autora |
+| 11 | Cachorra parecida no portão, qua 23/09 | sustos (liberada pelo Guilherme) |
+| 12, 13 | Conversas de golpe no WhatsApp (18h55 e 21h16), com as Zoes de IA | golpe (números e fotos de perfil borrados; etiqueta GERADA POR IA) |
+| 14 | Campo aberto, ter 22/09 | a terça |
+| 15 | Vídeo de carro pela cidade, ter 22/09 (45 s) | não entra: o mapa já mostra o "seguir o percurso" |
+| 16 | Linha do tempo do Google Maps, ter 22/09 | não entra: é o trajeto de vocês, e na tela seria confundido com o dela |
+| 17 | `filmagemzoe1`: Câmera 03, sex 18/09, 08h43 | o vislumbre, **em vídeo** (ela de 5,3 a 6,8 s) |
+| 18 | `filmagemzoe2`: CAM 5, sex 18/09, 08h44 | "até então", **em vídeo** (girada; ela de 6,0 a 7,5 s) |
+| 19 | Street View no monitor, R. Paissandú (um lugar qualquer que foi procurado) | o percurso |
+| 20, 21 | Street View, R. Paissandú, 551 e 549, com a câmera circulada | o percurso |
+| 22 | Mapa "Última vez vista na câmera" / "Aqui olhamos nas câmeras, não passou" | não entra: o ponto dele fica antes da Fagundes dos Reis, e o mapa novo já vai uma rua além |
+| 23 | Mapa da cidade, 22/09 | não usar (não acrescenta) |
+| 24 | A Zoe hoje, close do rosto (`IMG_8418.MOV`, 25/09) | fecho |
+| 25 | A Zoe hoje, na cama (`D3C3FEA2….MP4`, 25/09) | reserva do fecho |
+
+Os vídeos da primeira noite em casa (`IMG_8337` a `8340`, 24/09, perto da meia-noite) ficam reservados para o Ep. 3.
+
+**Mapa:** `python editor/mapa.py ep2` gera o antes e o depois em `videos/mapas/`, e `ep2-camadas` gera as camadas para o build. A rota inteira sai numa camada só, e o build revela a linha a partir de `frac_fim_ep1`.
+
+### Pendências do Ep. 2
+
+1. **Conferir o mapa** ([ep2-mapa.jpg](ep2-mapa.jpg)): a rua a mais é a Lava Pés até a Capitão Eleutério, seguindo em frente depois da Fagundes dos Reis?
+2. ~~A Isabela grava os 6 parágrafos~~ Gravado em 30/09 (`audios/dias3e4e5/1.ogg` a `6.ogg`), com a montagem em `editor/build_04.py` → `saida/video/video4/`.
+
+O fecho do Ep. 1 ("PARTE 2 · DIAS 3 E 4 →") fica como está.
 
 ---
 
-## Ep. 3: Dias 5 e 6 (ter 22 e qua 23/09)
+## Ep. 3: Dia 6 (qua 23/09)
 
 Material já conhecido:
-- Linha do tempo do Google Maps de 22/09 (percurso da busca no dia) `[?]` de quem é.
+- As outras gravações de câmera do percurso dela (o Guilherme tem, e elas são deste episódio).
+- Os vídeos da primeira noite em casa (24/09) ficam para o fecho, levando ao Reel 01.
 - *(aguardando os fatos)*

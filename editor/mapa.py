@@ -5,6 +5,8 @@ da Overpass API e fica em videos/osm-passo-fundo.json (não versionado). Ruas ©
 
 Uso: python editor/mapa.py ep1 [pasta_saida]          (padrão: videos/mapas/)
      python editor/mapa.py ep1-camadas [pasta_saida]  (camadas para as animações do build_03.py)
+     python editor/mapa.py ep2 [pasta_saida]          (Ep. 2: o trajeto uma rua adiante, antes e depois)
+     python editor/mapa.py ep2-camadas [pasta_saida]  (camadas para as animações do build_04.py)
 """
 import json
 import math
@@ -42,6 +44,7 @@ ESQ_BRITO = (-28.2533441, -52.4049122)     # Tiradentes × Eduardo de Brito: ond
 ESQ_LAVAPES = (-28.2542755, -52.4040163)   # Tiradentes × Lava Pés
 FIM = (-28.2559816, -52.4065435)           # Lava Pés × Fagundes dos Reis (duas quadras): até onde se sabe
 # a rota segue pelos nós da Rua Lava Pés até o FIM (Silva Jardim, Benjamin Constant, Fagundes dos Reis)
+FIM_EP2 = (-28.2566359, -52.4078446)       # Lava Pés × Capitão Eleutério: uma rua a mais (câmeras da terça, 22/09)
 
 ANCORA = (W / 2, 540)                      # onde o MEIO cai na tela, igual nas três vistas (trajeto no alto)
 LARGURA = {"a": 700, "b": 2600, "c": 9500}   # metros de largura de cada vista do Ep. 1
@@ -84,9 +87,9 @@ def _k(p):
     return (round(p[0], 7), round(p[1], 7))
 
 
-def rota(els):
-    """O trajeto: ESQ_BRITO → ESQ_LAVAPES pela Tiradentes e daí pelos nós da Rua Lava Pés até o FIM
-    (caminho mais curto no grafo da rua, sem cortar caminho). Trocar o FIM basta para refazer a rota."""
+def rota(els, fim=FIM):
+    """O trajeto: ESQ_BRITO → ESQ_LAVAPES pela Tiradentes e daí pelos nós da Rua Lava Pés até `fim`
+    (caminho mais curto no grafo da rua, sem cortar caminho). Trocar o fim basta para refazer a rota."""
     adj = {}
     for e in els:
         if e["tags"].get("name") == "Rua Lava Pés":
@@ -94,9 +97,9 @@ def rota(els):
             for a, b in zip(pts, pts[1:]):
                 adj.setdefault(a, set()).add(b)
                 adj.setdefault(b, set()).add(a)
-    src, dst = _k(ESQ_LAVAPES), _k(FIM)
+    src, dst = _k(ESQ_LAVAPES), _k(fim)
     if dst not in adj:
-        raise ValueError(f"o FIM {FIM} não é um nó da Rua Lava Pés")
+        raise ValueError(f"o fim {fim} não é um nó da Rua Lava Pés")
     prev, fila = {src: None}, [src]
     for u in fila:                                  # busca em largura
         for w in sorted(adj.get(u, ())):
@@ -303,7 +306,54 @@ def ep1_camadas(outdir):
     print("ok:", outdir)
 
 
+def ep2_labels(els, v):
+    return ep1_labels(els, v) + svg_label(
+        v, "R. CAP. ELEUTÉRIO", *street_along(els, "Rua Capitão Eleutério", FIM_EP2, 105, -1))
+
+
+def ep2(outdir):
+    """Ep. 2: o trajeto do Ep. 1 (até a Fagundes dos Reis, com o "?") e o mesmo trajeto uma rua
+    adiante, até a Capitão Eleutério, com o "?" no novo fim."""
+    els = load()
+    outdir.mkdir(parents=True, exist_ok=True)
+    r1, r2 = rota(els), rota(els, FIM_EP2)
+    v = View(meio(r2), LARGURA["a"])
+    render(svg_map(els, v, ep2_labels(els, v) + route(v, r1) + ep1_question(v, r1)),
+           outdir / "ep2-a-antes.png")
+    render(svg_map(els, v, ep2_labels(els, v) + route(v, r2) + ep1_question(v, r2)),
+           outdir / "ep2-a-trajeto.png")
+    print("ok:", outdir)
+
+
+def ep2_camadas(outdir):
+    """Camadas do Ep. 2 para o build: base com rótulos (vista "grande", como no Ep. 1), a rota inteira
+    até FIM_EP2 (o build revela de `frac_fim_ep1` até 1) e os dois "?" (no FIM do Ep. 1 e no novo)."""
+    els = load()
+    outdir.mkdir(parents=True, exist_ok=True)
+    r1, r2 = rota(els), rota(els, FIM_EP2)
+    c = meio(r2)
+    big, anchor_big = (3 * W, 3 * H), (3 * ANCORA[0], 3 * ANCORA[1])
+    va, vag = View(c, LARGURA["a"]), View(c, LARGURA["a"], anchor_big, big)
+    render(svg_map(els, vag, ep2_labels(els, vag), credit=False), outdir / "ep2-a-grande.png", size=big)
+    render(svg_layer(route(va, r2)), outdir / "ep2-a-rota.png", transparent=True)
+    render(svg_layer(ep1_question(va, r1)), outdir / "ep2-a-interrogacao-1.png", transparent=True)
+    render(svg_layer(ep1_question(va, r2)), outdir / "ep2-a-interrogacao-2.png", transparent=True)
+    render(svg_layer(CREDIT), outdir / "ep2-credito.png", transparent=True)
+
+    xy = [va.xy(*p) for p in r2]
+    acc = [0.0]
+    for (x1, y1), (x2, y2) in zip(xy, xy[1:]):
+        acc.append(acc[-1] + math.hypot(x2 - x1, y2 - y1))
+    info = {
+        "anchor": [va.ax, va.ay], "grande_anchor": list(anchor_big), "grande_size": list(big),
+        "rota": [list(p) for p in xy], "rota_latlon": [list(p) for p in r2],
+        "frac_fim_ep1": acc[len(r1) - 1] / acc[-1],     # r1 é o começo de r2: fração da linha já vista no Ep. 1
+    }
+    (outdir / "ep2-camadas.json").write_text(json.dumps(info, indent=1), encoding="utf-8")
+    print("ok:", outdir)
+
+
 if __name__ == "__main__":
     what = sys.argv[1] if len(sys.argv) > 1 else "ep1"
     out = Path(sys.argv[2]) if len(sys.argv) > 2 else ROOT / "videos" / "mapas"
-    {"ep1": ep1, "ep1-camadas": ep1_camadas}[what](out)
+    {"ep1": ep1, "ep1-camadas": ep1_camadas, "ep2": ep2, "ep2-camadas": ep2_camadas}[what](out)
