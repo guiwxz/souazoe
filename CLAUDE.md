@@ -67,6 +67,7 @@ editor/       # pipeline dos Reels em ffmpeg
   build_03.py   # monta o Reel 03 "Os 6 dias da Zoe · Parte 1" (dias 1 e 2, narração da Isabela em audios/1..8.ogg, ~68 s) → saida/video/video3/. Venv Python 3.9 com numpy+scipy+Pillow (`py -3.9 -m venv`); ver a docstring
   words-03.json # timestamps por palavra (faster-whisper medium) da narração do Reel 03, já na linha do tempo final
   trilha_03.py  # trilha original do Reel 03 (75 BPM, piano abafado + pad; zera no bloco do silêncio), chamada pelo build_03
+  capa_03.py    # capa do Reel 03 (Pillow, padrão das capas 01/02 + contador de 6 dias e "OS 6 DIAS DA ZOE · PARTE N" para a série) → saida/video/video3/capa-03.png
   mapa.py       # mapas 1080x1920 com as ruas reais de Passo Fundo (OpenStreetMap, cache em videos/osm-passo-fundo.json) na identidade da Zoe, via Chrome headless (ex.: python editor/mapa.py ep1)
   fonts/        # Poppins + Caveat
 carrossel/    # template padronizado dos carrosséis (versionado)
@@ -76,8 +77,7 @@ carrossel/    # template padronizado dos carrosséis (versionado)
   fonts/        # Poppins + Caveat (manuscrita)
 roteiros/     # roteiros de trabalho (versionado)
   serie-6-dias/   # série de 3 Reels narrados pela Isabela (dias 1-2, 3-4, 5-6): roteiro.md + painéis de mídia por episódio
-perdidos/     # artes recebidas de animais desaparecidos (ex.: garibaldi.jpeg)
-perdidos/     # artes recebidas de animais desaparecidos (ex.: garibaldi.jpeg, bob.jpeg)
+perdidos/     # artes recebidas de animais desaparecidos (ex.: garibaldi.jpeg, bob.jpeg, thor.jpeg)
 templates/    # templates reutilizáveis na identidade da Zoe, sem o nome escrito (versionado)
   fonts/        # Poppins + Caveat compartilhadas pelos templates
   desaparecidos/  # alerta de desaparecido: feed 1080x1350 + Stories 1080x1920 do mesmo index.html
@@ -85,11 +85,29 @@ templates/    # templates reutilizáveis na identidade da Zoe, sem o nome escrit
                   # telefone 62 px (68 no Story) com o ícone oficial do WhatsApp em 1,1em (altura dos parênteses); no Story, tag em top 225 e texto a 210 px do pé
     render.sh     # Chrome headless → saida/<nome>-feed.png e saida/<nome>-story.png (ex.: ./render.sh garibaldi-masha); usa <nome>.html se existir
     bob.html      # variante com foto comum no topo (em vez do recorte) e linha extra de características (caso Bob)
+    thor.html     # variante com o recorte de corpo inteiro à direita e, no lilás à esquerda, nome + apelo (caso Thor); contato por telefone
     recorte.py    # recorta os cães da arte recebida (rembg + opencv num venv temporário) → img/
+    recorte_thor.py # recorte do Thor: foto de 371 px ampliada 4x com EDSR (opencv-contrib) + rembg + limpeza da borda → img/thor.png
+  destaques/      # capas dos destaques do Instagram: 1080x1920, fundo lilás, ícone ink com sombra rosa, sem texto
+    index.html    # uma <section class="capa" id="..." data-nome="..."> por capa: A Zoe (carinha), 6 dias (calendário),
+                  # Perdidos (lupa com pata), Em casa (casinha com coração), Dicas (lâmpada com pata), Adoção (coração com pata)
+    render.sh     # Chrome headless → saida/<id>.png + saida/_preview.png (a fileira como aparece no perfil, com os nomes)
+  dicas/          # Stories de dica (pilar UTILIDADE), 1080x1920: lilás com ilustração no estilo dos destaques + comentário à mão da Zoe,
+                  # degradê ink com título, lista numerada (caixas rosa) e alerta; tag em top 225, texto a ~210 px do pé
+    dica.css      # estilos compartilhados (altura/centro da ilustração por Story via --ih/--ix)
+    tapete-de-lambida.html  # 2 Stories: 1) benefícios (Zoe lambendo o tapete) 2) o que colocar + congelar (tapete com recheio e floco de neve)
+                  # assunto novo → <nome>.html com uma <section class="card"> por Story, na ordem em que vão ao ar
+    render.sh     # Chrome headless → saida/<nome>-1.png, -2.png... (ex.: ./render.sh tapete-de-lambida)
+  etiqueta/       # etiqueta dos saquinhos de petisco (lembrancinha da comemoração da volta da Zoe na creche), 9 x 5 cm, tudo em mm
+    index.html    # lilás com a Zoe recortada (sombra rosa), tag "Voltei pra casa!", agradecimento, comentário à mão e caixa ink
+                  # com o QR code + @souazoe.pf; o #hash escolhe o modo: #png, #grafica (2 mm de sangria) ou #folha (A4)
+    render.sh     # Chrome headless → saida/etiqueta-petisco.png (300 dpi), -grafica.pdf (94 x 54 mm) e -a4.pdf (10 por folha, marcas de corte)
+    recorte.py    # recorta a Zoe do IMG_7200 (print do Story da creche, em drive/instagram/apresentação␠) com rembg → img/zoe-creche.png
+    qr.py         # QR code do Instagram (segno) → img/qr-instagram.svg
 saida/        # renders finais (versionado), um agrupamento por peça
   carrossel/carrossel1/   # zoe-01..08.png + _preview.jpg (carrossel de apresentação)
   video/video1/           # 01-como-encontramos-a-zoe.mp4 + legendas-01.ass
-  video/video3/           # 03-os-6-dias-parte-1.mp4 (+ -sem-musica.mp4) + legendas-03.ass
+  video/video3/           # 03-os-6-dias-parte-1.mp4 (+ -sem-musica.mp4) + legendas-03.ass + capa-03.png + legenda-03.txt (texto do post: Instagram e TikTok)
   video/video2/           # 02-tchau-cartaz.mp4 (+ -sem-musica.mp4, para usar áudio em alta no app) + capa-02.png + legendas-02.ass
 ```
 

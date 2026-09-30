@@ -1,0 +1,129 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<title>Etiqueta dos petiscos</title>
+<!--
+  Etiqueta dos saquinhos de petisco (lembrancinha da comemoração da creche pela volta da Zoe).
+  9 x 5 cm (tamanho de cartão de visita), na identidade da Zoe: fundo lilás, a Zoe recortada da foto da
+  creche (img/zoe-creche.png, ver recorte.py), tag ink com a sombra rosa, texto em ink e o comentário
+  à mão (Caveat) com contorno ink; embaixo, a caixa ink com o QR code do perfil (img/qr-instagram.svg,
+  ver qr.py) e o @souazoe.pf.
+  Tudo em mm, para imprimir em PDF vetorial. O modo vem do #hash da página (o render.sh usa os três):
+    #png     só a etiqueta, sem sangria (a imagem de prévia/envio)
+    #grafica a etiqueta com 2 mm de sangria em volta, numa página de 94 x 54 mm (para a gráfica)
+    #folha   A4 com 10 etiquetas (2 x 5), cada uma com sangria e marcas de corte (impressão em casa)
+  Uso: ./render.sh → saida/etiqueta-petisco.png, saida/etiqueta-petisco-grafica.pdf, saida/etiqueta-petisco-a4.pdf
+-->
+<style>
+@font-face{font-family:P;src:url(../fonts/Poppins-Medium.ttf);font-weight:500}
+@font-face{font-family:P;src:url(../fonts/Poppins-Bold.ttf);font-weight:700}
+@font-face{font-family:P;src:url(../fonts/Poppins-ExtraBold.ttf);font-weight:800}
+@font-face{font-family:C;src:url(../fonts/Caveat.ttf);font-weight:400 700}
+
+:root{--ink:#17131F;--cream:#F6F1E9;--lilac:#B9A7F3;--pink:#EC4899;--b:0mm}
+*{box-sizing:border-box;margin:0;padding:0}
+html{-webkit-print-color-adjust:exact;print-color-adjust:exact}
+body{background:#fff;font-family:P,sans-serif;-webkit-font-smoothing:antialiased;color:var(--ink)}
+#modelo{display:none}
+
+/* a etiqueta com a sangria (--b) em volta; .area é o recorte final de 90 x 50 mm */
+.etq{position:relative;overflow:hidden;width:calc(90mm + 2 * var(--b));height:calc(50mm + 2 * var(--b));
+  background:radial-gradient(ellipse 60% 75% at 24% 55%,#C9BAF6 0%,var(--lilac) 100%)}
+.area{position:absolute;left:var(--b);top:var(--b);width:90mm;height:50mm}
+
+/* a Zoe: o peito sai pela borda de baixo; sombra rosa deslocada como a dos ícones */
+.zoe{position:absolute;left:.8mm;top:3.5mm;height:51.9mm;
+  filter:drop-shadow(.7mm .7mm 0 var(--pink))}
+
+/* tag: caixa ink com a sombra rosa deslocada */
+.tag{position:absolute;left:40mm;top:3.6mm;background:var(--ink);color:#fff;font-weight:800;
+  font-size:3.05mm;line-height:1;letter-spacing:.06em;text-transform:uppercase;white-space:nowrap;
+  padding:1mm 1.5mm .9mm;box-shadow:.65mm .65mm 0 var(--pink)}
+
+.h{position:absolute;left:40mm;top:10.6mm;font-weight:800;font-size:3.75mm;line-height:1.08;letter-spacing:-.02em}
+
+/* comentário à mão da Zoe; contorno ink como os nomes dos alertas */
+.mao{position:absolute;left:40.4mm;top:20.4mm;font-family:C;font-weight:700;font-size:3.6mm;line-height:.95;
+  color:#fff;transform:rotate(-3deg);transform-origin:left top;-webkit-text-stroke:.5mm var(--ink);paint-order:stroke fill}
+
+/* caixa do perfil: QR em creme (a margem clara que o leitor precisa) + o @ */
+.segue{position:absolute;left:40mm;right:3.4mm;bottom:3.4mm;height:18.2mm;background:var(--ink);color:#fff;
+  box-shadow:.65mm .65mm 0 var(--pink);display:flex;align-items:center;gap:2.2mm;padding:1.3mm}
+.qr{flex:none;width:15.6mm;height:15.6mm;background:var(--cream);padding:1.2mm}
+.qr img{display:block;width:100%;height:100%}
+.segue .t{min-width:0}
+.segue small{display:block;font-weight:800;font-size:1.85mm;letter-spacing:.12em;text-transform:uppercase;color:var(--lilac)}
+.segue b{display:block;margin-top:.9mm;font-weight:800;font-size:3.35mm;line-height:1;letter-spacing:-.01em;white-space:nowrap}
+.segue span{display:block;margin-top:1.1mm;font-weight:500;font-size:1.85mm;line-height:1.25;color:rgba(246,241,233,.78)}
+
+/* folha A4: 2 colunas x 5 linhas, 6 mm entre as etiquetas (2 mm de sangria de cada uma + 2 mm de branco) */
+.folha{position:relative;width:210mm;height:297mm;overflow:hidden}
+.folha .etq{position:absolute}
+.marca{position:absolute;background:var(--ink)}
+</style>
+</head>
+<body>
+
+<div id="modelo">
+  <div class="etq">
+    <div class="area">
+      <img class="zoe" src="img/zoe-creche.png" alt="">
+      <div class="tag">Voltei pra casa!</div>
+      <div class="h">Obrigada por<br>comemorar comigo.</div>
+      <div class="mao">esse é pro seu cachorro.<br>o meu eu já comi.</div>
+      <div class="segue">
+        <div class="qr"><img src="img/qr-instagram.svg" alt=""></div>
+        <div class="t">
+          <small>Me segue</small>
+          <b>@souazoe.pf</b>
+          <span>no Instagram<br>e no TikTok</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+const modo = location.hash.slice(1) || 'png';
+const etq = document.querySelector('#modelo .etq');
+const pagina = document.createElement('style');
+if (modo === 'png') {
+  document.body.append(etq);
+} else if (modo === 'grafica') {
+  document.documentElement.style.setProperty('--b', '2mm');
+  pagina.textContent = '@page{size:94mm 54mm;margin:0}';
+  document.body.append(etq);
+} else {  // folha
+  document.documentElement.style.setProperty('--b', '2mm');
+  pagina.textContent = '@page{size:A4;margin:0}';
+  const W = 90, H = 50, G = 6, COLS = 2, ROWS = 5, B = 2, M = 1.2;   // mm; M = folga entre a marca e a sangria
+  const x0 = (210 - (COLS * W + (COLS - 1) * G)) / 2, y0 = (297 - (ROWS * H + (ROWS - 1) * G)) / 2;
+  const folha = document.createElement('div');
+  folha.className = 'folha';
+  for (let r = 0; r < ROWS; r++) for (let c = 0; c < COLS; c++) {
+    const e = etq.cloneNode(true);
+    e.style.left = (x0 + c * (W + G) - B) + 'mm';
+    e.style.top = (y0 + r * (H + G) - B) + 'mm';
+    folha.append(e);
+  }
+  // marcas de corte na margem, alinhadas às linhas de corte (se estendidas, passam pelas bordas das etiquetas)
+  const marca = (x, y, w, h) => {
+    const m = document.createElement('div');
+    m.className = 'marca';
+    Object.assign(m.style, {left: x + 'mm', top: y + 'mm', width: w + 'mm', height: h + 'mm'});
+    folha.append(m);
+  };
+  const L = .15, xs = [], ys = [];
+  for (let c = 0; c < COLS; c++) xs.push(x0 + c * (W + G), x0 + c * (W + G) + W);
+  for (let r = 0; r < ROWS; r++) ys.push(y0 + r * (H + G), y0 + r * (H + G) + H);
+  const topo = y0 - B - M, base = y0 + ROWS * H + (ROWS - 1) * G + B + M;
+  const esq = x0 - B - M, dir = x0 + COLS * W + (COLS - 1) * G + B + M;
+  for (const x of xs) { marca(x - L / 2, 3, L, topo - 3); marca(x - L / 2, base, L, 297 - 3 - base); }
+  for (const y of ys) { marca(3, y - L / 2, esq - 3, L); marca(dir, y - L / 2, 210 - 3 - dir, L); }
+  document.body.append(folha);
+}
+document.head.append(pagina);
+</script>
+</body>
+</html>

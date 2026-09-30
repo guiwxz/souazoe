@@ -1,0 +1,134 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<title>Tapete de lambida</title>
+<!--
+  Dois Stories sobre o tapete de lambida (acompanham o vídeo da Zoe lambendo o tapete):
+  1. os benefícios (a carinha da capa "A Zoe" lambendo o patê no tapete);
+  2. o que colocar (o tapete com o recheio e um floco de neve: a dica de congelar).
+  Uso: ./render.sh tapete-de-lambida → saida/tapete-de-lambida-1.png e -2.png. Estilos em dica.css.
+-->
+<link rel="stylesheet" href="dica.css">
+</head>
+<body>
+
+<!-- 1. Benefícios -->
+<section class="card" style="--ih:540px;--ix:490px">
+  <div class="tag">Tapete de lambida</div>
+
+  <div class="ilustra">
+    <svg viewBox="80 160 656 576" aria-hidden="true">
+      <defs>
+        <rect id="tapete" x="90" y="440" width="620" height="280" rx="64" fill="currentColor"/>
+        <clipPath id="so-tapete"><rect x="90" y="440" width="636" height="296" rx="64"/></clipPath>
+        <g id="cara" fill="currentColor" transform="translate(130 44) scale(.9)">
+          <ellipse cx="148" cy="290" rx="64" ry="128" transform="rotate(24 148 290)"/>
+          <ellipse cx="452" cy="290" rx="64" ry="128" transform="rotate(-24 452 290)"/>
+          <ellipse cx="300" cy="305" rx="152" ry="168"/>
+        </g>
+      </defs>
+      <use href="#tapete" class="sombra" transform="translate(16 16)"/>
+      <use href="#tapete" class="frente"/>
+      <!-- relevo do tapete: bolinhas em cima, onda embaixo -->
+      <g class="claro">
+        <circle cx="150" cy="520" r="13"/><circle cx="210" cy="520" r="13"/>
+        <circle cx="590" cy="520" r="13"/><circle cx="650" cy="520" r="13"/>
+        <circle cx="150" cy="580" r="13"/><circle cx="210" cy="580" r="13"/><circle cx="270" cy="580" r="13"/>
+        <circle cx="530" cy="580" r="13"/><circle cx="590" cy="580" r="13"/><circle cx="650" cy="580" r="13"/>
+      </g>
+      <path d="M140 655q32-28 65 0t65 0 65 0 65 0 65 0 65 0 65 0 65 0"
+        fill="none" stroke="#C4B4F5" stroke-width="13" stroke-linecap="round"/>
+      <!-- patê espalhado -->
+      <path d="M268 496c30-22 90-26 132-20 44-8 110-4 134 20 20 22-6 52-44 56-40 6-66-4-90 2-34 8-74 10-106-4-34-14-50-38-26-54z"
+        fill="#F6F1E9"/>
+      <!-- recorte lilás em volta da cara, só onde ela encosta no tapete (separa os dois ink) -->
+      <use href="#cara" clip-path="url(#so-tapete)" style="color:#BCAAF4" stroke="#BCAAF4" stroke-width="26"/>
+      <use href="#cara" class="sombra" transform="translate(16 16)"/>
+      <use href="#cara" class="frente"/>
+      <g transform="translate(130 44) scale(.9)">
+        <ellipse class="claro" cx="238" cy="236" rx="16" ry="11"/>
+        <ellipse class="claro" cx="362" cy="236" rx="16" ry="11"/>
+        <circle class="claro" cx="242" cy="290" r="21"/>
+        <circle class="claro" cx="358" cy="290" r="21"/>
+        <ellipse class="claro" cx="300" cy="398" rx="82" ry="64"/>
+        <!-- língua pra fora, até o patê -->
+        <path d="M258 420c28-10 56-10 84 0v96a42 42 0 0 1-84 0z" fill="#EC4899" stroke="#17131F" stroke-width="10" stroke-linejoin="round"/>
+        <path d="M300 436v58" stroke="#17131F" stroke-width="9" stroke-linecap="round" opacity=".55"/>
+        <ellipse cx="300" cy="376" rx="38" ry="27" fill="#17131F"/>
+        <path d="M300 400v14m0 0c-12 12-36 14-50 4m50-4c12 12 36 14 50 4" fill="none" stroke="#17131F"
+          stroke-width="11" stroke-linecap="round" stroke-linejoin="round"/>
+      </g>
+    </svg>
+    <div class="mao" style="left:735px;top:72px">eu só<br>queria o<br>lanche</div>
+  </div>
+
+  <div class="txt">
+    <div class="h">Lamber <em>faz bem.</em></div>
+    <ol class="lista">
+      <li><div class="n">1</div><div><b>Acalma</b><span>Ajuda no banho, nos fogos e no veterinário.</span></div></li>
+      <li><div class="n">2</div><div><b>Come mais devagar</b><span>Bom pra quem devora a comida em segundos.</span></div></li>
+      <li><div class="n">3</div><div><b>Cansa a cabeça</b><span>Gasta energia: menos tédio, menos arte.</span></div></li>
+    </ol>
+    <div class="segue">No próximo: o que colocar no tapete →</div>
+  </div>
+</section>
+
+<!-- 2. O que colocar -->
+<section class="card" style="--ih:460px;--ix:610px">
+  <div class="tag">Tapete de lambida</div>
+
+  <div class="ilustra">
+    <svg viewBox="70 120 750 570" aria-hidden="true">
+      <defs>
+        <rect id="tapete2" x="90" y="260" width="620" height="400" rx="64" fill="currentColor"/>
+        <clipPath id="so-tapete2"><rect x="90" y="260" width="636" height="416" rx="64"/></clipPath>
+        <!-- floco de neve: um braço com os galhos, girado 6 vezes -->
+        <g id="braco" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M0 0V-118M-36-96L0-64 36-96"/>
+        </g>
+        <g id="floco">
+          <use href="#braco"/><use href="#braco" transform="rotate(60)"/><use href="#braco" transform="rotate(120)"/>
+          <use href="#braco" transform="rotate(180)"/><use href="#braco" transform="rotate(240)"/><use href="#braco" transform="rotate(300)"/>
+        </g>
+      </defs>
+      <use href="#tapete2" class="sombra" transform="translate(16 16)"/>
+      <use href="#tapete2" class="frente"/>
+      <!-- relevo: bolinhas em cima, ondas embaixo; o recheio (creme) enche parte dos furos e dos sulcos -->
+      <g class="claro">
+        <circle cx="160" cy="340" r="13"/><circle cx="400" cy="340" r="13"/><circle cx="460" cy="340" r="13"/>
+        <circle cx="520" cy="340" r="13"/>
+        <circle cx="160" cy="400" r="13"/><circle cx="220" cy="400" r="13"/><circle cx="460" cy="400" r="13"/>
+        <circle cx="520" cy="400" r="13"/><circle cx="580" cy="400" r="13"/><circle cx="640" cy="400" r="13"/>
+      </g>
+      <g fill="#F6F1E9">
+        <circle cx="220" cy="340" r="19"/><circle cx="280" cy="340" r="19"/><circle cx="340" cy="340" r="19"/>
+        <circle cx="280" cy="400" r="19"/><circle cx="340" cy="400" r="19"/><circle cx="400" cy="400" r="19"/>
+      </g>
+      <path d="M150 490q32-28 65 0t65 0 65 0 65 0 65 0 65 0 65 0 65 0M150 580q32-28 65 0t65 0 65 0 65 0 65 0 65 0 65 0 65 0"
+        fill="none" stroke="#C4B4F5" stroke-width="13" stroke-linecap="round"/>
+      <path d="M215 490q32-28 65 0t65 0 65 0 65 0M410 580q32-28 65 0t65 0 65 0 65 0"
+        fill="none" stroke="#F6F1E9" stroke-width="34" stroke-linecap="round"/>
+      <!-- floco sobre o canto do tapete, com o recorte lilás só dentro do tapete -->
+      <g clip-path="url(#so-tapete2)">
+        <use href="#floco" transform="translate(662 262)" style="color:#BCAAF4" stroke-width="54"/>
+      </g>
+      <use href="#floco" class="sombra" transform="translate(678 278)" stroke-width="26"/>
+      <use href="#floco" class="frente" transform="translate(662 262)" stroke-width="26"/>
+    </svg>
+    <div class="mao" style="left:70px;top:150px;font-size:64px">gelado<br>dura mais.<br>injusto.</div>
+  </div>
+
+  <div class="txt">
+    <div class="h">O que <em>colocar?</em></div>
+    <ol class="lista">
+      <li><div class="n">1</div><div><b>Base cremosa</b><span>Ração úmida ou amolecida, iogurte natural.</span></div></li>
+      <li><div class="n">2</div><div><b>Fruta ou legume</b><span>Banana, abóbora cozida sem tempero.</span></div></li>
+      <li><div class="n">3</div><div><b>Congela</b><span>Fica mais difícil, dura mais e refresca.</span></div></li>
+    </ol>
+    <div class="alerta"><strong>Nunca</strong><br>Xilitol, chocolate, uva, cebola e alho.<br><b>Pasta de amendoim:</b> só sem xilitol.<br><b>E fique de olho:</b> tapete não é mordedor.</div>
+  </div>
+</section>
+
+</body>
+</html>
