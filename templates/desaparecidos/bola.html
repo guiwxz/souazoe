@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<title>Alerta de desaparecida: Bola</title>
+<!--
+  Template de alerta de animal desaparecido, na identidade da Zoe (sem o nome escrito):
+  paleta ink/lilás/rosa, Poppins ExtraBold, caixas retas como as legendas dos Reels e o nome à mão (Caveat).
+  O mesmo conteúdo sai em dois formatos: feed 1080x1350 (#feed) e Stories/TikTok 1080x1920 (clonado pelo script).
+  Caso Bola (perdidos/bola.jpeg, print de um Story): a foto original (img/bola.jpg, feita pelo foto_bola.py,
+  só sem a sirene da arte) no alto, como no caso Bob. A cabeça dela fica no alto à esquerda, então no feed a tag
+  vai para a direita, sobre o piso; no Story ela segue centrada, sobre a borda de cima da foto.
+  O contato é o direct do Instagram (@glaucia.orso), então o ícone é o do Instagram.
+-->
+<style>
+@font-face{font-family:P;src:url(../fonts/Poppins-Medium.ttf);font-weight:500}
+@font-face{font-family:P;src:url(../fonts/Poppins-SemiBold.ttf);font-weight:600}
+@font-face{font-family:P;src:url(../fonts/Poppins-Bold.ttf);font-weight:700}
+@font-face{font-family:P;src:url(../fonts/Poppins-ExtraBold.ttf);font-weight:800}
+@font-face{font-family:C;src:url(../fonts/Caveat.ttf);font-weight:400 700}
+
+:root{--ink:#17131F;--cream:#F6F1E9;--lilac:#B9A7F3;--pink:#EC4899}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:#000;font-family:P,sans-serif;-webkit-font-smoothing:antialiased}
+
+/* feed: a foto começa acima do quadro (só piso some) e o fundo é ink onde ela acaba, sob o degradê */
+.card{width:1080px;height:1350px;position:relative;overflow:hidden;color:#fff;background:var(--ink);
+  --py:-50px;--top:48px;--bottom:70px;--fade:120px}
+/* Stories: faixa lilás em cima (sob a interface), foto a partir de 300 px, ink embaixo */
+.card.story{height:1920px;--py:300px;--top:225px;--bottom:210px;--fade:150px;
+  background:linear-gradient(180deg,transparent 0 700px,var(--ink) 700px),
+    radial-gradient(ellipse 80% 30% at 50% 10%,#C9BAF6 0%,var(--lilac) 100%)}
+
+.foto{position:absolute;left:0;top:var(--py);width:1080px}
+
+/* tag em destaque: caixa ink com a sombra rosa deslocada (como o "TCHAU, CARTAZ" do Reel 02) */
+.tag{position:absolute;top:var(--top);right:82px;z-index:3;background:var(--ink);color:#fff;
+  font-weight:800;font-size:46px;line-height:1.08;letter-spacing:.06em;text-transform:uppercase;padding:16px 26px 15px;
+  box-shadow:10px 10px 0 var(--pink);white-space:nowrap}
+.story .tag{font-size:52px;right:auto;left:50%;transform:translateX(calc(-50% - 5px))}  /* centrada, contando a sombra */
+.story .tag br{display:none}
+
+/* nome à mão no piso, abaixo da orelha; contorno ink como o texto à mão do Reel 02 */
+.nome{position:absolute;z-index:4;font-family:C;font-weight:700;font-size:150px;line-height:1;
+  left:60px;top:455px;transform:rotate(-6deg);-webkit-text-stroke:10px var(--ink);paint-order:stroke fill;
+  text-shadow:0 4px 0 rgba(23,19,31,.5)}
+.story .nome{font-size:160px;top:800px}
+
+.txt{position:absolute;left:72px;right:72px;bottom:var(--bottom);z-index:3}
+/* degradê ink só atrás do texto, até o pé do card */
+.txt::before{content:"";position:absolute;z-index:-1;left:-72px;right:-72px;
+  top:calc(-1 * var(--fade));bottom:calc(-1 * var(--bottom));
+  background:linear-gradient(180deg,rgba(23,19,31,0),rgba(23,19,31,.6) calc(var(--fade) * .45),
+    rgba(23,19,31,.92) calc(var(--fade) * .8),var(--ink) var(--fade))}
+.h{font-weight:800;font-size:78px;line-height:1.02;letter-spacing:-.025em}
+.h em{font-style:normal;color:var(--lilac)}
+.story .h{font-size:88px}
+.info{margin-top:26px;font-weight:600;font-size:34px;line-height:1.25;color:var(--cream)}
+.story .info{font-size:38px;margin-top:30px}
+.rot{margin-top:36px;font-weight:700;font-size:26px;letter-spacing:.14em;text-transform:uppercase;color:rgba(246,241,233,.7)}
+.story .rot{margin-top:52px}
+/* contato: um degrau abaixo do título (não compete com ele), ícone na altura do texto */
+.tel{margin-top:18px;display:inline-flex;align-items:center;gap:18px;background:var(--pink);
+  padding:14px 30px 14px 24px;font-weight:800;font-size:62px;line-height:1.1;letter-spacing:-.01em}
+.tel svg{width:1em;height:1em;flex:none;margin-top:-.04em}
+.story .tel{font-size:68px}
+</style>
+</head>
+<body>
+
+<section class="card" id="feed">
+  <img class="foto" src="img/bola.jpg" alt="">
+  <div class="tag">Cachorra <br>desaparecida</div>
+  <div class="nome">Bola</div>
+  <div class="txt">
+    <div class="h">Fugiu no temporal<br>no <em>São Cristóvão.</em></div>
+    <div class="info">Rua Osório Duque Estrada. Pode estar suja de barro, assustada e escondida.</div>
+    <div class="rot">Recompensa de R$ 200 · fale no direct</div>
+    <div class="tel">
+      <svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.2" aria-hidden="true">
+        <rect x="3" y="3" width="18" height="18" rx="5.5"/>
+        <circle cx="12" cy="12" r="4.2"/>
+        <circle cx="17.3" cy="6.7" r="1.3" fill="#fff" stroke="none"/>
+      </svg>
+      <span>@glaucia.orso</span>
+    </div>
+  </div>
+</section>
+
+<script>
+  // Stories/TikTok: o mesmo card, com mais respiro em cima e embaixo (áreas da interface)
+  const story = document.getElementById('feed').cloneNode(true);
+  story.id = 'story';
+  story.classList.add('story');
+  document.body.append(story);
+</script>
+</body>
+</html>

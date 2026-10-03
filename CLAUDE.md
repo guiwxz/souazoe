@@ -81,8 +81,8 @@ carrossel/    # template padronizado dos carrosséis (versionado)
   img/          # fotos já recortadas para cada card (1.jpg..8.jpg)
   fonts/        # Poppins + Caveat (manuscrita)
 roteiros/     # roteiros de trabalho (versionado)
-  serie-6-dias/   # série de 3 Reels narrados pela Isabela (dias 1-2, 3-5, 6): roteiro.md, README.md (status e como continuar) + painéis de mídia por episódio
-perdidos/     # artes recebidas de animais desaparecidos (ex.: garibaldi.jpeg, bob.jpeg, thor.jpeg)
+  serie-6-dias/   # série de 3 Reels narrados pela Isabela (dias 1-2, 3-5, 6-encontro): roteiro.md, README.md (status e como continuar) + painéis de mídia por episódio
+perdidos/     # artes recebidas de animais desaparecidos (ex.: garibaldi.jpeg, bob.jpeg, thor.jpeg, bola.jpeg)
 templates/    # templates reutilizáveis na identidade da Zoe, sem o nome escrito (versionado)
   fonts/        # Poppins + Caveat compartilhadas pelos templates
   desaparecidos/  # alerta de desaparecido: feed 1080x1350 + Stories 1080x1920 do mesmo index.html
@@ -91,8 +91,12 @@ templates/    # templates reutilizáveis na identidade da Zoe, sem o nome escrit
     render.sh     # Chrome headless → saida/<nome>-feed.png e saida/<nome>-story.png (ex.: ./render.sh garibaldi-masha); usa <nome>.html se existir
     bob.html      # variante com foto comum no topo (em vez do recorte) e linha extra de características (caso Bob)
     thor.html     # variante com o recorte de corpo inteiro à direita e, no lilás à esquerda, nome + apelo (caso Thor); contato por telefone
+    bola.html     # variante com a foto original no alto (cabeça à esquerda → tag à direita no feed) e contato por direct do Instagram (caso Bola)
+    bola-encontrada.html # aviso de "encontrada" (Stories + feed): tudo lilás, tag rosa com sombra ink, foto em cartão com sombra rosa,
+                  # texto em ink e comentário à mão da Zoe; modelo para os próximos reencontros (destaque "Em casa")
     recorte.py    # recorta os cães da arte recebida (rembg + opencv num venv temporário) → img/
     recorte_thor.py # recorte do Thor: foto de 371 px ampliada 4x com EDSR (opencv-contrib) + rembg + limpeza da borda → img/thor.png
+    foto_bola.py  # foto da Bola tirada do print do Story: apaga a sirene da arte (inpaint no piso) + EDSR 4x → img/bola.jpg
   destaques/      # capas dos destaques do Instagram: 1080x1920, fundo lilás, ícone ink com sombra rosa, sem texto
     index.html    # uma <section class="capa" id="..." data-nome="..."> por capa: A Zoe (carinha), 6 dias (calendário),
                   # Perdidos (lupa com pata), Em casa (casinha com coração), Dicas (lâmpada com pata), Adoção (coração com pata)
