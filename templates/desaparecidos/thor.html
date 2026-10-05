@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<title>Alerta de desaparecido: Thor</title>
+<!--
+  Template de alerta de animal desaparecido, na identidade da Zoe (sem o nome escrito):
+  paleta ink/lilás/rosa, Poppins ExtraBold, caixas retas como as legendas dos Reels e o nome à mão (Caveat).
+  O mesmo conteúdo sai em dois formatos: feed 1080x1350 (#feed) e Stories/TikTok 1080x1920 (clonado pelo script).
+  Caso Thor (perdidos/thor.jpeg): cópia do index.html com o recorte de corpo inteiro (img/thor.png, feito
+  pelo recorte_thor.py) à direita e, no lilás à esquerda (para onde ele olha), o nome à mão e o apelo.
+  No feed a tag quebra em duas linhas para o cão subir até o topo; no Story ela segue centrada numa linha.
+  O contato da arte original é por telefone (sem WhatsApp), então o ícone é o de telefone.
+
+  O cão é o foco: aparece inteiro, das orelhas às patas, e o degradê ink fica só atrás do bloco de texto.
+-->
+<style>
+@font-face{font-family:P;src:url(../fonts/Poppins-Medium.ttf);font-weight:500}
+@font-face{font-family:P;src:url(../fonts/Poppins-SemiBold.ttf);font-weight:600}
+@font-face{font-family:P;src:url(../fonts/Poppins-Bold.ttf);font-weight:700}
+@font-face{font-family:P;src:url(../fonts/Poppins-ExtraBold.ttf);font-weight:800}
+@font-face{font-family:C;src:url(../fonts/Caveat.ttf);font-weight:400 700}
+
+:root{--ink:#17131F;--cream:#F6F1E9;--lilac:#B9A7F3;--pink:#EC4899}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:#000;font-family:P,sans-serif;-webkit-font-smoothing:antialiased}
+
+.card{width:1080px;height:1350px;position:relative;overflow:hidden;color:#fff;
+  background:radial-gradient(ellipse 60% 45% at 68% 40%,#C9BAF6 0%,var(--lilac) 100%);
+  /* recorte: largura e canto superior esquerdo (as patas terminam logo acima do degradê) */
+  --dw:527px;--dx:481px;--dy:60px;--top:56px;--bottom:70px;--fade:110px}
+.card.story{height:1920px;--dw:586px;--dx:422px;--dy:345px;--top:225px;--bottom:210px;--fade:130px}
+
+.recorte{position:absolute;left:var(--dx);top:var(--dy);width:var(--dw)}
+
+/* tag em destaque: caixa ink com a sombra rosa deslocada (como o "TCHAU, CARTAZ" do Reel 02) */
+.tag{position:absolute;top:var(--top);left:72px;z-index:3;background:var(--ink);color:#fff;
+  font-weight:800;font-size:46px;line-height:1;letter-spacing:.06em;text-transform:uppercase;padding:16px 26px 15px;
+  box-shadow:10px 10px 0 var(--pink);white-space:nowrap;line-height:1.08}
+.story .tag{font-size:52px;left:50%;transform:translateX(calc(-50% - 5px))}  /* centrada, contando a sombra */
+.story .tag br{display:none}
+
+/* nome à mão no lilás, do lado para onde ele olha; contorno ink como o texto à mão do Reel 02 */
+.nome{position:absolute;z-index:4;font-family:C;font-weight:700;font-size:150px;line-height:1;
+  left:84px;top:270px;transform:rotate(-6deg);-webkit-text-stroke:10px var(--ink);paint-order:stroke fill;
+  text-shadow:0 4px 0 rgba(23,19,31,.5)}
+.story .nome{font-size:170px;left:80px;top:540px}
+
+/* apelo, logo abaixo do nome, em ink sobre o lilás */
+.apelo{position:absolute;z-index:3;left:72px;top:465px;width:400px;color:var(--ink);
+  font-weight:600;font-size:40px;line-height:1.25;letter-spacing:-.01em}
+.story .apelo{top:760px;width:330px;font-size:40px}
+
+.txt{position:absolute;left:72px;right:72px;bottom:var(--bottom);z-index:3}
+/* degradê ink só atrás do texto, até o pé do card */
+.txt::before{content:"";position:absolute;z-index:-1;left:-72px;right:-72px;
+  top:calc(-1 * var(--fade));bottom:calc(-1 * var(--bottom));
+  background:linear-gradient(180deg,rgba(23,19,31,0),rgba(23,19,31,.6) calc(var(--fade) * .45),
+    rgba(23,19,31,.92) calc(var(--fade) * .8),var(--ink) var(--fade))}
+.h{font-weight:800;font-size:78px;line-height:1.02;letter-spacing:-.025em}
+.h em{font-style:normal;color:var(--lilac)}
+.story .h{font-size:84px}  /* 88 quebraria "28/09/2026" numa terceira linha */
+.rot{margin-top:40px;font-weight:700;font-size:26px;letter-spacing:.14em;text-transform:uppercase;color:rgba(246,241,233,.7)}
+.story .rot{margin-top:56px}
+/* telefone: um degrau abaixo do título (não compete com ele), ícone na altura do número */
+.tel{margin-top:18px;display:inline-flex;align-items:center;gap:18px;background:var(--pink);
+  padding:14px 30px 14px 24px;font-weight:800;font-size:62px;line-height:1.1;letter-spacing:-.01em}
+.tel svg{width:.95em;height:.95em;flex:none;margin-top:-.04em}
+.story .tel{font-size:68px}
+</style>
+</head>
+<body>
+
+<section class="card" id="feed">
+  <img class="recorte" src="img/thor.png" alt="">
+  <div class="tag">Cachorro <br>desaparecido</div>
+  <div class="nome">Thor</div>
+  <div class="apelo">Ele é de uma criança autista que está muito triste com o sumiço dele.</div>
+  <div class="txt">
+    <div class="h">Sumiu em 28/09/2026<br>no <em>Bairro Maggi.</em></div>
+    <div class="rot">Viu ou tem informação? Ligue já</div>
+    <div class="tel">
+      <svg viewBox="0 0 24 24" fill="#fff" aria-hidden="true">
+        <path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/>
+      </svg>
+      <span>(54) 99638-6039</span>
+    </div>
+  </div>
+</section>
+
+<script>
+  // Stories/TikTok: o mesmo card, com mais respiro em cima e embaixo (áreas da interface)
+  const story = document.getElementById('feed').cloneNode(true);
+  story.id = 'story';
+  story.classList.add('story');
+  document.body.append(story);
+</script>
+</body>
+</html>

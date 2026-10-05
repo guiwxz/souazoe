@@ -4,7 +4,7 @@ Produção de conteúdo (Reels, carrosséis, Stories) para o lançamento do perf
 
 A Zoe é uma cachorra que ficou **6 dias desaparecida** e foi encontrada em **24/09/2026, às 16h, perto do Instituto Menino Deus**, depois de uma grande mobilização da cidade. Os tutores são **Isabela** e **Guilherme**. A estratégia digital é de **Gabriela Fabian**.
 
-A tese da marca: *"A Zoe não será a cachorra que viralizou porque sumiu. Ela será a cachorra que voltou porque uma comunidade se mobilizou, e que agora mobiliza essa comunidade por outros animais."*
+A tese da marca: _"A Zoe não será a cachorra que viralizou porque sumiu. Ela será a cachorra que voltou porque uma comunidade se mobilizou, e que agora mobiliza essa comunidade por outros animais."_
 
 ## Documentos de referência (ler antes de criar conteúdo)
 
@@ -17,10 +17,11 @@ Para ler: `pdftotext -layout <arquivo>.pdf -`
 
 **Posicionamento.** A Zoe é a personagem que cria vínculo, a experiência vivida gera utilidade e as causas animais dão o propósito. O perfil não é um perfil genérico de pet nem uma página pesada de sofrimento animal. Três eixos: HISTÓRIA (6 dias, mobilização, reencontro), PERSONALIDADE (rotina, humor, família, recuperação) e PROPÓSITO (desaparecidos, adoção, identificação, prevenção).
 
-**Identidade.** O nome de exibição é "Zoe | Causas Animais", com o mesmo @ nas duas redes. Evitar "SOS", "procura-se" e "desaparecida".
+**Identidade.** O nome de exibição é "Zoe | Causas Animais", com o mesmo @ nas duas redes: **@souazoe.pf**. Evitar "SOS", "procura-se" e "desaparecida".
 Bio: `Fiquei 6 dias perdida. Uma cidade inteira ajudou a me trazer pra casa. ❤️ / Agora minha história vai ajudar outros animais. 🐾 / 📍 Passo Fundo/RS`
 
 **Lançamento.** Não anunciar um perfil vazio: publicar 3 conteúdos antes do chamado público.
+
 1. **Como encontramos a Zoe**: Collab com a Isabela, é o principal conteúdo de transferência de audiência. A veterinária a reconhece saindo do mato perto do Instituto Menino Deus, avisa a família, a equipe procura, uma câmera mostra uma fração de segundo, a Isabela chama e a Zoe aparece.
 2. **O que aconteceu nesses 6 dias?**: "a gente não sabe". NUNCA inventar o período desconhecido. Mostrar só o que se sabe (chuva, distância, estado físico, minutos reconstruídos pelas câmeras).
 3. **O golpe durante a busca**: utilidade pública (pedido de dinheiro para gasolina, depois para um suposto problema no carro). CTA: "Salva esse vídeo."
@@ -50,29 +51,85 @@ Bio: `Fiquei 6 dias perdida. Uma cidade inteira ajudou a me trazer pra casa. ❤
 ```
 drive/        # espelho do Google Drive (NÃO versionado): fonte da verdade da mídia bruta
   dia do encontro/        # vídeos/fotos do reencontro (24/09) + Reel 01 já exportado
-  Set／26/                # fotos/vídeos de setembro (HEIC/MOV do iPhone)
+  set26/                  # fotos/vídeos de setembro (HEIC/MOV do iPhone)
+    cartazes/             # vídeos/fotos da retirada dos cartazes (26/09)
+    divulgacao/           # prints dos posts de divulgação durante a busca (Screenshot_AAAAMMDD_HHMMSS = hora do print)
   instagram/apresentação / # material para o carrossel de apresentação (a pasta tem um espaço no final do nome)
+  posts/                  # o que já foi publicado (Reel 01 v2, capa, carrossel1 com 9 cards)
+  Meme/                   # imagens avulsas
 videos/, audios/  # cópias locais de trabalho usadas na geração (NÃO versionadas)
 editor/       # pipeline dos Reels em ffmpeg
   build_01.py   # monta o Reel 01 "Como encontramos a Zoe" (1080x1920, 30fps) → saida/video/video1/
   words-01.json # timestamps por palavra (faster-whisper) da narração audios/1.ogg
-  build_02.py   # Reel "Como encontraram a Zoe?" (~58s, história em texto na tela + áudio real) → saida/video/video2/ (com e sem trilha)
-  build_03.py   # cópia do build_02 (v2): meio mais enxuto, menos drama, fechamento "decidimos criar este perfil" → saida/video/video3/
-  fonts/        # Poppins
+  build_01_v2.py # Reel 01 v2 "Como encontraram a Zoe?" (~62 s, história em texto na tela + áudio real, sem narração): a versão PUBLICADA do Reel 01
+                # (idêntica à de drive/posts/) → saida/video/video1/ (com e sem trilha; só a com trilha é versionada). Lê de videos/
+  build_02.py   # monta o Reel 02 "Tchau, cartaz" (retirada dos cartazes, 19,5 s, sem narração) → saida/video/video2/
+  trilha_02.py  # trilha original do Reel 02 (120 BPM, sintetizada com numpy+scipy) → audios/trilha-02.wav
+  capa_02.py    # capa do Reel 02 (Pillow, padrão da capa do Reel 01, telefones do cartaz borrados) → saida/video/video2/capa-02.png
+  build_03.py   # monta o Reel 03 "Os 6 dias da Zoe · Parte 1" (dias 1 e 2, narração da Isabela em audios/1..8.ogg, ~68 s) → saida/video/video3/. Venv Python 3.9 com numpy+scipy+Pillow (`py -3.9 -m venv`); ver a docstring
+  words-03.json # timestamps por palavra (faster-whisper medium) da narração do Reel 03, já na linha do tempo final
+  trilha_03.py  # trilha original do Reel 03 (75 BPM, piano abafado + pad; zera no bloco do silêncio), chamada pelo build_03
+  capa_03.py    # capa do Reel 03 (Pillow, padrão das capas 01/02 + contador de 6 dias e "OS 6 DIAS DA ZOE · PARTE N" para a série) → saida/video/video3/capa-03.png
+  build_04.py   # monta o Reel 04 "Os 6 dias da Zoe · Parte 2" (dias 3 a 5, narração em audios/dias3e4e5/1..6.ogg, ~64 s): parecidas com "NÃO ERA ELA",
+                # golpes com "GERADA POR IA", as duas câmeras de 18/09 em câmera lenta com círculo e zoom, o mapa uma rua adiante → saida/video/video4/. Mesmo venv do build_03
+  words-04.json # timestamps por palavra da narração do Reel 04, já na linha do tempo final
+  trilha_04.py  # trilha do Reel 04: contida (75 BPM) até o golpe, abre "animadinha" (104 BPM) no vislumbre das câmeras; chamada pelo build_04
+  capa_04.py    # capa do Reel 04 (padrão da capa_03, 5 de 6 dias cheios) → saida/video/video4/capa-04.png
+  mapa.py       # mapas 1080x1920 com as ruas reais de Passo Fundo (OpenStreetMap, cache em videos/osm-passo-fundo.json) na identidade da Zoe, via Chrome headless (ex.: python editor/mapa.py ep1; ep2 e ep2-camadas para o Reel 04)
+  fonts/        # Poppins + Caveat
 carrossel/    # template padronizado dos carrosséis (versionado)
   index.html    # 9 cards de 1080x1350, com a identidade visual (o 9º é a chamada para seguir)
-  render.sh     # Chrome headless → saida/carrossel/<nome>/zoe-XX.png + _preview.jpg (ex.: ./render.sh carrossel2; padrão carrossel1)
+  render.sh     # Chrome headless → saida/carrossel/<nome>/zoe-XX.png + _preview.jpg (ex.: ./render.sh carrossel2; padrão carrossel1); conta os cards do index.html
   img/          # fotos já recortadas para cada card (1.jpg..9.jpg)
   fonts/        # Poppins + Caveat (manuscrita)
-capa/         # template da capa dos Reels (1080x1920, texto dentro do recorte 3:4 do grid)
+capa/         # template HTML da capa do Reel 01 v2 (1080x1920, texto dentro do recorte 3:4 do grid); os Reels 02+ usam editor/capa_0N.py
   index.html    # foto + título (mesma identidade do carrossel)
-  render.sh     # Chrome headless → saida/video/<pasta>/capa.png + capa-grid.jpg (ex.: ./render.sh video2; padrão video3)
+  render.sh     # Chrome headless → saida/video/<pasta>/<nome>.png + <nome>-grid.jpg (prévia, não versionar); padrão video1/capa-01-v2
   img/capa.jpg  # foto usada na capa
+roteiros/     # roteiros de trabalho (versionado)
+  serie-6-dias/   # série de 3 Reels narrados pela Isabela (dias 1-2, 3-5, 6-encontro): roteiro.md, README.md (status e como continuar) + painéis de mídia por episódio
+perdidos/     # artes recebidas de animais desaparecidos ou encontrados (ex.: garibaldi.jpeg, bob.jpeg, thor.jpeg, bola.jpeg, vila-luiza-1..3.jpeg)
+templates/    # templates reutilizáveis na identidade da Zoe, sem o nome escrito (versionado)
+  fonts/        # Poppins + Caveat compartilhadas pelos templates
+  desaparecidos/  # alerta de desaparecido: feed 1080x1350 + Stories 1080x1920 do mesmo index.html
+    index.html    # fundo lilás, degradê ink, tag em caixa ink, nomes em Caveat, telefone em caixa rosa
+                  # telefone 62 px (68 no Story) com o ícone oficial do WhatsApp em 1,1em (altura dos parênteses); no Story, tag em top 225 e texto a 210 px do pé
+    render.sh     # Chrome headless → saida/<nome>-feed.png e saida/<nome>-story.png (ex.: ./render.sh garibaldi-masha); usa <nome>.html se existir
+    bob.html      # variante com foto comum no topo (em vez do recorte) e linha extra de características (caso Bob)
+    thor.html     # variante com o recorte de corpo inteiro à direita e, no lilás à esquerda, nome + apelo (caso Thor); contato por telefone
+    bola.html     # variante com a foto original no alto (cabeça à esquerda → tag à direita no feed) e contato por direct do Instagram (caso Bola)
+    bola-encontrada.html # aviso de "encontrada" (Stories + feed): tudo lilás, tag rosa com sombra ink, foto em cartão com sombra rosa,
+                  # texto em ink e comentário à mão da Zoe; modelo para os próximos reencontros (destaque "Em casa")
+    encontrado-vila-luiza.html # aviso de cachorro ENCONTRADO sem tutor conhecido (Stories + feed): tag ink "Cachorro encontrado",
+                  # foto em polaroide inclinada (borda creme, "você me conhece?" à mão) atravessando do lilás para o bloco ink,
+                  # anel rosa na marca de identificação ligado a um detalhe ampliado em círculo; modelo para os próximos (destaque "Perdidos")
+    recorte.py    # recorta os cães da arte recebida (rembg + opencv num venv temporário) → img/
+    recorte_thor.py # recorte do Thor: foto de 371 px ampliada 4x com EDSR (opencv-contrib) + rembg + limpeza da borda → img/thor.png
+    foto_bola.py  # foto da Bola tirada do print do Story: apaga a sirene da arte (inpaint no piso) + EDSR 4x → img/bola.jpg
+    foto_vila_luiza.py # fotos do cachorro da Vila Luiza tiradas dos prints (sem a interface do Instagram) → img/vila-luiza.jpg e -olho.jpg
+  destaques/      # capas dos destaques do Instagram: 1080x1920, fundo lilás, ícone ink com sombra rosa, sem texto
+    index.html    # uma <section class="capa" id="..." data-nome="..."> por capa: A Zoe (carinha), 6 dias (calendário),
+                  # Perdidos (lupa com pata), Em casa (casinha com coração), Dicas (lâmpada com pata), Adoção (coração com pata)
+    render.sh     # Chrome headless → saida/<id>.png + saida/_preview.png (a fileira como aparece no perfil, com os nomes)
+  dicas/          # Stories de dica (pilar UTILIDADE), 1080x1920: lilás com ilustração no estilo dos destaques + comentário à mão da Zoe,
+                  # degradê ink com título, lista numerada (caixas rosa) e alerta; tag em top 225, texto a ~210 px do pé
+    dica.css      # estilos compartilhados (altura/centro da ilustração por Story via --ih/--ix)
+    tapete-de-lambida.html  # 2 Stories: 1) benefícios (Zoe lambendo o tapete) 2) o que colocar + congelar (tapete com recheio e floco de neve)
+                  # assunto novo → <nome>.html com uma <section class="card"> por Story, na ordem em que vão ao ar
+    render.sh     # Chrome headless → saida/<nome>-1.png, -2.png... (ex.: ./render.sh tapete-de-lambida)
+  etiqueta/       # etiqueta dos saquinhos de petisco (lembrancinha da comemoração da volta da Zoe na creche), 9 x 5 cm, tudo em mm
+    index.html    # lilás com a Zoe recortada (sombra rosa), tag "Voltei pra casa!", agradecimento, comentário à mão e caixa ink
+                  # com o QR code + @souazoe.pf; o #hash escolhe o modo: #png, #grafica (2 mm de sangria) ou #folha (A4)
+    render.sh     # Chrome headless → saida/etiqueta-petisco.png (300 dpi), -grafica.pdf (94 x 54 mm) e -a4.pdf (10 por folha, marcas de corte)
+    recorte.py    # recorta a Zoe do IMG_7200 (print do Story da creche, em drive/instagram/apresentação␠) com rembg → img/zoe-creche.png
+    qr.py         # QR code do Instagram (segno) → img/qr-instagram.svg
 saida/        # renders finais (versionado), um agrupamento por peça
   carrossel/carrossel1/   # zoe-01..09.png + _preview.jpg (carrossel de apresentação)
-  video/video1/           # 01-como-encontramos-a-zoe.mp4 + legendas-01.ass
-  video/video2/           # 01-como-encontraram-a-zoe.mp4 (+ -sem-trilha): Reel de lançamento em Collab
-  video/video3/           # 01-como-encontraram-a-zoe-v2.mp4 (+ -sem-trilha): versão alternativa, ~62s
+  video/video1/           # 01-como-encontraram-a-zoe-v2.mp4 + capa-01-v2.png: o Reel 01 PUBLICADO (build_01_v2.py + capa/)
+                          # e 01-como-encontramos-a-zoe.mp4 + legendas-01.ass: a versão narrada (build_01.py), que não está em drive/posts/
+  video/video3/           # 03-os-6-dias-parte-1.mp4 (+ -sem-musica.mp4) + legendas-03.ass + capa-03.png + legenda-03.txt (texto do post: Instagram e TikTok)
+  video/video2/           # 02-tchau-cartaz.mp4 (+ -sem-musica.mp4, para usar áudio em alta no app) + capa-02.png + legendas-02.ass
+  video/video4/           # 04-os-6-dias-parte-2.mp4 (+ -sem-musica.mp4) + legendas-04.ass + capa-04.png + legenda-04.txt (Instagram e TikTok)
 ```
 
 Novas peças entram em `saida/carrossel/carrosselN/` e `saida/video/videoN/`, numeradas em sequência.
@@ -91,6 +148,8 @@ Novas peças entram em `saida/carrossel/carrosselN/` e `saida/video/videoN/`, nu
 - Áudio: highpass + afftdn + loudnorm (-14 LUFS). Saída em H.264 CRF 18 com AAC 192k.
 - Transcrição: faster-whisper num venv temporário (não está instalado globalmente), gerando uma lista `[{"w","s","e"}]`.
 - Uso: `python3 editor/build_01.py editor/words-01.json editor/fonts`
+- Tamanho de fonte no ASS: o `Fontsize` do libass é a altura da linha, não o "em". Na Poppins, a maiúscula tem ~0,41 × Fontsize (use 150–270 para títulos em 1080x1920).
+- Reel 02 (sem narração): cortes no tempo da trilha própria (1 tempo = 0,5 s) e cada cartaz rasga num tempo forte. Primeiro `python editor/trilha_02.py audios/trilha-02.wav` (numpy+scipy num venv temporário), depois `python3 editor/build_02.py`. Lê direto de `drive/set26/`; as fotos (HEIC e o quadro único do IMG_8445) são convertidas para `videos/` na primeira execução.
 
 ## Sincronização do Google Drive (rclone)
 
@@ -111,10 +170,12 @@ A mídia vem do Google Drive e é sincronizada **manualmente, de tempos em tempo
 
 ## Ferramentas
 
-ffmpeg/ffprobe, python3 + Pillow, google-chrome (headless para os carrosséis), node/npx (MCP do Remotion em `.mcp.json` e skills do Remotion em `.claude/skills/`, caso algum vídeo seja feito em Remotion). Os arquivos HEIC/MOV do iPhone precisam ser convertidos antes do uso.
+ffmpeg/ffprobe, python3 + Pillow, google-chrome (headless para os carrosséis), node/npx (MCP do Remotion em `.mcp.json` e skills do Remotion em `.claude/skills/`, caso algum vídeo seja feito em Remotion). Os arquivos HEIC/MOV do iPhone precisam ser convertidos antes do uso (o ffmpeg 7.1+ lê HEIC direto; os vídeos atuais são H.264 SDR, sem HDR).
+
+No Windows (Git Bash), o ffmpeg e o rclone vêm do winget (`Gyan.FFmpeg`, `Rclone.Rclone`), e o Chrome fica em `C:\Program Files\Google\Chrome\Application\chrome.exe`. Os atalhos do winget ficam em `~/AppData/Local/Microsoft/WinGet/Links`, que pode não estar no PATH do Git Bash: `export PATH="$PATH:$HOME/AppData/Local/Microsoft/WinGet/Links"`. A data real de captura dos MOV/MP4 do iPhone está na tag `com.apple.quicktime.creationdate` (ffprobe). Os HEIC não trazem data legível, então vale a ordem da numeração IMG_XXXX. `build_01.py` e `render.sh` funcionam nos dois sistemas.
 
 ## Regras de trabalho
 
 - Nunca inventar fatos da história da Zoe. Se faltar informação, perguntar.
-- Os nomes das pastas do Drive têm caracteres especiais (`Set／26` usa uma barra fullwidth, e `apresentação ` tem um espaço no final): sempre usar aspas nos caminhos.
+- Alguns nomes de pastas do Drive têm caracteres especiais (`apresentação ` tem um espaço no final): sempre usar aspas nos caminhos. No Windows, o rclone grava esse espaço final como `␠` (U+2420), então a pasta local é `drive/instagram/apresentação␠`.
 - Mídia bruta (drive/, videos/, audios/) não vai para o git. Renders finais em saida/ vão, assim como scripts, templates, fontes, imagens recortadas e documentos.

@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<title>Encontrada: Bola</title>
+<!--
+  Aviso de "encontrada" do caso Bola (continuação do bola.html), na identidade da Zoe.
+  Tem de se distinguir do alerta à primeira vista: nada de bloco ink, tudo lilás e em tom de comemoração.
+  A tag inverte as cores (caixa rosa, sombra ink), a foto vira um cartão com a sombra rosa e o texto fica em ink.
+  O comentário à mão da Zoe retoma a legenda do alerta ("Eu torço por um final igual ao meu").
+  Só o que se sabe: foi encontrada e está segura em casa com a família (sem inventar quando nem como).
+  O mesmo conteúdo sai em dois formatos: Stories/TikTok 1080x1920 (o pedido) e feed 1080x1350 (clonado pelo script).
+-->
+<style>
+@font-face{font-family:P;src:url(../fonts/Poppins-SemiBold.ttf);font-weight:600}
+@font-face{font-family:P;src:url(../fonts/Poppins-ExtraBold.ttf);font-weight:800}
+@font-face{font-family:C;src:url(../fonts/Caveat.ttf);font-weight:400 700}
+
+:root{--ink:#17131F;--cream:#F6F1E9;--lilac:#B9A7F3;--pink:#EC4899}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:#000;font-family:P,sans-serif;-webkit-font-smoothing:antialiased}
+
+/* feed: foto e textos um pouco menores; Stories: tag em top 225 e texto acima dos ~300 px da interface embaixo */
+.card{width:1080px;height:1350px;position:relative;overflow:hidden;color:var(--ink);
+  background:radial-gradient(ellipse 70% 40% at 50% 35%,#C9BAF6 0%,var(--lilac) 100%);
+  --top:56px;--fx:90px;--fy:176px;--fw:900px;--txt:908px}
+.card.story{height:1920px;--top:225px;--fx:60px;--fy:360px;--fw:960px;--txt:1160px}
+
+/* tag invertida (boa notícia): caixa rosa com a sombra ink */
+.tag{position:absolute;top:var(--top);left:72px;z-index:3;background:var(--pink);color:#fff;
+  font-weight:800;font-size:46px;line-height:1;letter-spacing:.06em;text-transform:uppercase;padding:16px 26px 15px;
+  box-shadow:10px 10px 0 var(--ink);white-space:nowrap}
+.story .tag{font-size:52px;left:50%;transform:translateX(calc(-50% - 5px))}  /* centrada, contando a sombra */
+
+/* foto: cartão com a sombra rosa deslocada, a mesma foto do alerta */
+.foto{position:absolute;left:var(--fx);top:var(--fy);width:var(--fw);border-radius:28px;
+  box-shadow:14px 14px 0 var(--pink)}
+/* nome à mão sobre o piso da foto, no mesmo lugar do alerta (em % da foto) */
+.nome{position:absolute;z-index:4;font-family:C;font-weight:700;font-size:130px;line-height:1;color:#fff;
+  left:calc(var(--fx) + var(--fw) * .05);top:calc(var(--fy) + var(--fw) * .455);
+  transform:rotate(-6deg);-webkit-text-stroke:10px var(--ink);paint-order:stroke fill;
+  text-shadow:0 4px 0 rgba(23,19,31,.5)}
+.story .nome{font-size:150px}
+
+.txt{position:absolute;left:72px;right:72px;top:var(--txt);z-index:3}
+.h{font-weight:800;font-size:84px;line-height:1.02;letter-spacing:-.025em}
+.h em{font-style:normal;color:var(--pink)}
+.story .h{font-size:100px}
+.info{margin-top:22px;font-weight:600;font-size:36px;line-height:1.28;text-wrap:balance}
+.story .info{margin-top:30px;font-size:42px}
+/* comentário à mão da Zoe */
+.zoe{margin-top:26px;font-family:C;font-weight:700;font-size:62px;line-height:1.05;transform:rotate(-2deg);transform-origin:left}
+.story .zoe{margin-top:44px;font-size:78px}
+</style>
+</head>
+<body>
+
+<section class="card story" id="story">
+  <div class="tag">Encontrada!</div>
+  <img class="foto" src="img/bola.jpg" alt="">
+  <div class="nome">Bola</div>
+  <div class="txt">
+    <div class="h">A Bola está<br><em>em casa.</em></div>
+    <div class="info">Ela foi encontrada e está segura com a família.</div>
+    <div class="zoe">um final igual ao meu.<br>obrigada a quem compartilhou!</div>
+  </div>
+</section>
+
+<script>
+  // o render.sh espera o feed em cima e o Stories embaixo: clona o Stories como feed e põe antes
+  const story = document.getElementById('story');
+  const feed = story.cloneNode(true);
+  feed.id = 'feed';
+  feed.classList.remove('story');
+  document.body.prepend(feed);
+</script>
+</body>
+</html>

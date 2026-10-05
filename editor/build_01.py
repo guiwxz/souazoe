@@ -29,6 +29,11 @@ SHOTS = [
 FIX = {"a": "ao"}
 
 
+def fpath(p):
+    # caminho para dentro do filtergraph: no Windows, "C:\..." quebra o parser do ffmpeg
+    return Path(p).resolve().as_posix().replace(":", r"\:")
+
+
 def cover(extra=1.0):
     return (f"scale={int(W*extra)}:{int(H*extra)}:force_original_aspect_ratio=increase,"
             f"crop={int(W*extra)}:{int(H*extra)}")
@@ -61,7 +66,7 @@ def ass_time(t):
 
 
 def build_ass(path):
-    words = json.load(open(WORDS))
+    words = json.load(open(WORDS, encoding="utf-8"))
     # junta "encontrá" + "-los"
     merged = []
     for w in words:
@@ -114,7 +119,7 @@ Format: Layer, Start, End, Style, Name, MarginL, MarginR, MarginV, Effect, Text
             ev.append(f"Dialogue: 1,{ass_time(s)},{ass_time(e)},Cap,,0,0,0,,{pop}{txt}")
     # gancho no topo (fundo em caixa, área segura)
     ev.append(r"Dialogue: 2,0:00:00.00,0:00:02.46,Hook,,0,0,0,,{\3c&H5A3CE6&\fad(0,200)}COMO ENCONTRAMOS A ZOE")
-    path.write_text(head + "\n".join(ev) + "\n")
+    path.write_text(head + "\n".join(ev) + "\n", encoding="utf-8")
 
 
 def main():
@@ -124,7 +129,7 @@ def main():
     inputs, parts = build_video_filters()
     n = len(SHOTS)
     fc = ";".join(parts) + (
-        f";[vc]subtitles='{ass}':fontsdir='{FONTS}'[vout]"
+        f";[vc]subtitles='{fpath(ass)}':fontsdir='{fpath(FONTS)}'[vout]"
         f";[{n}:a]highpass=f=80,afftdn=nf=-25,loudnorm=I=-14:TP=-1.5:LRA=11,"
         f"aresample=48000,aformat=channel_layouts=stereo,atrim=duration={DUR:.3f}[aout]")
     cmd = ["ffmpeg", "-y", "-v", "error", *inputs, "-i", str(AUDIO),

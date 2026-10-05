@@ -1,0 +1,139 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<title>Cachorro encontrado: Vila Luiza</title>
+<!--
+  Aviso de cachorro ENCONTRADO sem tutor conhecido (procura a família), na identidade da Zoe.
+  É o terceiro estado da família de templates e tem de se distinguir dos outros dois à primeira vista:
+    alerta (index/bob/thor/bola)   tag ink, foto sangrada, bloco ink: alguém procura o cão
+    encontrada (bola-encontrada)   tag rosa, tudo lilás: o cão voltou pra casa
+    encontrado (este)              tag ink, foto como polaroide no lilás, apelo no ink: o cão procura alguém
+  A foto vira uma polaroide inclinada que atravessa do lilás para o bloco ink, com a pergunta à mão na borda
+  (o "VOCÊ ME CONHECE?" da arte original). Sem nome conhecido, quem identifica é a marca: um anel rosa no olho
+  e um detalhe ampliado em círculo, com "olho branco" à mão.
+
+  Caso Vila Luiza (perdidos/vila-luiza-1..3.jpeg, prints de um Story que repostou o post do @cademeupetpf_):
+  fotos feitas pelo foto_vila_luiza.py. Só o que a arte diz: macho, um olho branco, encontrado na Rua São João,
+  perto da Escola Estadual Xavier, Bairro Vila Luiza. O contato é o direct da própria Zoe (@souazoe.pf).
+  O mesmo conteúdo sai em dois formatos: Stories/TikTok 1080x1920 (o pedido) e feed 1080x1350 (clonado pelo script).
+  Próximo caso: copiar este arquivo, trocar as fotos, o texto e a posição do anel (--ax/--ay, em fração da foto).
+-->
+<style>
+@font-face{font-family:P;src:url(../fonts/Poppins-SemiBold.ttf);font-weight:600}
+@font-face{font-family:P;src:url(../fonts/Poppins-Bold.ttf);font-weight:700}
+@font-face{font-family:P;src:url(../fonts/Poppins-ExtraBold.ttf);font-weight:800}
+@font-face{font-family:C;src:url(../fonts/Caveat.ttf);font-weight:400 700}
+
+:root{--ink:#17131F;--cream:#F6F1E9;--lilac:#B9A7F3;--pink:#EC4899}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:#000;font-family:P,sans-serif;-webkit-font-smoothing:antialiased}
+
+/* lilás em cima e ink a partir de --painel; a polaroide atravessa a divisa */
+.card{width:1080px;height:1350px;position:relative;overflow:hidden;color:#fff;
+  background:linear-gradient(180deg,transparent 0 var(--painel),var(--ink) var(--painel)),
+    radial-gradient(ellipse 70% 40% at 40% 25%,#C9BAF6 0%,var(--lilac) 100%);
+  --top:48px;--bottom:70px;--painel:600px;
+  --px:150px;--py:156px;--pw:420px;--borda:20px;--pe:84px;   /* polaroide: posição, largura da foto, bordas */
+  --ax:.741;--ay:.341;--ad:58px;                              /* anel no olho, em fração da foto */
+  --zx:650px;--zy:176px;--zd:230px}                           /* detalhe ampliado do olho */
+.card.story{height:1920px;--top:225px;--bottom:210px;--painel:960px;
+  --px:104px;--py:340px;--pw:520px;--borda:22px;--pe:96px;--ad:72px;
+  --zx:690px;--zy:380px;--zd:300px}
+
+/* tag de categoria: a mesma caixa ink com sombra rosa do alerta */
+.tag{position:absolute;top:var(--top);left:50%;transform:translateX(calc(-50% - 5px));z-index:5;
+  background:var(--ink);color:#fff;font-weight:800;font-size:46px;line-height:1.08;letter-spacing:.06em;
+  text-transform:uppercase;padding:16px 26px 15px;box-shadow:10px 10px 0 var(--pink);white-space:nowrap}
+.story .tag{font-size:52px}
+
+/* polaroide: borda creme, pé mais largo com a pergunta à mão, sombra rosa deslocada */
+.polaroide{position:absolute;left:var(--px);top:var(--py);z-index:2;background:var(--cream);
+  padding:var(--borda) var(--borda) 0;box-shadow:14px 14px 0 var(--pink);transform:rotate(-3deg)}
+.polaroide img{display:block;width:var(--pw);aspect-ratio:901/1100}
+.polaroide .pe{height:var(--pe);display:flex;align-items:center;justify-content:center;
+  font-family:C;font-weight:700;font-size:56px;color:var(--ink);padding-bottom:4px}
+.story .polaroide .pe{font-size:70px}
+/* anel rosa em volta do olho branco (dentro da polaroide, então gira junto) */
+.anel{position:absolute;width:var(--ad);height:var(--ad);border:6px solid var(--pink);border-radius:50%;
+  left:calc(var(--borda) + var(--pw) * var(--ax) - var(--ad) / 2);
+  top:calc(var(--borda) + var(--pw) * 1100 / 901 * var(--ay) - var(--ad) / 2)}
+
+/* detalhe ampliado: círculo com borda creme e sombra rosa, ligado ao anel por um traço (desenhado no script) */
+.traco{position:absolute;left:0;top:0;width:100%;height:100%;z-index:3;pointer-events:none}
+.zoom{position:absolute;left:var(--zx);top:var(--zy);width:var(--zd);height:var(--zd);z-index:4;
+  border-radius:50%;border:10px solid var(--cream);overflow:hidden;box-shadow:12px 12px 0 var(--pink)}
+.zoom img{display:block;width:100%;height:100%;object-fit:cover}
+.rotulo{position:absolute;z-index:4;left:calc(var(--zx) + 6px);top:calc(var(--zy) + var(--zd) + 26px);
+  font-family:C;font-weight:700;font-size:64px;line-height:.95;color:var(--ink);transform:rotate(-5deg)}
+.story .rotulo{font-size:80px;top:calc(var(--zy) + var(--zd) + 34px)}
+
+.txt{position:absolute;left:72px;right:72px;bottom:var(--bottom);z-index:3}
+.h{font-weight:800;font-size:78px;line-height:1.02;letter-spacing:-.025em}
+.h em{font-style:normal;color:var(--lilac)}
+.story .h{font-size:88px}
+.info{margin-top:26px;font-weight:600;font-size:34px;line-height:1.25;color:var(--cream);text-wrap:pretty}
+.story .info{font-size:38px;margin-top:30px}
+.card:not(.story) .info br{display:none}  /* no feed cabe em duas linhas corridas */
+.rot{margin-top:36px;font-weight:700;font-size:26px;letter-spacing:.14em;text-transform:uppercase;color:rgba(246,241,233,.7)}
+.story .rot{margin-top:48px}
+/* contato: direct da Zoe, com o ícone do Instagram */
+.tel{margin-top:18px;display:inline-flex;align-items:center;gap:18px;background:var(--pink);
+  padding:14px 30px 14px 24px;font-weight:800;font-size:62px;line-height:1.1;letter-spacing:-.01em}
+.tel svg{width:1em;height:1em;flex:none;margin-top:-.04em}
+.story .tel{font-size:68px}
+</style>
+</head>
+<body>
+
+<section class="card story" id="story">
+  <div class="tag">Cachorro encontrado</div>
+  <div class="polaroide">
+    <img src="img/vila-luiza.jpg" alt="">
+    <div class="anel"></div>
+    <div class="pe">você me conhece?</div>
+  </div>
+  <svg class="traco"><line stroke="#EC4899" stroke-width="6" stroke-linecap="round"/></svg>
+  <div class="zoom"><img src="img/vila-luiza-olho.jpg" alt=""></div>
+  <div class="rotulo">olho branco</div>
+  <div class="txt">
+    <div class="h">Ajude esse menino<br><em>a voltar pra casa.</em></div>
+    <div class="info">Macho, com um olho branco.<br> Estava na Rua São João, perto da Escola Estadual Xavier, na Vila Luiza.</div>
+    <div class="rot">É seu ou sabe de quem é? Chame no direct</div>
+    <div class="tel">
+      <svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.2" aria-hidden="true">
+        <rect x="3" y="3" width="18" height="18" rx="5.5"/>
+        <circle cx="12" cy="12" r="4.2"/>
+        <circle cx="17.3" cy="6.7" r="1.3" fill="#fff" stroke="none"/>
+      </svg>
+      <span>@souazoe.pf</span>
+    </div>
+  </div>
+</section>
+
+<script>
+  // o render.sh espera o feed em cima e o Stories embaixo: clona o Stories como feed e põe antes
+  const story = document.getElementById('story');
+  const feed = story.cloneNode(true);
+  feed.id = 'feed';
+  feed.classList.remove('story');
+  document.body.prepend(feed);
+
+  // traço do anel até o detalhe: liga os centros (o centro da caixa de um círculo girado é o centro dele)
+  // e corta nas bordas, para o traço só aparecer entre os dois círculos
+  addEventListener('load', () => {
+    for (const card of document.querySelectorAll('.card')) {
+      const c = card.getBoundingClientRect();
+      const centro = el => { const r = el.getBoundingClientRect();
+        return [r.left - c.left + r.width / 2, r.top - c.top + r.height / 2, r.width / 2]; };
+      const [ax, ay, ar] = centro(card.querySelector('.anel'));
+      const [zx, zy, zr] = centro(card.querySelector('.zoom'));
+      const d = Math.hypot(zx - ax, zy - ay), ux = (zx - ax) / d, uy = (zy - ay) / d;
+      const line = card.querySelector('.traco line');
+      line.setAttribute('x1', ax + ux * ar); line.setAttribute('y1', ay + uy * ar);
+      line.setAttribute('x2', zx - ux * zr); line.setAttribute('y2', zy - uy * zr);
+    }
+  });
+</script>
+</body>
+</html>
