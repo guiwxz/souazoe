@@ -7,12 +7,13 @@
   Template de alerta de animal desaparecido, na identidade da Zoe (sem o nome escrito):
   paleta ink/lilás/rosa, Poppins ExtraBold, caixas retas como as legendas dos Reels e o nome à mão (Caveat).
   O mesmo conteúdo sai em dois formatos: feed 1080x1350 (#feed) e Stories/TikTok 1080x1920 (clonado pelo script).
-  Caso Chiquinha (perdidos/chiquinha-1..2.jpeg, prints de dois Stories): fotos feitas pelo foto_chiquinha.py.
-  A arte recebida é cheia (ícones, faixas, frases); aqui fica só o essencial, em duas fotos:
-    recorte (img/chiquinha.png)       ela no sofá, recortada sobre o lilás como no index.html: é quem procurar
-    vista (img/chiquinha-vista.jpg)   a foto da rua sem a caixa de texto, num quadro reto (creme com sombra rosa,
-                                      sem inclinação: a polaroide inclinada é do aviso de encontrado),
-                                      com a nota à mão: é como ela está agora (de lenço rosa) e onde foi vista
+  Caso Chiquinha (perdidos/chiquinha-1.jpeg): o recorte (img/chiquinha.png, feito pelo foto_chiquinha.py) é ela
+  INTEIRA, do jeito que veio na arte, e nada fica por cima dela: sem degradê, sem nome no corpo. A base do recorte
+  (onde a faixa creme da arte cortava as patas) assenta reta na divisa do bloco ink (--painel), como no Thor
+  o nome e o apelo ficam no lilás, do lado para onde ela olha.
+  A caixinha "Está de lenço rosa no pescoço" da arte continua no mesmo lugar e do mesmo tamanho (não esconde
+  nada a mais), só na identidade da Zoe (.nota, posicionada em fração do recorte).
+  A foto de onde ela foi vista vai num Story separado: chiquinha-vista.html.
   O contato é o direct da Zoe (@souazoe.pf): a arte original só traz o link do Story, sem número.
 -->
 <style>
@@ -25,52 +26,53 @@
 *{box-sizing:border-box;margin:0;padding:0}
 body{background:#000;font-family:P,sans-serif;-webkit-font-smoothing:antialiased}
 
+/* lilás em cima e ink a partir de --painel, onde ela assenta */
 .card{width:1080px;height:1350px;position:relative;overflow:hidden;color:#fff;
-  background:radial-gradient(ellipse 70% 45% at 35% 38%,#C9BAF6 0%,var(--lilac) 100%);
-  --top:48px;--bottom:70px;--fade:130px;
-  --rx:-24px;--ry:150px;--rw:640px;              /* recorte: posição e largura */
-  --vx:676px;--vy:178px;--vw:322px}              /* foto da rua (4:5) */
-/* Stories: o mesmo respiro do index.html (tag em 225, texto a 210 px do pé) */
-.card.story{height:1920px;--top:225px;--bottom:210px;--fade:150px;
-  --rx:-30px;--ry:372px;--rw:760px;
-  --vx:650px;--vy:420px;--vw:372px}
+  background:linear-gradient(180deg,transparent 0 var(--painel),var(--ink) var(--painel)),
+    radial-gradient(ellipse 70% 45% at 30% 40%,#C9BAF6 0%,var(--lilac) 100%);
+  --top:48px;--bottom:70px;--painel:792px;
+  --dx:40px;--dw:462px;                          /* recorte: esquerda e largura (a altura vem da proporção) */
+  --cx:574px;--ny:262px;--ay:420px}              /* coluna do nome e do apelo */
+/* Stories: tag em 225 e texto a 210 px do pé, como no index.html */
+.card.story{height:1920px;--top:225px;--bottom:210px;--painel:1168px;
+  --dx:44px;--dw:528px;--cx:612px;--ny:560px;--ay:760px}
 
-.recorte{position:absolute;left:var(--rx);top:var(--ry);width:var(--rw)}
-
-/* foto da rua: quadro reto, borda creme e a sombra rosa deslocada da tag */
-.vista{position:absolute;left:var(--vx);top:var(--vy);z-index:2;border:12px solid var(--cream);
-  box-shadow:12px 12px 0 var(--pink)}
-.vista img{display:block;width:var(--vw);aspect-ratio:4/5}
-/* nota à mão embaixo do quadro: como ela está agora e onde foi vista */
-.nota{position:absolute;z-index:3;left:calc(var(--vx) - 6px);top:calc(var(--vy) + var(--vw) * 1.25 + 46px);
-  font-family:C;font-weight:700;font-size:50px;line-height:.98;color:var(--ink);transform:rotate(-4deg)}
-.story .nota{font-size:60px;top:calc(var(--vy) + var(--vw) * 1.25 + 52px)}
+.foto{position:absolute;left:var(--dx);width:var(--dw);top:calc(var(--painel) - var(--dw) * 970 / 630);
+  container-type:inline-size}
+.foto img{display:block;width:100%}
+/* a caixinha da arte (145..388 x 700..843 no recorte de 630x970), no mesmo lugar e tamanho */
+.nota{position:absolute;left:calc(145 / 630 * 100%);top:calc(700 / 970 * 100%);
+  width:calc(243 / 630 * 100%);height:calc(143 / 970 * 100%);background:var(--cream);color:var(--ink);
+  display:flex;align-items:center;justify-content:center;text-align:center;
+  font-family:C;font-weight:700;font-size:7.6cqw;line-height:.9}
+.nota b{color:var(--pink);font-weight:700}
 
 /* tag em destaque: caixa ink com a sombra rosa deslocada (como o "TCHAU, CARTAZ" do Reel 02) */
-.tag{position:absolute;top:var(--top);left:72px;z-index:4;background:var(--ink);color:#fff;
+.tag{position:absolute;top:var(--top);right:82px;z-index:3;background:var(--ink);color:#fff;
   font-weight:800;font-size:46px;line-height:1.08;letter-spacing:.06em;text-transform:uppercase;padding:16px 26px 15px;
   box-shadow:10px 10px 0 var(--pink);white-space:nowrap}
-.story .tag{font-size:52px;left:50%;transform:translateX(calc(-50% - 5px))}  /* centrada, contando a sombra */
+.story .tag{font-size:52px;right:auto;left:50%;transform:translateX(calc(-50% - 5px))}  /* centrada, contando a sombra */
+.story .tag br{display:none}
 
-/* nome à mão sobre o peito dela; contorno ink como o texto à mão do Reel 02 */
+/* nome à mão no lilás, do lado para onde ela olha; contorno ink como o texto à mão do Reel 02 */
 .nome{position:absolute;z-index:4;font-family:C;font-weight:700;font-size:118px;line-height:1;
-  left:58px;top:600px;transform:rotate(-6deg);-webkit-text-stroke:9px var(--ink);paint-order:stroke fill;
+  left:var(--cx);top:var(--ny);transform:rotate(-6deg);-webkit-text-stroke:9px var(--ink);paint-order:stroke fill;
   text-shadow:0 4px 0 rgba(23,19,31,.5)}
-.story .nome{font-size:140px;left:56px;top:968px}
+.story .nome{font-size:124px}
+
+/* apelo, logo abaixo do nome, em ink sobre o lilás (a frase é da arte original) */
+.apelo{position:absolute;z-index:3;left:calc(var(--cx) + 8px);top:var(--ay);right:60px;color:var(--ink);
+  font-weight:600;font-size:38px;line-height:1.25;letter-spacing:-.01em}
+.story .apelo{font-size:40px}
 
 .txt{position:absolute;left:72px;right:72px;bottom:var(--bottom);z-index:3}
-/* degradê ink só atrás do texto, até o pé do card */
-.txt::before{content:"";position:absolute;z-index:-1;left:-72px;right:-72px;
-  top:calc(-1 * var(--fade));bottom:calc(-1 * var(--bottom));
-  background:linear-gradient(180deg,rgba(23,19,31,0),rgba(23,19,31,.6) calc(var(--fade) * .45),
-    rgba(23,19,31,.92) calc(var(--fade) * .8),var(--ink) var(--fade))}
 .h{font-weight:800;font-size:78px;line-height:1.02;letter-spacing:-.025em}
 .h em{font-style:normal;color:var(--lilac)}
 .story .h{font-size:88px}
 .info{margin-top:26px;font-weight:600;font-size:34px;line-height:1.25;color:var(--cream);text-wrap:pretty}
 .story .info{font-size:38px;margin-top:30px}
 .rot{margin-top:36px;font-weight:700;font-size:26px;letter-spacing:.14em;text-transform:uppercase;color:rgba(246,241,233,.7)}
-.story .rot{margin-top:52px}
+.story .rot{margin-top:48px}
 /* contato: direct da Zoe, com o ícone do Instagram */
 .tel{margin-top:18px;display:inline-flex;align-items:center;gap:18px;background:var(--pink);
   padding:14px 30px 14px 24px;font-weight:800;font-size:62px;line-height:1.1;letter-spacing:-.01em}
@@ -81,11 +83,13 @@ body{background:#000;font-family:P,sans-serif;-webkit-font-smoothing:antialiased
 <body>
 
 <section class="card" id="feed">
-  <img class="recorte" src="img/chiquinha.png" alt="">
-  <div class="vista"><img src="img/chiquinha-vista.jpg" alt=""></div>
-  <div class="nota">vista de lenço rosa,<br>perto da Retipasso</div>
-  <div class="tag">Cachorra desaparecida</div>
+  <div class="foto">
+    <img src="img/chiquinha.png" alt="">
+    <div class="nota"><span>de lenço<br>rosa no<br>pescoço <b>♥</b></span></div>
+  </div>
+  <div class="tag">Cachorra <br>desaparecida</div>
   <div class="nome">Chiquinha</div>
+  <div class="apelo">Ela é companheira de um cãozinho idoso.</div>
   <div class="txt">
     <div class="h">Sumiu em 05/10<br>no <em>Lucas Araújo.</em></div>
     <div class="info">Rua Minas Gerais, no fim do dia. É castrada, está assustada e pode estar escondida.</div>
