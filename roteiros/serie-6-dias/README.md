@@ -2,13 +2,13 @@
 
 Três Reels narrados pela Isabela sobre os dias de busca. O roteiro, os fatos e a mídia de cada episódio ficam em [roteiro.md](roteiro.md).
 
-## Status (30/09)
+## Status (12/10)
 
 | Ep. | Dias | Situação |
 |---|---|---|
 | 1 | sex 18 e sáb 19/09 | **Pronto e versionado** (commit 294a1b9): `saida/video/video3/03-os-6-dias-parte-1.mp4` (+ `-sem-musica.mp4`), 67,2 s |
-| 2 | dom 20, seg 21 e ter 22/09 | **Pronto (30/09)**: `saida/video/video4/04-os-6-dias-parte-2.mp4` (+ `-sem-musica.mp4`), 64,2 s, com a capa (`capa-04.png`) e o texto do post (`legenda-04.txt`). Ainda não versionado |
-| 3 | qua 23/09 | Aguardando os fatos. O fecho leva ao Reel 01 (o reencontro, 24/09) |
+| 2 | dom 20, seg 21 e ter 22/09 | **Pronto (30/09)**: `saida/video/video4/04-os-6-dias-parte-2.mp4` (+ `-sem-musica.mp4`), 64,2 s, com a capa (`capa-04.png`) e o texto do post (`legenda-04.txt`). Versionado (commit a2396d0) |
+| 3 | qua 23 e qui 24/09 | **Pronto (06/10)**: `saida/video/video5/05-os-6-dias-parte-3.mp4` (+ `-sem-musica.mp4`), 76,9 s, com a capa (`capa-05.png`) e o texto do post (`legenda-05.txt`). Montagem em `editor/build_05.py` (narração em `audios/dia6/1..9.ogg`, câmeras em `drive/set26/dia 6e7/camera1..9`, mapa em `python editor/mapa.py ep3-camadas`). Versionado em 12/10 |
 
 A divisão mudou em 29/09: o Ep. 2 ficou com três dias (a terça das câmeras fecha o episódio), e o Ep. 3 com um só.
 

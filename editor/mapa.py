@@ -7,6 +7,8 @@ Uso: python editor/mapa.py ep1 [pasta_saida]          (padrão: videos/mapas/)
      python editor/mapa.py ep1-camadas [pasta_saida]  (camadas para as animações do build_03.py)
      python editor/mapa.py ep2 [pasta_saida]          (Ep. 2: o trajeto uma rua adiante, antes e depois)
      python editor/mapa.py ep2-camadas [pasta_saida]  (camadas para as animações do build_04.py)
+     python editor/mapa.py ep3 [pasta_saida]          (Ep. 3: prévia do trajeto inteiro e a vista com o Instituto Menino Deus)
+     python editor/mapa.py ep3-camadas [pasta_saida]  (camadas para o build_05.py: bases em três níveis + JSON)
 """
 import json
 import math
@@ -45,6 +47,26 @@ ESQ_LAVAPES = (-28.2542755, -52.4040163)   # Tiradentes × Lava Pés
 FIM = (-28.2559816, -52.4065435)           # Lava Pés × Fagundes dos Reis (duas quadras): até onde se sabe
 # a rota segue pelos nós da Rua Lava Pés até o FIM (Silva Jardim, Benjamin Constant, Fagundes dos Reis)
 FIM_EP2 = (-28.2566359, -52.4078446)       # Lava Pés × Capitão Eleutério: uma rua a mais (câmeras da terça, 22/09)
+# Ep. 3 (câmeras de quarta e quinta, 23 e 24/09): o caminho inteiro da sexta, 08h43 a 08h50 (Guilherme, 05/10)
+ESQ_CHICUTA = (-28.2584624, -52.4113319)   # Lava Pés × Coronel Chicuta: o fim da Lava Pés
+CHICUTA_BRASIL = (-28.261891, -52.4092292)  # Coronel Chicuta × Av. Brasil, já do outro lado (pista sul)
+NOVEMBRO_BRASIL = (-28.2626654, -52.4107416)  # 15 de Novembro × Av. Brasil (pista sul)
+NOVEMBRO_MOROM = (-28.2637397, -52.4100944)
+MOROM_TEIXEIRA = (-28.2642411, -52.411221)
+TEIXEIRA_INDEP = (-28.2652719, -52.4105646)
+FIM_EP3 = (-28.2681864, -52.4088005)       # Teixeira Soares × Dr. Benedito Acauã: o fim da Teixeira Soares
+MENINO_DEUS = (-28.2753919, -52.4223373)   # Instituto Menino Deus (Nominatim): onde ela foi vista na quinta
+NOVEMBRO_NORTE = (-28.2624004, -52.4108701)  # 15 de Novembro × Av. Brasil, pista norte (o rótulo da 15 vai daí para o norte)
+# cada trecho: (rua, de, até); o caminho segue só pelos nós daquela rua
+PERNAS_EP3 = [
+    ("Rua Tiradentes", ESQ_BRITO, ESQ_LAVAPES),
+    ("Rua Lava Pés", ESQ_LAVAPES, ESQ_CHICUTA),
+    ("Rua Coronel Chicuta", ESQ_CHICUTA, CHICUTA_BRASIL),
+    ("Avenida Brasil Centro", CHICUTA_BRASIL, NOVEMBRO_BRASIL),
+    ("Rua 15 de Novembro", NOVEMBRO_BRASIL, NOVEMBRO_MOROM),
+    ("Rua Morom", NOVEMBRO_MOROM, MOROM_TEIXEIRA),
+    ("Rua Teixeira Soares", MOROM_TEIXEIRA, FIM_EP3),
+]
 
 ANCORA = (W / 2, 540)                      # onde o MEIO cai na tela, igual nas três vistas (trajeto no alto)
 LARGURA = {"a": 700, "b": 2600, "c": 9500}   # metros de largura de cada vista do Ep. 1
@@ -353,7 +375,255 @@ def ep2_camadas(outdir):
     print("ok:", outdir)
 
 
+def metros(a, b):
+    return math.hypot((b[0] - a[0]) * 110574, (b[1] - a[1]) * 111320 * math.cos(math.radians(a[0])))
+
+
+def rota_ruas(els, pernas=PERNAS_EP3):
+    """O trajeto por uma sequência de ruas: em cada perna, o caminho mais curto (Dijkstra) só pelos
+    nós da rua indicada. Devolve os pontos e o comprimento acumulado (m) no fim de cada perna."""
+    pts, marcos = [], []
+    for nome, de, ate in pernas:
+        adj = {}
+        for e in els:
+            if e["tags"].get("name") == nome:
+                g = [_k((p["lat"], p["lon"])) for p in e["geometry"]]
+                for a, b in zip(g, g[1:]):
+                    adj.setdefault(a, set()).add(b)
+                    adj.setdefault(b, set()).add(a)
+        src, dst = _k(de), _k(ate)
+        if src not in adj or dst not in adj:
+            raise ValueError(f"{de} ou {ate} não é um nó da {nome}")
+        dist, prev, fila = {src: 0.0}, {src: None}, [(0.0, src)]
+        while fila:
+            fila.sort()
+            c, u = fila.pop(0)
+            if u == dst:
+                break
+            for w in adj[u]:
+                nc = c + metros(u, w)
+                if nc < dist.get(w, 1e18):
+                    dist[w], prev[w] = nc, u
+                    fila.append((nc, w))
+        trecho, u = [], dst
+        while u is not None:
+            trecho.append(u)
+            u = prev[u]
+        trecho.reverse()
+        pts += trecho if not pts else trecho[1:]
+        marcos.append((nome, sum(metros(a, b) for a, b in zip(pts, pts[1:]))))
+    return pts, marcos
+
+
+def rotulo_rota(v, pts, frac, texto, lado=1, dist=34, size=24):
+    """Rótulo paralelo à rota, a `frac` do comprimento (na tela), deslocado `dist` px para um lado."""
+    xy = [v.xy(*p) for p in pts]
+    seg = [math.hypot(b[0] - a[0], b[1] - a[1]) for a, b in zip(xy, xy[1:])]
+    alvo, acc = frac * sum(seg), 0.0
+    for (a, b), s in zip(zip(xy, xy[1:]), seg):
+        if acc + s >= alvo:
+            t = (alvo - acc) / s
+            x, y = a[0] + (b[0] - a[0]) * t, a[1] + (b[1] - a[1]) * t
+            nx, ny = -(b[1] - a[1]) / s, (b[0] - a[0]) / s
+            ang = math.degrees(math.atan2(b[1] - a[1], b[0] - a[0]))
+            if ang > 90:
+                ang -= 180
+            elif ang < -90:
+                ang += 180
+            x, y = x + nx * dist * lado, y + ny * dist * lado
+            return (f'<text x="{x:.1f}" y="{y:.1f}" transform="rotate({ang:.1f} {x:.1f} {y:.1f})" '
+                    f'font-family="PB" font-size="{size}" letter-spacing="3" fill="{CREAM}" fill-opacity=".8" '
+                    f'stroke="{INK}" stroke-width="7" paint-order="stroke" text-anchor="middle" '
+                    f'dominant-baseline="central">{texto}</text>')
+        acc += s
+    return ""
+
+
+def ep3_labels(els, v, pts_por_rua):
+    out = []
+    for nome, texto, frac, lado in [("Rua Lava Pés", "R. LAVA PÉS", .5, 1),
+                                    ("Rua Coronel Chicuta", "R. CEL. CHICUTA", .45, 1),
+                                    ("Rua Teixeira Soares", "R. TEIXEIRA SOARES", .55, -1)]:
+        out.append(rotulo_rota(v, pts_por_rua[nome], frac, texto, lado))
+    # a avenida e a Morom são curtas na rota: o rótulo vai no quarteirão seguinte, a nordeste, fora dela
+    out.append(svg_label(v, "AV. BRASIL", *street_along(els, "Avenida Brasil Centro", CHICUTA_BRASIL, 150, 1), size=28))
+    morom_ne = rota_ruas(els, [("Rua Morom", NOVEMBRO_MOROM, (-28.2630186, -52.4085979))])[0]  # até a Chicuta
+    out.append(rotulo_rota(v, morom_ne, .68, "R. MOROM", dist=0, size=22))
+    return "".join(out)
+
+
+def ep3(outdir):
+    """Ep. 3: prévia do trajeto inteiro (A) e a vista aberta com o Instituto Menino Deus (B)."""
+    els = load()
+    outdir.mkdir(parents=True, exist_ok=True)
+    r, marcos = rota_ruas(els)
+    por_rua = {p[0]: rota_ruas(els, [p])[0] for p in PERNAS_EP3}
+    for nome, acc in marcos:
+        print(f"  {nome:24s} até {acc:5.0f} m")
+    total = marcos[-1][1]
+
+    va = View(meio(r), 1500, anchor=(W / 2, 860))
+    render(svg_map(els, va, ep3_labels(els, va, por_rua) + route(va, r, 12)), outdir / "ep3-a-trajeto.png")
+
+    lats, lons = [p[0] for p in r + [MENINO_DEUS]], [p[1] for p in r + [MENINO_DEUS]]
+    vb = View(((min(lats) + max(lats)) / 2, (min(lons) + max(lons)) / 2), 2900, anchor=(W / 2, 860))
+    mx, my = vb.xy(*MENINO_DEUS)
+    imd = (f'<circle cx="{mx:.1f}" cy="{my:.1f}" r="44" fill="{LILAC}" opacity=".3" filter="url(#glow)"/>'
+           f'<circle cx="{mx:.1f}" cy="{my:.1f}" r="15" fill="{LILAC}"/>'
+           f'<text x="{mx:.1f}" y="{my + 62:.1f}" font-family="PB" font-size="26" letter-spacing="3" '
+           f'fill="{LILAC}" stroke="{INK}" stroke-width="7" paint-order="stroke" text-anchor="middle">'
+           f'INSTITUTO MENINO DEUS</text>')
+    render(svg_map(els, vb, route(vb, r, 9) + imd), outdir / "ep3-b-menino-deus.png")
+    print(f"ok: {outdir} (trajeto: {total:.0f} m; do fim ao Instituto, em linha reta: "
+          f"{metros(FIM_EP3, MENINO_DEUS):.0f} m)")
+
+
+# Ep. 3: as camadas para o build_05. O mapa anda (acompanha a ponta da linha, abre até a cidade e até o
+# Instituto), então as bases saem em três níveis de detalhe, todos na mesma projeção em metros a partir do
+# meio da rota (x para leste, y para o sul): o build escolhe o nível de cada quadro e recorta. A rota, os
+# nomes das ruas, o horário na ponta, o "?" e o Instituto são desenhados no build, a partir do JSON.
+NIVEIS_EP3 = [
+    # (nome, pixels por metro, margem em metros: oeste, leste, norte, sul) em volta da caixa de referência
+    ("perto", 1.6, (700, 700, 700, 1000)),         # a rota (a vista que acompanha a ponta)
+    ("meio", 0.6, (2000, 2000, 2600, 3000)),       # a rota e o Instituto (a rota inteira e a vista B)
+    ("cidade", 0.15, None),                        # a área urbana inteira (BBOX + 3 km)
+]
+# nomes das ruas (o build acende cada um quando a Isabela fala): (texto, rua, como achar o ponto, lado)
+# "rota": a tantos metros do início da rota, ao lado dela (lado ±1); "rua": a `dist` metros do cruzamento `de`, sobre
+# a rua, no sentido que se afasta da rota (ep3_pela_rua).
+ROTULOS_EP3 = [
+    ("lavapes", "R. LAVA PÉS", {"rota": 800}, -1),
+    # a Chicuta: no trecho ao norte da Lava Pés (ela dobrou para o sul), acima da ponta e fora das legendas
+    ("chicuta", "R. CEL. CHICUTA", {"rua": "Rua Coronel Chicuta", "de": ESQ_CHICUTA, "dist": 165}, 0),
+    # a avenida, a 15 de Novembro e a Morom ficam nos trechos que ela NÃO percorreu (longe da linha, uns dos outros
+    # e da etiqueta do horário na ponta): a avenida a leste da Chicuta, a 15 ao norte da avenida, a Morom a oeste
+    # da Teixeira
+    ("brasil", "AV. BRASIL", {"rua": "Avenida Brasil Centro", "de": CHICUTA_BRASIL, "dist": 260}, 0),
+    ("novembro", "R. 15 DE NOVEMBRO", {"rua": "Rua 15 de Novembro", "de": NOVEMBRO_NORTE, "dist": 150}, 0),
+    ("morom", "R. MOROM", {"rua": "Rua Morom", "de": MOROM_TEIXEIRA, "dist": 100}, 0),
+    # a Teixeira: no trecho ao norte da Morom (ela desceu para o sul), longe da esquina, fora das legendas
+    ("teixeira", "R. TEIXEIRA SOARES", {"rua": "Rua Teixeira Soares", "de": MOROM_TEIXEIRA, "dist": 185}, 0),
+    ("independencia", "R. INDEPENDÊNCIA", {"rua": "Rua Independência", "de": TEIXEIRA_INDEP, "dist": 175}, 0),
+]
+
+
+def ep3_pela_rua(els, nome, de, dist, pm, ref):
+    """Ponto (m) e direção a `dist` metros do cruzamento `de`, andando pela rua `nome` (passando de um trecho do OSM
+    para o seguinte, sempre pelo vizinho mais reto), no sentido cujo ponto fica mais longe da rota `pm`."""
+    adj = {}
+    for e in els:
+        if e["tags"].get("name") == nome:
+            g = [_k((q["lat"], q["lon"])) for q in e["geometry"]]
+            for a, b in zip(g, g[1:]):
+                adj.setdefault(a, set()).add(b)
+                adj.setdefault(b, set()).add(a)
+    src = _k(de)
+    if src not in adj:
+        raise ValueError(f"{de} não é um nó da {nome}")
+    cands = []
+    for primeiro in adj[src]:
+        cam, ant, u, andado = [src, primeiro], src, primeiro, metros(src, primeiro)
+        while andado < dist:
+            prox = [w for w in adj.get(u, ()) if w not in cam]
+            if not prox:
+                break
+            ux, uy = u[1] - ant[1], u[0] - ant[0]
+
+            def curva(w):
+                wx, wy = w[1] - u[1], w[0] - u[0]
+                return -(ux * wx + uy * wy) / (math.hypot(ux, uy) * math.hypot(wx, wy) + 1e-12)
+            ant, u = u, min(prox, key=curva)
+            cam.append(u)
+            andado += metros(ant, u)
+        if andado < dist:
+            continue
+        a, b = ep3_metros(cam[-2], ref), ep3_metros(cam[-1], ref)
+        sg = math.hypot(b[0] - a[0], b[1] - a[1])
+        f = 1 - (andado - dist) / sg
+        q = (a[0] + (b[0] - a[0]) * f, a[1] + (b[1] - a[1]) * f)
+        longe = min(math.hypot(q[0] - c[0], q[1] - c[1]) for c in pm)
+        cands.append((longe, q, (b[0] - a[0], b[1] - a[1])))
+    if not cands:
+        raise ValueError(f"a {nome} não tem {dist} m a partir de {de}")
+    _, q, dxy = max(cands, key=lambda c: c[0])
+    return q, dxy
+
+
+def ep3_metros(p, ref):
+    """(lat, lon) → metros (leste, sul) a partir de `ref`, na mesma conta da View."""
+    kx = 111320 * math.cos(math.radians(ref[0]))
+    return ((p[1] - ref[1]) * kx, (ref[0] - p[0]) * 110574)
+
+
+def ep3_camadas(outdir):
+    """Camadas do Ep. 3: as três bases (sem rótulos, sem crédito) e ep3-camadas.json com a rota em metros, os
+    marcos de cada rua, os cruzamentos, os pontos dos nomes das ruas e o Instituto Menino Deus."""
+    els = load()
+    outdir.mkdir(parents=True, exist_ok=True)
+    r, marcos = rota_ruas(els)
+    ref = meio(r)
+    pm = [ep3_metros(p, ref) for p in r]
+    md = ep3_metros(MENINO_DEUS, ref)
+    xs, ys = [p[0] for p in pm], [p[1] for p in pm]
+    caixa = (min(xs), max(xs), min(ys), max(ys))
+    caixa_md = (min(caixa[0], md[0]), max(caixa[1], md[0]), min(caixa[2], md[1]), max(caixa[3], md[1]))
+    s_, w_, n_, e_ = BBOX
+    cid = (ep3_metros((n_, w_), ref), ep3_metros((s_, e_), ref))
+    niveis = []
+    for nome, s, mg in NIVEIS_EP3:
+        if mg is None:
+            x0, x1, y0, y1 = cid[0][0] - 3000, cid[1][0] + 3000, cid[0][1] - 3000, cid[1][1] + 3000
+        else:
+            cx = caixa if nome == "perto" else caixa_md
+            x0, x1, y0, y1 = cx[0] - mg[0], cx[1] + mg[1], cx[2] - mg[2], cx[3] + mg[3]
+        size = (int(math.ceil((x1 - x0) * s)), int(math.ceil((y1 - y0) * s)))
+        anchor = (-x0 * s, -y0 * s)
+        v = View(ref, W / s, anchor, size)
+        f = outdir / f"ep3-{nome}.png"
+        render(svg_map(els, v, credit=False), f, size=size)
+        niveis.append({"nome": nome, "arquivo": f.name, "s": s, "anchor": list(anchor), "size": list(size)})
+        print(f"  {nome}: {size[0]}x{size[1]} px ({s} px/m)")
+
+    acc = [0.0]
+    for a, b in zip(r, r[1:]):
+        acc.append(acc[-1] + metros(a, b))
+
+    def na_rota(d):
+        """Ponto (m) e direção da rota a d metros do início."""
+        for i in range(len(acc) - 1):
+            if acc[i + 1] >= d:
+                u = (d - acc[i]) / (acc[i + 1] - acc[i])
+                (x1, y1), (x2, y2) = pm[i], pm[i + 1]
+                return (x1 + (x2 - x1) * u, y1 + (y2 - y1) * u), (x2 - x1, y2 - y1)
+        return pm[-1], (pm[-1][0] - pm[-2][0], pm[-1][1] - pm[-2][1])
+
+    rotulos = []
+    for chave, texto, onde, lado in ROTULOS_EP3:
+        if "rota" in onde:
+            (x, y), (dx, dy) = na_rota(onde["rota"])
+        else:                     # pela rua, a `dist` metros do cruzamento, no sentido que se afasta da rota
+            (x, y), (dx, dy) = ep3_pela_rua(els, onde["rua"], onde["de"], onde["dist"], pm, ref)
+        ang = math.degrees(math.atan2(dy, dx))
+        if ang > 90:
+            ang -= 180
+        elif ang < -90:
+            ang += 180
+        rotulos.append({"chave": chave, "texto": texto, "x": x, "y": y, "ang": ang, "lado": lado})
+
+    cruz = {}
+    for nome in ("ESQ_LAVAPES", "FIM", "FIM_EP2", "ESQ_CHICUTA", "CHICUTA_BRASIL", "NOVEMBRO_BRASIL",
+                 "NOVEMBRO_MOROM", "MOROM_TEIXEIRA", "TEIXEIRA_INDEP", "FIM_EP3"):
+        k = _k(globals()[nome])
+        cruz[nome] = next(acc[i] for i, q in enumerate(r) if _k(q) == k)
+    info = {"ref": list(ref), "niveis": niveis, "rota": [list(p) for p in pm], "acc": acc,
+            "marcos": [[n, a] for n, a in marcos], "cruzamentos": cruz, "rotulos": rotulos,
+            "menino_deus": list(md), "cidade": [list(cid[0]), list(cid[1])]}
+    (outdir / "ep3-camadas.json").write_text(json.dumps(info, indent=1, ensure_ascii=False), encoding="utf-8")
+    print("ok:", outdir, f"(rota {acc[-1]:.0f} m)")
+
+
 if __name__ == "__main__":
     what = sys.argv[1] if len(sys.argv) > 1 else "ep1"
     out = Path(sys.argv[2]) if len(sys.argv) > 2 else ROOT / "videos" / "mapas"
-    {"ep1": ep1, "ep1-camadas": ep1_camadas, "ep2": ep2, "ep2-camadas": ep2_camadas}[what](out)
+    {"ep1": ep1, "ep1-camadas": ep1_camadas, "ep2": ep2, "ep2-camadas": ep2_camadas,
+     "ep3": ep3, "ep3-camadas": ep3_camadas}[what](out)

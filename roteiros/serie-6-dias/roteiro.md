@@ -10,7 +10,7 @@ Três Reels sobre os dias de busca, narrados pela Isabela. Este arquivo é o doc
 
 | | |
 |---|---|
-| Episódios | **Ep. 1**: dias 1 e 2 (sex 18 e sáb 19/09) · **Ep. 2**: dias 3, 4 e 5 (dom 20 a ter 22/09) · **Ep. 3**: dia 6 (qua 23/09), levando ao reencontro |
+| Episódios | **Ep. 1**: dias 1 e 2 (sex 18 e sáb 19/09) · **Ep. 2**: dias 3, 4 e 5 (dom 20 a ter 22/09) · **Ep. 3**: dia 6 e a quinta até a ligação (qua 23 e qui 24/09), levando ao reencontro |
 | Quem narra | Isabela, em 1ª pessoa ("a gente", "eu") |
 | Duração | 60 a 70 s cada (≈ 150 palavras de narração; a Isabela fala a ~2,4 palavras/s, medido no Reel 01) |
 | Eixo | HISTÓRIA (e ARQUIVO) |
@@ -258,9 +258,95 @@ O fecho do Ep. 1 ("PARTE 2 · DIAS 3 E 4 →") fica como está.
 
 ---
 
-## Ep. 3: Dia 6 (qua 23/09)
+## Ep. 3: Dia 6 e a quinta · "2 km em 7 minutos"
 
-Material já conhecido:
-- As outras gravações de câmera do percurso dela (o Guilherme tem, e elas são deste episódio).
-- Os vídeos da primeira noite em casa (24/09) ficam para o fecho, levando ao Reel 01.
-- *(aguardando os fatos)*
+### Fatos (fonte: Guilherme, 05/10)
+
+- **Quarta (23/09) e quinta (24/09):** com as câmeras e a ajuda da Secretaria de Segurança, eles rastreiam boa parte do trajeto dela. Todas as gravações do caminho são de **sex 18/09, logo depois da fuga**: os relógios vão de 08h44 a 08h50.
+- **O trajeto:** subiu a Lava Pés inteira, dobrou na Coronel Chicuta em direção à avenida, atravessou a Avenida Brasil, desceu pela 15 de Novembro até a Morom, seguiu pela Morom até a Teixeira Soares, desceu em direção à Independência e foi reto até o fim da Teixeira Soares (cruzamento com a Dr. Benedito Acauã).
+- **"Dois quilômetros em sete minutos":** medido no OSM, da esquina da fuga até o fim da Teixeira Soares são **2,35 km**. Os 7 minutos vão da Câmera 03 do Ep. 2 (08h43) até a última gravação, na Teixeira Soares (08h50).
+- Vendo as imagens, eles ficaram abismados: nenhum carro pegou a Zoe, e foram várias ruas com muito movimento, inclusive a avenida principal.
+- **Seis dias de busca, dez minutos de fuga:** tudo o que eles mapearam nesses dias foram só os primeiros dez minutos da fuga, na sexta. Eles estavam muito longe de alcançá-la.
+- **Quinta:** antes de descobrirem para que lado ela foi, chega uma ligação: ela tinha sido vista no Instituto Menino Deus. Todo o foco vai para lá. O que vem depois (o reencontro, às 16h) é o Reel 01.
+- **Distância até o Instituto:** do fim da Teixeira Soares, são 1,5 km em linha reta e ~1,7 a 1,9 km pelas ruas ("a uns dois quilômetros dali").
+
+### A ideia: o mapa vai se completando
+
+O Ep. 1 terminou com uma linha de um quarteirão e um "?". O Ep. 2 levou essa linha uma rua adiante. **O Ep. 3 abre com a linha inteira**: 2,3 km desenhados em dois segundos, com **2 KM** e **7 MIN** grandes no tempo da fala. É o gancho: quem assiste vê de cara o tamanho da corrida.
+
+Depois, o mapa volta para onde o Ep. 2 parou e vai se completando no ritmo das câmeras: **a Zoe passa numa gravação, e logo depois a linha avança no mapa**, com o horário daquela câmera na ponta da linha. Câmera, mapa, câmera, mapa.
+
+A virada é o P7: seis dias de um lado, dez minutos do outro. O mapa abre até a cidade inteira, e os 2 km viram um risquinho. Depois volta o "?" da série, agora no fim da Teixeira Soares, e um ponto lilás acende no Instituto Menino Deus. **Entre o fim da linha e o ponto lilás não há linha nenhuma**, porque ninguém sabe o caminho. No fim, um spoiler: a câmera do Instituto, com a Zoe passando, leva para o Reel 01.
+
+### Narração (como a Isabela gravou, `audios/dia6/1.ogg` a `9.ogg`, 05/10)
+
+> **P1.** É inacreditável o que essa cachorra fez. Foram dois quilômetros em sete minutos.
+>
+> **P2.** Na quarta e quinta, com a ajuda da Secretaria de Segurança, a gente foi seguindo o caminho dela, câmera por câmera. As imagens eram da sexta-feira de manhã, logo depois que ela fugiu.
+>
+> **P3.** Ela subiu toda Lava Pés e dobrou na Coronel Chicuta, indo pra avenida.
+>
+> **P4.** Ela atravessou a Avenida Brasil, desceu pela Quinze até a Morom e seguiu até a Teixeira Soares.
+>
+> **P5.** Dali, ela desceu em direção à Independência e foi reto, até o final da rua.
+>
+> **P6.** E a gente ficava abismado vendo aquilo. Como é que nenhum carro pegou ela? Foram várias ruas movimentadas, inclusive a avenida principal.
+>
+> **P7.** Foram seis dias de busca, e tudo que a gente mapeou foram só os primeiros dez minutos de fuga dela, lá na sexta-feira. A gente estava muito longe de alcançar ela.
+>
+> **P8.** Na quinta, antes da gente conseguir descobrir pra que lado ela foi, veio uma ligação. Tinham visto a Zoe no Instituto Menino Deus, a uns dois quilômetros dali.
+>
+> **P9.** E aí, todo o nosso foco foi pra lá.
+
+O texto acima é o da fala, conferido com o faster-whisper (small). O whisper escreveu "Coronela", "Morou", "Daliola" e "seguiu a teta em": a fala é "Coronel", "Morom", "Dali, ela" e "seguiu até a". Os arquivos somam 58,4 s (~56 s de fala). Com as câmeras sem voz por cima, as cartelas, o spoiler e o fecho, o vídeo fica em **≈ 75 s**.
+
+### Mapa de tempo
+
+Os tempos são o plano. Os definitivos saem da fala real, no build.
+
+| ≈ Tempo | Bloco | Voz | Na tela |
+|---|---|---|---|
+| 0 a 4,3 s | **Gancho** | P1 | O mapa com a linha da rota inteira se desenhando (~2,5 s), já em movimento no 1º quadro. **2 KM** em "dois quilômetros" e **7 MIN** em "sete minutos", grandes. OS 6 DIAS DA ZOE · PARTE 3 no topo, com o contador já em 5 de 6 |
+| 4,3 a 5,3 s | **Cartela** | — | DIA 6 · QUA 23/09 (enche o 6º segmento) |
+| 5,3 a 14 s | **A busca** | P2 | "Câmera por câmera": os dois Street Views com a câmera circulada à mão (#01, #02). "Sexta-feira de manhã": o relógio da camera1 em close ("18/09/2026 08:44"), com a etiqueta **SEX 18/09 · 08h44** |
+| 14 a 18 s | **Lava Pés** | — | camera1 → camera2 (a CAM 2, a travessia mais nítida): a Zoe correndo, logo depois do "logo depois que ela fugiu" |
+| 18 a 23 s | **Mapa** | P3 | O mapa parte do fim do Ep. 2 (Lava Pés × Cap. Eleutério). A linha sobe a Lava Pés, dobra na Coronel Chicuta e entra nela um pouco. Os nomes acendem quando ela fala |
+| 23 a 33 s | **Chicuta** | — (P4 começa no fim) | camera3 → mapa → camera4 e camera5 (o mesmo instante, de dois ângulos) → mapa → camera6 → camera7. A cada mapa, a linha desce mais um pedaço da Chicuta, com o horário na ponta (08:45, 08:46). A trilha marca cada passagem dela |
+| 32 a 38 s | **Mapa** | P4 | A linha atravessa a Avenida Brasil (zoom leve na travessia), desce a 15, pega a Morom e chega na Teixeira Soares |
+| 38 a 40 s | **Teixeira** | — | camera8 (08:50) |
+| 39 a 42,5 s | **Mapa** | P5 | A linha desce a Teixeira Soares até o fim. Na ponta: 08:50 |
+| 43 a 50,5 s | **Nenhum carro** | P6 | "Abismado": as outras travessias da camera2 (as vistas que não foram usadas antes), na velocidade real ou só um pouco lentas. "Inclusive a avenida principal": o mapa inteiro, com zoom na travessia da Avenida Brasil |
+| 51 a 61,5 s | **6 dias × 10 min** | P7 | "Seis dias de busca": o contador do topo acende inteiro, com **6 DIAS** grande. "Os primeiros dez minutos": o mapa com a linha inteira e **10 MIN** grande, no mesmo lugar e do mesmo tamanho. "A gente estava muito longe de alcançar ela": o mapa abre devagar até a cidade inteira |
+| 61,5 a 62,5 s | **Cartela** | — | QUI 24/09 (o contador está cheio e só pulsa) |
+| 62,5 a 71,5 s | **A ligação** | P8 | "Pra que lado ela foi": o mapa com a linha inteira e o **"?"** no fim da Teixeira Soares. "Instituto Menino Deus, a uns dois quilômetros dali": o mapa abre (vista B), o "?" some e um ponto lilás acende no Instituto, com o nome. Sem linha entre os dois |
+| 72 a 74,5 s | **O foco** | P9 | O print do satélite com o Instituto e as áreas de mato circuladas à mão (sem a barra do Windows) |
+| 74,5 a 77,5 s | **Spoiler** | — | camera9: a câmera do Instituto, com a Zoe passando |
+| 77,5 a 81 s | **Fecho** | — | A Zoe na primeira noite em casa (24/09), de frente para a câmera. Só "O REENCONTRO →" e o @ discreto |
+
+**Câmeras:** passagens curtas, só o necessário para ver a Zoe. Câmera lenta suave e zoom moderado, para ela não ficar difícil de enxergar. O círculo lilás vai só onde ela é pequena demais para achar sozinho (no máximo três no vídeo), e não em todas.
+
+**Trilha:** já começa "correndo" no gancho e segue com um tempo forte em cada passagem dela, até o P5. Baixa no P6. No P7, vira só um pad depois de "seis dias de busca" e **corta de vez antes de "A gente estava muito longe de alcançar ela"**, com uma pausa curta, sem esticar. Volta contida na cartela da quinta e abre um pouco no spoiler. No fecho, só o som ambiente. Sai também a versão sem música.
+
+**A cartela da quinta** não leva número de dia. Contando de sexta a quinta, a quinta seria o "dia 7", e isso brigaria com os "6 dias" do nome da série e da bio.
+
+### Mídia do Ep. 3
+
+Fonte: `drive/set26/dia 6e7/`. As câmeras foram renomeadas pelo Guilherme (05/10) na ordem do caminho e com a rua de cada uma. Os horários são os relógios das próprias gravações (sex 18/09).
+
+| Arquivo | Original | Rua | Relógio | Onde a Zoe aparece |
+|---|---|---|---|---|
+| `camera1 - rua lava pes` | WA0064, CAM 3, celular filmando o monitor | Lava Pés | 08:44:44 a 08:45:00 | **[?]** |
+| `camera2 - lava pes` | WA0090, quatro vistas no monitor (o relógio ficou fora do quadro) | Lava Pés | — | CAM 1 ~10 a 12 s; CAM 2 ~13 a 16 s (nítida); outra vista ~22 a 27 s; outra ~28 a 32 s |
+| `camera3 - rua coronel chicuta.mp4` | WA0180 (os 3 s iniciais são de outro horário) | Coronel Chicuta | 08:45:01 a 08:46:09 | ~19 a 21 s (08:45:57). Cortar antes de 24 s (quadrado verde do app) |
+| `camera4 - rua coronel chicuta.mp4` | WA0193, FRENTE DIREITA | Coronel Chicuta | 08:46:07 a 08:46:32 | no fim, ~27 a 28 s (08:46:32) |
+| `camera5 - coronel chicuta.mp4` | WA0194, FRENTE ESQUERDA (o mesmo prédio) | Coronel Chicuta | 08:46:23 a 08:46:36 | ~9 a 11 s (08:46:31 a 33) |
+| `camera6 - coronel chicuta chegando na avbrasil` | WA0196, CAM 3 Intelbras | Chicuta, chegando na Av. Brasil | 08:46:34 a 08:46:38 | ~2,5 a 4 s (08:46:37), nítida |
+| `camera7 - chegando na av brasil.mp4` | WA0202, Camera 02 | chegando na Av. Brasil | 08:46:41 a 08:47:04 | pequena, lá no fundo **[?]** |
+| `camera8 - teixeira soares` | WA0101 de 24/09 (celular filmando o app de uma câmera, às 14h03) | Teixeira Soares | 08:50:41 | **[?]** |
+| `camera9 - instituto menino deus` | `dia do encontro/VID-20260924-WA0160` (o mesmo do Reel 01) | Instituto Menino Deus | qui 24/09 | **[?]** |
+| `img maps menino deus` | foto da tela: satélite com o Instituto e as áreas de mato circuladas | — | — | — |
+| `IMG-20260923-WA0098` e `WA0106` | Street Views com a câmera circulada à mão (qua, 13h33 e 13h42) | — | — | — |
+
+Fora do vídeo: o raio de 3 km (WA0001), cujo "último registro" fica perto da Av. Brasil e confundiria com o mapa novo; as conversas com as parecidas (WA0213, WA0223, WA0278), porque o tema foi o Ep. 2 e elas têm dados pessoais; o Street View da Av. Gen. Neto (WA0101), que fica fora do trajeto; e os mapas desenhados à mão (WA0096, WA0208, WA0043), que serviram só de referência para a rota.
+
+**Mapa:** `mapa.rota_ruas(els)` segue rua por rua (`PERNAS_EP3`), pelo caminho mais curto dentro de cada uma. Os trechos acumulados ficam assim: Tiradentes até 135 m, Lava Pés até 992 m, Coronel Chicuta até 1.424 m, Av. Brasil até 1.595 m, 15 de Novembro até 1.730 m, Morom até 1.853 m e Teixeira Soares até 2.350 m. Prévia: [ep3-mapa.jpg](ep3-mapa.jpg) (`python editor/mapa.py ep3`). De cada câmera, só se sabe a rua. Por isso a linha avança "até algum ponto daquela rua", e não há alfinete fixo em endereço nenhum.

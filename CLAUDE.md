@@ -75,7 +75,12 @@ editor/       # pipeline dos Reels em ffmpeg
   words-04.json # timestamps por palavra da narração do Reel 04, já na linha do tempo final
   trilha_04.py  # trilha do Reel 04: contida (75 BPM) até o golpe, abre "animadinha" (104 BPM) no vislumbre das câmeras; chamada pelo build_04
   capa_04.py    # capa do Reel 04 (padrão da capa_03, 5 de 6 dias cheios) → saida/video/video4/capa-04.png
-  mapa.py       # mapas 1080x1920 com as ruas reais de Passo Fundo (OpenStreetMap, cache em videos/osm-passo-fundo.json) na identidade da Zoe, via Chrome headless (ex.: python editor/mapa.py ep1; ep2 e ep2-camadas para o Reel 04)
+  build_05.py   # monta o Reel 05 "Os 6 dias da Zoe · Parte 3" (qua 23 e qui 24/09, narração em audios/dia6/1..9.ogg, ~77 s): "2 km em 7 minutos",
+                # a corrida da sexta câmera por câmera (drive/set26/dia 6e7/camera1..9) com o mapa ep3-camadas → saida/video/video5/. Mesmo venv do build_03
+  words-05.json # timestamps por palavra da narração do Reel 05, já na linha do tempo final
+  trilha_05.py  # trilha do Reel 05: o groove do vislumbre do Ep. 2 em 120 BPM, com uma marca leve em cada passagem dela numa câmera; chamada pelo build_05
+  capa_05.py    # capa do Reel 05 (padrão das capas 03/04, 6 de 6 dias cheios): o mapa da rota + a Zoe recortada → saida/video/video5/capa-05.png
+  mapa.py       # mapas 1080x1920 com as ruas reais de Passo Fundo (OpenStreetMap, cache em videos/osm-passo-fundo.json) na identidade da Zoe, via Chrome headless (ex.: python editor/mapa.py ep1; ep2 e ep2-camadas para o Reel 04; ep3 e ep3-camadas para o Reel 05)
   fonts/        # Poppins + Caveat
 carrossel/    # template padronizado dos carrosséis (versionado)
   index.html    # 9 cards de 1080x1350, com a identidade visual (o 9º é a chamada para seguir)
@@ -130,6 +135,7 @@ saida/        # renders finais (versionado), um agrupamento por peça
   video/video3/           # 03-os-6-dias-parte-1.mp4 (+ -sem-musica.mp4) + legendas-03.ass + capa-03.png + legenda-03.txt (texto do post: Instagram e TikTok)
   video/video2/           # 02-tchau-cartaz.mp4 (+ -sem-musica.mp4, para usar áudio em alta no app) + capa-02.png + legendas-02.ass
   video/video4/           # 04-os-6-dias-parte-2.mp4 (+ -sem-musica.mp4) + legendas-04.ass + capa-04.png + legenda-04.txt (Instagram e TikTok)
+  video/video5/           # 05-os-6-dias-parte-3.mp4 (+ -sem-musica.mp4) + legendas-05.ass + capa-05.png + legenda-05.txt (Instagram e TikTok)
 ```
 
 Novas peças entram em `saida/carrossel/carrosselN/` e `saida/video/videoN/`, numeradas em sequência.
