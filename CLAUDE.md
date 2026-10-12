@@ -93,7 +93,7 @@ capa/         # template HTML da capa do Reel 01 v2 (1080x1920, texto dentro do 
   img/capa.jpg  # foto usada na capa
 roteiros/     # roteiros de trabalho (versionado)
   serie-6-dias/   # série de 3 Reels narrados pela Isabela (dias 1-2, 3-5, 6-encontro): roteiro.md, README.md (status e como continuar) + painéis de mídia por episódio
-perdidos/     # artes recebidas de animais desaparecidos ou encontrados (ex.: garibaldi.jpeg, bob.jpeg, thor.jpeg, bola.jpeg, vila-luiza-1..3.jpeg, bidi.jpeg)
+perdidos/     # artes recebidas de animais desaparecidos ou encontrados (ex.: garibaldi.jpeg, bob.jpeg, thor.jpeg, bola.jpeg, vila-luiza-1..3.jpeg, bidi.jpeg, chiquinha-1..2.jpeg)
 templates/    # templates reutilizáveis na identidade da Zoe, sem o nome escrito (versionado)
   fonts/        # Poppins + Caveat compartilhadas pelos templates
   desaparecidos/  # alerta de desaparecido: feed 1080x1350 + Stories 1080x1920 do mesmo index.html
@@ -107,12 +107,17 @@ templates/    # templates reutilizáveis na identidade da Zoe, sem o nome escrit
                   # (não sangra nem é ampliada demais), nome à mão no canto da foto, contato por telefone (caso Bidi)
     bola-encontrada.html # aviso de "encontrada" (Stories + feed): tudo lilás, tag rosa com sombra ink, foto em cartão com sombra rosa,
                   # texto em ink e comentário à mão da Zoe; modelo para os próximos reencontros (destaque "Em casa")
+    chiquinha.html # variante com o recorte dela INTEIRO à esquerda, assentado reto na divisa do bloco ink (sem degradê nem nada
+                  # por cima), nome + apelo no lilás à direita (como o Thor); a caixinha da arte vira nota creme no mesmo lugar
+    chiquinha-vista.html # 2º Story do caso: a foto de onde ela foi vista (tag "Ela foi vista"), sangrada, sem a caixa de texto
     encontrado-vila-luiza.html # aviso de cachorro ENCONTRADO sem tutor conhecido (Stories + feed): tag ink "Cachorro encontrado",
                   # foto em polaroide inclinada (borda creme, "você me conhece?" à mão) atravessando do lilás para o bloco ink,
                   # anel rosa na marca de identificação ligado a um detalhe ampliado em círculo; modelo para os próximos (destaque "Perdidos")
     recorte.py    # recorta os cães da arte recebida (rembg + opencv num venv temporário) → img/
     recorte_thor.py # recorte do Thor: foto de 371 px ampliada 4x com EDSR (opencv-contrib) + rembg + limpeza da borda → img/thor.png
     foto_bola.py  # foto da Bola tirada do print do Story: apaga a sirene da arte (inpaint no piso) + EDSR 4x → img/bola.jpg
+    foto_chiquinha.py # fotos da Chiquinha: recorte dela inteira (rembg, sem o sofá entre as patas e no ombro, nada reconstruído)
+                  # e a foto da rua abaixo da caixa de texto, com uma arrumadinha leve → img/chiquinha.png e img/chiquinha-vista.jpg
     foto_vila_luiza.py # fotos do cachorro da Vila Luiza tiradas dos prints (sem a interface do Instagram) → img/vila-luiza.jpg e -olho.jpg
     foto_bidi.py  # foto do Bidi tirada de dentro da moldura azul da arte, só recorte (sem retoque) → img/bidi.png
   destaques/      # capas dos destaques do Instagram: 1080x1920, fundo lilás, ícone ink com sombra rosa, sem texto
@@ -187,4 +192,7 @@ No Windows (Git Bash), o ffmpeg e o rclone vêm do winget (`Gyan.FFmpeg`, `Rclon
 
 - Nunca inventar fatos da história da Zoe. Se faltar informação, perguntar.
 - Alguns nomes de pastas do Drive têm caracteres especiais (`apresentação ` tem um espaço no final): sempre usar aspas nos caminhos. No Windows, o rclone grava esse espaço final como `␠` (U+2420), então a pasta local é `drive/instagram/apresentação␠`.
+- Alertas de desaparecidos/encontrados: a foto do cachorro é a prioridade. Ele aparece inteiro e grande, sem cortar e sem nada por
+  cima (degradê, nome e texto ficam fora dele). Não reconstruir partes escondidas: usar só o que foi enviado. Uma segunda foto
+  (ex.: onde ele foi visto) vai num Story separado, nunca na mesma arte.
 - Mídia bruta (drive/, videos/, audios/) não vai para o git. Renders finais em saida/ vão, assim como scripts, templates, fontes, imagens recortadas e documentos.
