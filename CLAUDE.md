@@ -93,7 +93,7 @@ capa/         # template HTML da capa do Reel 01 v2 (1080x1920, texto dentro do 
   img/capa.jpg  # foto usada na capa
 roteiros/     # roteiros de trabalho (versionado)
   serie-6-dias/   # série de 3 Reels narrados pela Isabela (dias 1-2, 3-5, 6-encontro): roteiro.md, README.md (status e como continuar) + painéis de mídia por episódio
-perdidos/     # artes recebidas de animais desaparecidos ou encontrados (ex.: garibaldi.jpeg, bob.jpeg, thor.jpeg, bola.jpeg, vila-luiza-1..3.jpeg, bidi.jpeg, bidi-print.jpeg, chiquinha-1..2.jpeg)
+perdidos/     # artes recebidas de animais desaparecidos ou encontrados (ex.: garibaldi.jpeg, bob.jpeg, thor.jpeg, bola.jpeg, vila-luiza-1..3.jpeg, bidi.jpeg, bidi-print.jpeg, chiquinha-1..2.jpeg, layde.jpeg)
 templates/    # templates reutilizáveis na identidade da Zoe, sem o nome escrito (versionado)
   fonts/        # Poppins + Caveat compartilhadas pelos templates
   desaparecidos/  # alerta de desaparecido: feed 1080x1350 + Stories 1080x1920 do mesmo index.html
@@ -105,6 +105,8 @@ templates/    # templates reutilizáveis na identidade da Zoe, sem o nome escrit
     bola.html     # variante com a foto original no alto (cabeça à esquerda → tag à direita no feed) e contato por direct do Instagram (caso Bola)
     bidi.html     # variante com a foto original pequena (450 px) inteira, sem retoque, num cartão com sombra rosa sobre o lilás
                   # (não sangra nem é ampliada demais), nome à mão no canto da foto, contato por telefone (caso Bidi)
+    layde.html    # variante no modelo do bidi.html com uma foto bem em pé (611x904): cartão mais estreito, nome à mão no canto
+                  # de baixo só sobre o chão, título "Você viu a Layde?" (a arte não diz onde sumiu), WhatsApp do Daniel (caso Layde)
     bola-encontrada.html # aviso de "encontrada" (Stories + feed): tudo lilás, tag rosa com sombra ink, foto em cartão com sombra rosa,
                   # texto em ink e comentário à mão da Zoe; modelo para os próximos reencontros (destaque "Em casa")
     chiquinha.html # variante com o recorte dela INTEIRO à esquerda, assentado reto na divisa do bloco ink (sem degradê nem nada
@@ -122,6 +124,7 @@ templates/    # templates reutilizáveis na identidade da Zoe, sem o nome escrit
                   # e a foto da rua abaixo da caixa de texto, com uma arrumadinha leve → img/chiquinha.png e img/chiquinha-vista.jpg
     foto_vila_luiza.py # fotos do cachorro da Vila Luiza tiradas dos prints (sem a interface do Instagram) → img/vila-luiza.jpg e -olho.jpg
     foto_bidi.py  # foto do Bidi tirada de dentro da moldura azul da arte, só recorte (sem retoque) → img/bidi.png
+    foto_layde.py # foto grande da arte "CÃO PERDIDO" da Layde, só recorte (sem retoque; a 2ª foto da arte fica de fora) → img/layde.png
     foto_bidi_encontrado.py # foto do Bidi para o aviso de encontrado, tirada do print do alerta (perdidos/bidi-print.jpeg):
                   # apaga os cantos e o nome à mão (inpaint) → img/bidi-encontrado.jpg
   destaques/      # capas dos destaques do Instagram: 1080x1920, fundo lilás, ícone ink com sombra rosa, sem texto
