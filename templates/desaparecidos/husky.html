@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<title>Alerta de desaparecida: husky</title>
+<!--
+  Template de alerta de animal desaparecido, na identidade da Zoe (sem o nome escrito):
+  paleta ink/lilás/rosa, Poppins ExtraBold, caixas retas como as legendas dos Reels e o nome à mão (Caveat).
+  O mesmo conteúdo sai em dois formatos: feed 1080x1350 (#feed) e Stories/TikTok 1080x1920 (clonado pelo script).
+
+  Caso husky (perdidos/husky.jpeg, print de um Story da família): no modelo do bidi.html, com a foto num cartão
+  com a sombra rosa sobre o lilás. A foto (img/husky.jpg, do foto_husky.py) é o miolo entre as duas caixas de
+  texto do Story: das orelhas ao peito, porque as patas estão atrás da caixa de baixo e não se reconstrói nada.
+  Só o que o Story diz: ela sumiu de casa depois dos fogos de artifício ("ontem", sem data). Raça, cor e olhos
+  são o que a foto mostra. Sem nome, sem local e sem contato no Story: não há nome à mão e o contato é o
+  direct da Zoe (@souazoe.pf), como no caso Chiquinha. Quando vier o nome, usar o .nome do bidi.html.
+-->
+<style>
+@font-face{font-family:P;src:url(../fonts/Poppins-SemiBold.ttf);font-weight:600}
+@font-face{font-family:P;src:url(../fonts/Poppins-Bold.ttf);font-weight:700}
+@font-face{font-family:P;src:url(../fonts/Poppins-ExtraBold.ttf);font-weight:800}
+
+:root{--ink:#17131F;--cream:#F6F1E9;--lilac:#B9A7F3;--pink:#EC4899}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:#000;font-family:P,sans-serif;-webkit-font-smoothing:antialiased}
+
+.card{width:1080px;height:1350px;position:relative;overflow:hidden;color:#fff;
+  background:radial-gradient(ellipse 70% 45% at 50% 32%,#C9BAF6 0%,var(--lilac) 100%);
+  --top:56px;--bottom:70px;--fade:130px;
+  --fw:560px;--fy:166px;--fx:calc((1080px - var(--fw) - 14px) / 2)}  /* cartão da foto, centrado contando a sombra */
+/* Stories: tag em top 225, texto a 210 px do pé, foto maior */
+.card.story{height:1920px;--top:225px;--bottom:210px;--fade:150px;
+  --fw:680px;--fy:350px}
+
+/* tag em destaque: caixa ink com a sombra rosa deslocada (como o "TCHAU, CARTAZ" do Reel 02) */
+.tag{position:absolute;top:var(--top);left:72px;z-index:5;background:var(--ink);color:#fff;
+  font-weight:800;font-size:46px;line-height:1;letter-spacing:.06em;text-transform:uppercase;padding:16px 26px 15px;
+  box-shadow:10px 10px 0 var(--pink);white-space:nowrap}
+.story .tag{font-size:52px;left:50%;transform:translateX(calc(-50% - 5px))}  /* centrada, contando a sombra */
+
+/* foto original: cartão com a sombra rosa deslocada, acima do degradê do texto */
+.foto{position:absolute;left:var(--fx);top:var(--fy);width:var(--fw);aspect-ratio:960/972;z-index:4;
+  border-radius:24px;box-shadow:14px 14px 0 var(--pink)}
+
+.txt{position:absolute;left:72px;right:72px;bottom:var(--bottom);z-index:3}
+/* degradê ink só atrás do texto, até o pé do card */
+.txt::before{content:"";position:absolute;z-index:-1;left:-72px;right:-72px;
+  top:calc(-1 * var(--fade));bottom:calc(-1 * var(--bottom));
+  background:linear-gradient(180deg,rgba(23,19,31,0),rgba(23,19,31,.6) calc(var(--fade) * .45),
+    rgba(23,19,31,.92) calc(var(--fade) * .8),var(--ink) var(--fade))}
+.h{font-weight:800;font-size:78px;line-height:1.02;letter-spacing:-.025em}
+.h em{font-style:normal;color:var(--lilac)}
+.story .h{font-size:88px}
+.info{margin-top:26px;font-weight:600;font-size:34px;line-height:1.3;color:var(--cream)}
+.story .info{font-size:38px;margin-top:30px}
+.rot{margin-top:36px;font-weight:700;font-size:26px;letter-spacing:.14em;text-transform:uppercase;color:rgba(246,241,233,.7)}
+.story .rot{margin-top:52px}
+/* contato: direct da Zoe, com o ícone do Instagram */
+.tel{margin-top:18px;display:inline-flex;align-items:center;gap:18px;background:var(--pink);
+  padding:14px 30px 14px 24px;font-weight:800;font-size:62px;line-height:1.1;letter-spacing:-.01em}
+.tel svg{width:1em;height:1em;flex:none;margin-top:-.04em}
+.story .tel{font-size:68px}
+</style>
+</head>
+<body>
+
+<section class="card" id="feed">
+  <div class="tag">Cachorra desaparecida</div>
+  <img class="foto" src="img/husky.jpg" alt="">
+  <div class="txt">
+    <div class="h">Sumiu depois dos<br><em>fogos de artifício.</em></div>
+    <div class="info">Husky fêmea, cinza e branca, de olhos azuis.<br>Pode estar assustada e escondida.</div>
+    <div class="rot">Viu essa menina? Fale no direct</div>
+    <div class="tel">
+      <svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.2" aria-hidden="true">
+        <rect x="3" y="3" width="18" height="18" rx="5.5"/>
+        <circle cx="12" cy="12" r="4.2"/>
+        <circle cx="17.3" cy="6.7" r="1.3" fill="#fff" stroke="none"/>
+      </svg>
+      <span>@souazoe.pf</span>
+    </div>
+  </div>
+</section>
+
+<script>
+  // Stories/TikTok: o mesmo card, com mais respiro em cima e embaixo (áreas da interface)
+  const story = document.getElementById('feed').cloneNode(true);
+  story.id = 'story';
+  story.classList.add('story');
+  document.body.append(story);
+</script>
+</body>
+</html>
