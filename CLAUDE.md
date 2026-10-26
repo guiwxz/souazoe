@@ -93,7 +93,7 @@ capa/         # template HTML da capa do Reel 01 v2 (1080x1920, texto dentro do 
   img/capa.jpg  # foto usada na capa
 roteiros/     # roteiros de trabalho (versionado)
   serie-6-dias/   # série de 3 Reels narrados pela Isabela (dias 1-2, 3-5, 6-encontro): roteiro.md, README.md (status e como continuar) + painéis de mídia por episódio
-perdidos/     # artes recebidas de animais desaparecidos ou encontrados (ex.: garibaldi.jpeg, bob.jpeg, thor.jpeg, bola.jpeg, vila-luiza-1..3.jpeg, bidi.jpeg, bidi-print.jpeg, chiquinha-1..2.jpeg)
+perdidos/     # artes recebidas de animais desaparecidos ou encontrados (ex.: garibaldi.jpeg, bob.jpeg, thor.jpeg, bola.jpeg, vila-luiza-1..3.jpeg, bidi.jpeg, bidi-print.jpeg, chiquinha-1..2.jpeg, sao-jose.jpeg)
 templates/    # templates reutilizáveis na identidade da Zoe, sem o nome escrito (versionado)
   fonts/        # Poppins + Caveat compartilhadas pelos templates
   desaparecidos/  # alerta de desaparecido: feed 1080x1350 + Stories 1080x1920 do mesmo index.html
@@ -115,6 +115,8 @@ templates/    # templates reutilizáveis na identidade da Zoe, sem o nome escrit
                   # anel rosa na marca de identificação ligado a um detalhe ampliado em círculo; modelo para os próximos (destaque "Perdidos")
     bidi-encontrado.html # aviso de "encontrado" do Bidi no modelo do bola-encontrada.html, adaptado a uma foto em pé
                   # (cartão centrado e mais estreito via --fw, cortado embaixo com aspect-ratio)
+    encontrada-sao-jose.html # aviso de cachorra ENCONTRADA no modelo do encontrado-vila-luiza.html, com a polaroide HORIZONTAL
+                  # (ela deitada de lado), centrada e mais larga; sem marca informada, então sem anel nem detalhe ampliado
     recorte.py    # recorta os cães da arte recebida (rembg + opencv num venv temporário) → img/
     recorte_thor.py # recorte do Thor: foto de 371 px ampliada 4x com EDSR (opencv-contrib) + rembg + limpeza da borda → img/thor.png
     foto_bola.py  # foto da Bola tirada do print do Story: apaga a sirene da arte (inpaint no piso) + EDSR 4x → img/bola.jpg
@@ -124,6 +126,7 @@ templates/    # templates reutilizáveis na identidade da Zoe, sem o nome escrit
     foto_bidi.py  # foto do Bidi tirada de dentro da moldura azul da arte, só recorte (sem retoque) → img/bidi.png
     foto_bidi_encontrado.py # foto do Bidi para o aviso de encontrado, tirada do print do alerta (perdidos/bidi-print.jpeg):
                   # apaga os cantos e o nome à mão (inpaint) → img/bidi-encontrado.jpg
+    foto_sao_jose.py # foto da shih tzu encontrada na São José (perdidos/sao-jose.jpeg), só recorte, sem o braço em cima → img/sao-jose.jpg
   destaques/      # capas dos destaques do Instagram: 1080x1920, fundo lilás, ícone ink com sombra rosa, sem texto
     index.html    # uma <section class="capa" id="..." data-nome="..."> por capa: A Zoe (carinha), 6 dias (calendário),
                   # Perdidos (lupa com pata), Em casa (casinha com coração), Dicas (lâmpada com pata), Adoção (coração com pata)

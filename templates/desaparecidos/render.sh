@@ -8,7 +8,7 @@ mkdir -p saida
 # no Windows (Git Bash) o Chrome não está no PATH e o Python nativo não enxerga /tmp nem /c/...
 CHROME=$(command -v google-chrome || command -v chrome || command -v chromium || echo "/c/Program Files/Google/Chrome/Application/chrome.exe")
 # ambiente remoto: Chromium do Playwright
-[ -x "$CHROME" ] || for c in /opt/pw-browsers/chromium-*/chrome-linux/chrome; do [ -x "$c" ] && CHROME="$c"; done
+[ -x "$CHROME" ] || for c in /opt/pw-browsers/chromium-*/chrome-linux*/chrome; do [ -x "$c" ] && CHROME="$c"; done
 win() { cygpath -m "$1" 2>/dev/null || echo "$1"; }
 TMP=$(mktemp -d)
 SHOT="$(win "$TMP")/alerta.png"
