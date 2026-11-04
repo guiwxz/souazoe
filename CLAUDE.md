@@ -123,6 +123,8 @@ templates/    # templates reutilizáveis na identidade da Zoe, sem o nome escrit
     frida.html    # alerta no modelo do bidi.html com o nome à mão no canto de baixo à DIREITA (a cabeça dela fica à esquerda)
                   # e dois telefones empilhados na mesma caixa rosa (caso Frida, Vila Jardim); tem também o quadrado para carrossel
                   # (foto no lilás, texto em duas colunas no bloco ink): modelo para os próximos quadrados
+    frida-encontrada.html # aviso de "encontrada" da Frida no modelo do bidi-encontrado.html, com a mesma foto do alerta
+                  # inteira (sem corte) e o nome à mão no canto de baixo à direita; feed com a foto menor para o texto respirar
     recorte.py    # recorta os cães da arte recebida (rembg + opencv num venv temporário) → img/
     recorte_thor.py # recorte do Thor: foto de 371 px ampliada 4x com EDSR (opencv-contrib) + rembg + limpeza da borda → img/thor.png
     foto_bola.py  # foto da Bola tirada do print do Story: apaga a sirene da arte (inpaint no piso) + EDSR 4x → img/bola.jpg
