@@ -5,7 +5,7 @@ tudo o que der é produzido em lote (1 dia por semana para gravar/montar a seman
 
 ## Fatos da adoção (contados pela Isabela em 13/11)
 
-- A **@ongventosdosul** compartilhou nos Stories o post de uma moça que tinha encontrado **duas filhotinhas
+- A **@projetosocialventosdosul** compartilhou nos Stories o post de uma moça que tinha encontrado **duas filhotinhas
   abandonadas na chuva, no meio de um terreno baldio**.
 - Uma delas (a Zoe) era **igual à Luma**, a cachorra da família da Isabela que morreu atropelada em 2016.
 - O Guilherme **não queria adotar**: achava que estava bom só fazendo **lar temporário**. A Isabela insistiu.
@@ -26,13 +26,20 @@ tudo o que der é produzido em lote (1 dia por semana para gravar/montar a seman
 - [x] Fotos das pastas **"dia da adoção"**, **"Luma"** e **"lares temporários"** (baixadas em 13/11 para `drive/`).
 - [ ] A história de cada lar temporário (ver abaixo).
 
-### Lares temporários (6, na ordem em que ficaram com a Isabela, de ONGs diferentes)
+### Lares temporários (6, todos antes da Zoe, na ordem)
 
-1. Theodor · 2. Rocco · 3. Heitor · 4. Camélia · 5. Mocca · 6. Mia
-(fotos em `drive/lares temporários/<Nome> - N.jpg`)
+Os cinco primeiros na kitnet; a Mia, a única no apartamento novo. As ONGs davam ração, caminha, tapete higiênico e
+potes, e tudo era devolvido depois da adoção. **Tradição:** na última noite, antes da família definitiva buscar,
+eles dormiam na cama (só a Camélia não: a família veio conhecê-la num domingo à tarde e ela já ficou).
 
-Falta, de cada um: ONG (e @), quando e por quanto tempo ficou, de onde veio e como chegou, uma lembrança ou
-mania, se foi adotado (e se a família pode ser marcada). E: foram antes ou depois da Zoe?
+1. **Theodor ("TT")** · @pataviralata · resgatado bem filhotinho, adaptação com tapetinho; menos de 1 mês; adotado, hoje **Churros**. Sem contato com a família.
+2. **Rocco** · @pataviralata · ~1 ano; não fazia as necessidades dentro de casa; não gostava muito do Guilherme; menos de 1 mês; adotado, manteve o nome. Sem contato.
+3. **Heitor** · @pataviralata · ~1 ano; agitado, mas não agressivo; menos de 1 mês; adotado (não se sabe se manteve o nome). Sem contato.
+4. **Camélia** · @pataviralata · ~2 anos; resgatada com outra cadela e um filhote; medrosa; a de maior porte; fazia as necessidades fora; ~2 meses (a kitnet provavelmente foi o único motivo de não ficarem com ela); adotada, virou **Lorna**, irmã de gatos. Contato com a família: pedir autorização para marcar.
+5. **Mocca** · @pataviralata · 6 meses a 1 ano; na ONG era "Eva"; aprendeu tapetinho e comandos; 1 a 2 meses; adotada. Sem contato.
+6. **Mia** · @projetosocialventosdosul · ~45 dias; agitada e inteligente, aprendeu comandos rápido; ~1 mês; adotada, virou **Tequila**. Contato com a família: pedir autorização para marcar.
+
+Fotos em `drive/lares temporários/<Nome> - N.jpg` (Theodor: cortar o pé no canto; Heitor: desfocar a logo do pet shop).
 
 ## Ritmo
 
@@ -59,7 +66,7 @@ mania, se foi adotado (e se a família pode ser marcada). E: foram antes ou depo
 | Data | Formato | Pilar | Conteúdo |
 |---|---|---|---|
 | Seg 30/11 | Carrossel | ARQUIVO/ZOE | **"Antes de eu sumir, eu fui encontrada."** A Zoe conta, card a card: duas filhotinhas na chuva num terreno baldio (marcar a moça) → o Story da Ventos do Sul → a Isabela vê a Luma no meu rosto (foto lado a lado) → o Guilherme achava que lar temporário bastava → "eu tinha uns 40 dias e nem caninos" → minha irmã também ganhou uma família → "dia 16/12 eles foram me buscar". |
-| Qui 3/12 | Reel | CAUSA | **"Essa casa já foi lar temporário de 6"**: os 6 passando na ordem (foto, nome, ONG, "hoje: adotado"), o que é LT e por que ele importa. |
+| Qui 3/12 | Reel | CAUSA | **"Antes de mim, essa casa foi lar temporário de 6"** : os 6 passando na ordem (foto, nome, "hoje: Churros/Lorna/Tequila…"), como funciona um LT (a ONG dá ração, caminha, tapete e potes; o lar dá casa e tempo), a tradição da última noite na cama e "Eu fui a primeira que não precisou ir embora." CTA: ser lar temporário. |
 | 1 a 6/12 | Stories | CAUSA | **Um lar temporário por dia**, na ordem (Theodor, Rocco, Heitor, Camélia, Mocca, Mia): a história curta de cada um, marcando a ONG e a família. Destaque novo "Lar temporário". |
 | Stories | — | CAUSA | "Você adotou? Qual o dia?" (caixinha) → coleta dos adoversários dos seguidores. |
 | Seg 7/12 | Reel simples | ZOE | Primeiro ano x hoje (fotos da pasta "dia da adoção"). |
@@ -69,7 +76,7 @@ mania, se foi adotado (e se a família pode ser marcada). E: foram antes ou depo
 
 ## 16/12 (quarta): 2 anos de Zoe
 
-1. **Reel principal, em Collab com a Isabela e a @ongventosdosul**: do Story da ONG ao primeiro dia em casa,
+1. **Reel principal, em Collab com a Isabela e a @projetosocialventosdosul**: do Story da ONG ao primeiro dia em casa,
    o ano, um flash da busca (sem repetir a série) e a Zoe segura em casa hoje.
    Gancho: *"Eu fui encontrada duas vezes."* Fecho: *"Há 2 anos eu ganhei uma família. Este ano, uma cidade
    inteira me devolveu pra ela."*
