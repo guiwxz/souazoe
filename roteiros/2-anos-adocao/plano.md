@@ -10,20 +10,21 @@ tudo o que der é produzido em lote (1 dia por semana para gravar/montar a seman
 - Uma delas (a Zoe) era **igual à Luma**, a cachorra da família da Isabela que morreu atropelada em 2016.
 - O Guilherme **não queria adotar**: achava que estava bom só fazendo **lar temporário**. A Isabela insistiu.
 - Em **16/12/2024** eles foram buscá-la. A adoção foi pela ONG Ventos do Sul.
-- **16/12 também é aniversário da mãe da Isabela.**
+- **16/12 também é aniversário da mãe da Isabela.** Usar só como fun fact, de leve (um Story ou uma linha).
+- **Idade:** ela tinha **entre 30 e 45 dias** quando foi adotada (ainda não tinha os caninos).
+- **A irmã também foi adotada.**
+- **O nome:** a Isabela queria um nome de personagem de livro, mas sem ser óbvio. Escolheu a **Zoë Doce-Amarga**,
+  de *Percy Jackson*, uma das **Caçadoras de Ártemis**. O Guilherme gostou do nome que ela sugeriu.
+- **A Luma pode ser citada**, com fotos (a Isabela vai subir no Drive numa pasta com o nome dela).
+- **A moça que encontrou as filhotes pode ser marcada** (falta achar o Instagram dela).
 - Fogos: a Zoe nunca teve grande reação a fogos; ela se assusta com barulhos em geral.
   → os posts de fogos são de UTILIDADE, sem dizer que ela tem pavor.
 
-### Ainda falta saber (não usar antes de confirmar)
+### Ainda falta
 
-- [ ] Por que o nome Zoe?
-- [ ] O que aconteceu com a irmã? (foi adotada? por quem? dá para marcar?)
-- [ ] Quantos meses ela tinha em 16/12/2024?
+- [ ] O @ da moça que encontrou as filhotes.
 - [ ] Quantos lares temporários vocês já fizeram (e se dá para mostrar algum)?
-- [ ] Tudo bem citar a Luma (e mostrar foto dela)? É um assunto delicado.
-- [ ] Tudo bem mencionar o aniversário da mãe da Isabela? (dá um toque de humor, mas é opcional)
-- [ ] O nome/@ da moça que encontrou as filhotes (marcar só com autorização dela).
-- [ ] Fotos e vídeos da pasta **"dia da adoção"** no Drive.
+- [ ] Fotos e vídeos das pastas **"dia da adoção"** e **"Luma"** no Drive.
 
 ## Ritmo
 
@@ -37,6 +38,7 @@ tudo o que der é produzido em lote (1 dia por semana para gravar/montar a seman
 |---|---|---|---|
 | Seg 16/11 | Reel simples | ZOE | **"Como está a Zoe agora"**: um dia comum dela. Volta sem pedir desculpa pelo sumiço. |
 | Qui 19/11 | Carrossel | UTILIDADE | **"5 coisas que faríamos diferente"** (pendente da semana 1). CTA: salvar. |
+| Sáb 21/11 | Stories | ZOE | **"De onde veio meu nome"**: a Zoë Doce-Amarga, Caçadora de Ártemis em *Percy Jackson*. Enquete: "qual nome de livro você daria pro seu pet?". |
 | Stories | — | ZOE | Caixinha "pergunta pra Zoe" + enquetes de rotina. |
 | Seg 23/11 | Reel simples | ZOE | Humor: uma mania dela narrada em texto na tela, na lógica da Zoe. |
 | Qui 26/11 | Carrossel | CAUSA | **Manifesto** (pendente da semana 1): o que o perfil é daqui pra frente. |
@@ -48,7 +50,7 @@ tudo o que der é produzido em lote (1 dia por semana para gravar/montar a seman
 
 | Data | Formato | Pilar | Conteúdo |
 |---|---|---|---|
-| Seg 30/11 | Carrossel | ARQUIVO/ZOE | **"Antes de eu sumir, eu fui encontrada."** A Zoe conta: as duas filhotinhas na chuva, o Story da ONG, a Isabela vendo a Luma no rosto dela, o Guilherme que não queria. Termina em "dia 16/12 eles foram me buscar". |
+| Seg 30/11 | Carrossel | ARQUIVO/ZOE | **"Antes de eu sumir, eu fui encontrada."** A Zoe conta, card a card: duas filhotinhas na chuva num terreno baldio (marcar a moça) → o Story da Ventos do Sul → a Isabela vê a Luma no meu rosto (foto lado a lado) → o Guilherme achava que lar temporário bastava → "eu tinha uns 40 dias e nem caninos" → minha irmã também ganhou uma família → "dia 16/12 eles foram me buscar". |
 | Qui 3/12 | Reel | CAUSA | **"Antes de mim, essa casa era lar temporário"**: o que é LT e por que ele importa (com a ONG). |
 | Stories | — | CAUSA | "Você adotou? Qual o dia?" (caixinha) → coleta dos adoversários dos seguidores. |
 | Seg 7/12 | Reel simples | ZOE | Primeiro ano x hoje (fotos da pasta "dia da adoção"). |
