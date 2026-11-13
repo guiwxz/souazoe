@@ -1,0 +1,336 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<title>Zoe · Volta do perfil + 2 anos de adoção</title>
+<style>
+@font-face{font-family:Poppins;font-weight:400;src:url(../../carrossel/fonts/Poppins-Regular.ttf)}
+@font-face{font-family:Poppins;font-weight:500;src:url(../../carrossel/fonts/Poppins-Medium.ttf)}
+@font-face{font-family:Poppins;font-weight:600;src:url(../../carrossel/fonts/Poppins-SemiBold.ttf)}
+@font-face{font-family:Poppins;font-weight:700;src:url(../../carrossel/fonts/Poppins-Bold.ttf)}
+@font-face{font-family:Poppins;font-weight:800;src:url(../../carrossel/fonts/Poppins-ExtraBold.ttf)}
+@font-face{font-family:Caveat;src:url(../../carrossel/fonts/Caveat.ttf)}
+:root{--ink:#17131F;--cream:#F6F1E9;--lilac:#B9A7F3;--pink:#EC4899;--muted:#6E667A;--line:#E4DDD2;--lilac-soft:#ECE6FC}
+@page{size:A4;margin:0}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{background:var(--cream);color:var(--ink);font-family:Poppins,sans-serif;font-size:10pt;line-height:1.5;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+.page{width:210mm;min-height:297mm;padding:18mm 17mm 16mm;position:relative;break-after:page;overflow:hidden}
+.page:last-child{break-after:auto}
+.foot{position:absolute;left:17mm;right:17mm;bottom:9mm;display:flex;justify-content:space-between;font-size:7.5pt;color:var(--muted)}
+.tag{display:inline-block;background:var(--ink);color:var(--cream);font-weight:700;font-size:7.5pt;letter-spacing:.12em;text-transform:uppercase;padding:3px 9px;border-radius:4px}
+.tag.pink{background:var(--pink)}
+h1{font-weight:800;font-size:40pt;line-height:1.02;letter-spacing:-.02em}
+h2{font-weight:800;font-size:20pt;line-height:1.1;letter-spacing:-.01em;margin:6px 0 10px}
+h3{font-weight:700;font-size:11.5pt;margin:14px 0 5px}
+p{margin:0 0 7px}
+.lead{font-size:11.5pt;color:var(--ink)}
+.muted{color:var(--muted)}
+.hand{font-family:Caveat,cursive;font-size:17pt;line-height:1.1;color:var(--pink)}
+b,strong{font-weight:700}
+ul{margin:0 0 8px 0;padding-left:15px}
+li{margin:0 0 4px}
+li::marker{color:var(--pink)}
+/* capa */
+.cover{background:var(--lilac);display:flex;flex-direction:column;justify-content:space-between;padding:22mm 18mm}
+.cover .box{background:var(--ink);color:var(--cream);border-radius:14px;padding:12mm 11mm;box-shadow:8px 8px 0 var(--pink)}
+.cover h1{color:var(--cream);font-size:44pt}
+.cover h1 em{font-style:normal;color:var(--lilac)}
+.cover .meta{font-size:10pt;color:var(--cream);opacity:.85;margin-top:8mm}
+.cover .quote{font-size:13pt;font-weight:600;line-height:1.4;max-width:150mm}
+.cover .hand{color:var(--ink);font-size:24pt;margin-top:4mm}
+/* blocos */
+.card{background:#fff;border:1px solid var(--line);border-radius:10px;padding:10px 13px;margin:0 0 9px}
+.card.ink{background:var(--ink);color:var(--cream);border:0}
+.card.ink .muted{color:#BDB5C9}
+.card.lilac{background:var(--lilac-soft);border-color:#D9CFFA}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:9px}
+.grid3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:9px}
+.num{font-weight:800;font-size:22pt;line-height:1;color:var(--pink)}
+.small{font-size:8.5pt}
+/* tabelas */
+table{width:100%;border-collapse:separate;border-spacing:0;margin:4px 0 10px;font-size:8.8pt;background:#fff;border:1px solid var(--line);border-radius:10px;overflow:hidden}
+th{background:var(--ink);color:var(--cream);text-align:left;font-weight:700;font-size:7.5pt;letter-spacing:.08em;text-transform:uppercase;padding:6px 8px}
+td{padding:6px 8px;border-top:1px solid var(--line);vertical-align:top}
+td:nth-child(1){white-space:nowrap;font-weight:700;width:17mm}
+td:nth-child(2){white-space:nowrap;width:22mm}
+td:nth-child(3){width:20mm}
+.pill{display:inline-block;font-size:6.8pt;font-weight:700;letter-spacing:.06em;padding:1px 6px;border-radius:99px;text-transform:uppercase}
+.p-zoe{background:var(--lilac);color:var(--ink)}
+.p-causa{background:var(--pink);color:#fff}
+.p-util{background:var(--ink);color:var(--cream)}
+.p-arq{background:#D8D2C6;color:var(--ink)}
+tr.star td{background:#FDF0F7}
+.phase{display:flex;align-items:baseline;gap:10px;margin-top:4px}
+.phase .dates{font-weight:600;color:var(--muted);font-size:9.5pt}
+/* carrossel */
+.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
+.cc{background:#fff;border:1px solid var(--line);border-radius:10px;padding:9px 10px;min-height:33mm;position:relative}
+.cc .n{position:absolute;top:8px;right:10px;font-weight:800;color:var(--lilac);font-size:13pt}
+.cc .t{font-weight:700;font-size:9.5pt;line-height:1.3;padding-right:16px}
+.cc .h{font-family:Caveat;color:var(--pink);font-size:13.5pt;line-height:1.1;margin-top:5px}
+.cc .f{font-size:7.5pt;color:var(--muted);margin-top:5px}
+.cc.dark{background:var(--ink);border:0;color:var(--cream)}
+.check li{list-style:none;position:relative;padding-left:18px}
+.check li::before{content:"";position:absolute;left:0;top:3px;width:10px;height:10px;border:1.6px solid var(--ink);border-radius:3px}
+.who{font-size:7.5pt;font-weight:700;color:var(--pink);text-transform:uppercase;letter-spacing:.06em}
+</style>
+</head>
+<body>
+
+<!-- 1. CAPA -->
+<section class="page cover">
+  <div>
+    <span class="tag">Plano de conteúdo · @souazoe.pf</span>
+  </div>
+  <div class="box">
+    <h1>Volta do perfil<br>+ <em>2 anos de Zoe</em></h1>
+    <p class="meta">Instagram e TikTok · 16/11 a 31/12/2026 · para Isabela, Guilherme e a equipe do perfil</p>
+  </div>
+  <div>
+    <p class="quote">"Há 2 anos eu ganhei uma família. Este ano, uma cidade inteira me devolveu pra ela."</p>
+    <p class="hand">— a Zoe, em 16/12</p>
+  </div>
+</section>
+
+<!-- 2. A IDEIA -->
+<section class="page">
+  <span class="tag">01 · A ideia</span>
+  <h2>Voltar a postar com uma data que conta a história certa</h2>
+  <p class="lead">O perfil parou por <b>falta de tempo e de ideia</b>. Em 16/12 a Zoe completa <b>2 anos de adoção</b>. A data é a virada que a estratégia pede: sair de "a cachorra que sumiu" para <b>"a cachorra da família, que agora ajuda outros animais"</b>.</p>
+
+  <div class="card ink" style="margin-top:10px">
+    <p class="hand" style="color:var(--lilac);font-size:20pt;margin-bottom:4px">Eu fui encontrada duas vezes.</p>
+    <p style="margin:0">Uma vez filhote, abandonada na chuva, e a família me adotou. Outra vez em 24/09, depois de 6 dias, e uma cidade inteira me trouxe de volta. Esse é o fio de dezembro.</p>
+  </div>
+
+  <h3>Como a gente chega lá</h3>
+  <div class="grid2">
+    <div class="card"><div class="num">1</div><b>Voltar (16 a 29/11)</b><br><span class="small muted">Rotina, utilidade e as peças que faltavam da semana 1. Sem pedir desculpa pelo sumiço: só voltar.</span></div>
+    <div class="card"><div class="num">2</div><b>Contar a adoção (30/11 a 15/12)</b><br><span class="small muted">A história de como ela chegou, o lar temporário e a contagem regressiva.</span></div>
+    <div class="card"><div class="num">3</div><b>O dia 16/12</b><br><span class="small muted">Reel em Collab com a Isabela e a Ventos do Sul + o "presente da Zoe" para a ONG.</span></div>
+    <div class="card"><div class="num">4</div><b>Fim de ano (17 a 31/12)</b><br><span class="small muted">Utilidade de Natal e réveillon: animal não é presente e fugas com os fogos.</span></div>
+  </div>
+
+  <h3>Ritmo que cabe na rotina</h3>
+  <div class="grid3">
+    <div class="card lilac"><div class="num" style="color:var(--ink)">2×</div><b>feed por semana</b><br><span class="small">segunda e quinta, alternando Reel de celular e carrossel no template</span></div>
+    <div class="card lilac"><div class="num" style="color:var(--ink)">3–4</div><b>dias de Stories</b><br><span class="small">3 a 5 Stories por dia: rotina, enquete, caixinha, alertas verificados</span></div>
+    <div class="card lilac"><div class="num" style="color:var(--ink)">1</div><b>dia de produção</b><br><span class="small">domingo: gravar e escolher fotos da semana seguinte, tudo de uma vez</span></div>
+  </div>
+  <p class="small muted">Mistura de conteúdo da estratégia: 40% Zoe (rotina, humor) · 25% causa · 25% utilidade · 10% arquivo.</p>
+
+  <div class="foot"><span>Zoe | Causas Animais · plano de conteúdo</span><span>2</span></div>
+</section>
+
+<!-- 3. A HISTÓRIA -->
+<section class="page">
+  <span class="tag">02 · A história da adoção</span>
+  <h2>O que a gente sabe (e pode contar)</h2>
+  <p class="muted small">Regra do perfil: nada inventado. Tudo abaixo foi contado pela Isabela.</p>
+
+  <div class="grid2" style="margin-top:8px">
+    <div class="card"><b>Como ela apareceu</b><p class="small" style="margin:3px 0 0">A <b>@ongventosdosul</b> compartilhou nos Stories o post de uma moça que encontrou <b>duas filhotinhas abandonadas na chuva, no meio de um terreno baldio</b>. A moça pode ser marcada (falta achar o @).</p></div>
+    <div class="card"><b>A Luma</b><p class="small" style="margin:3px 0 0">Uma das filhotes era <b>igual à Luma</b>, a cachorra da família da Isabela que morreu atropelada em 2016. Pode ser citada, com fotos.</p></div>
+    <div class="card"><b>O Guilherme não queria</b><p class="small" style="margin:3px 0 0">Ele achava que estava bom só fazendo <b>lar temporário</b>. A Isabela insistiu.</p></div>
+    <div class="card"><b>16/12/2024</b><p class="small" style="margin:3px 0 0">Eles foram buscá-la, pela Ventos do Sul. Ela tinha <b>entre 30 e 45 dias</b> e ainda não tinha os caninos. <b>A irmã também foi adotada.</b></p></div>
+    <div class="card"><b>O nome</b><p class="small" style="margin:3px 0 0">A Isabela queria um nome de personagem de livro, sem ser óbvio: a <b>Zoë Doce-Amarga</b>, uma das Caçadoras de Ártemis em <i>Percy Jackson</i>. O Gui gostou da sugestão.</p></div>
+    <div class="card"><b>Fun fact</b><p class="small" style="margin:3px 0 0">16/12 também é <b>aniversário da mãe da Isabela</b>. Entra de leve, num comentário à mão ou num Story.</p></div>
+  </div>
+
+  <div class="card lilac"><b>Fogos:</b> a Zoe nunca teve grande reação a fogos; ela se assusta com barulhos em geral. Os posts de réveillon são <b>dicas para os seguidores</b>, sem dizer que ela tem pavor.</div>
+
+  <h3>O presente de aniversário da Zoe</h3>
+  <p>Em vez de presente pra ela, um pedido por quem ainda está na <b>Ventos do Sul</b>, a ONG de onde ela veio. Duas opções para combinar com a ONG <b>até 27/11</b>:</p>
+  <ul>
+    <li><b>Divulgação:</b> os animais para adoção da ONG em carrossel ou Stories, com os cards que eles mandarem.</li>
+    <li><b>Arrecadação:</b> ração ou itens entregues <b>direto na ONG</b>, com meta e prestação de contas nos Stories.</li>
+  </ul>
+  <p class="small muted">Dinheiro nunca passa pela conta da Zoe. Nada de pedido sem checagem nem publicidade.</p>
+
+  <div class="foot"><span>Zoe | Causas Animais · plano de conteúdo</span><span>3</span></div>
+</section>
+
+<!-- 4. CALENDÁRIO 1 -->
+<section class="page">
+  <span class="tag">03 · Calendário</span>
+  <div class="phase"><h2>Fase 1 · Voltar</h2><span class="dates">16 a 29/11</span></div>
+  <table>
+    <tr><th>Data</th><th>Formato</th><th>Pilar</th><th>Conteúdo</th></tr>
+    <tr><td>Seg 16/11</td><td>Reel simples</td><td><span class="pill p-zoe">Zoe</span></td><td><b>"Como está a Zoe agora"</b>: um dia comum dela (cama, passeio, creche). Volta sem pedir desculpa pelo sumiço.</td></tr>
+    <tr><td>Qui 19/11</td><td>Carrossel</td><td><span class="pill p-util">Utilidade</span></td><td><b>"5 coisas que faríamos diferente"</b> (pendente da semana 1). CTA: salvar.</td></tr>
+    <tr><td>Sáb 21/11</td><td>Stories</td><td><span class="pill p-zoe">Zoe</span></td><td><b>"De onde veio meu nome"</b>: a Zoë Doce-Amarga de <i>Percy Jackson</i>. Enquete: "qual nome de livro você daria pro seu pet?"</td></tr>
+    <tr class="star"><td>Seg 23/11</td><td>Reel simples</td><td><span class="pill p-zoe">Zoe</span></td><td><b>"Por trás do @souazoe.pf"</b>: a Zoe apresenta a equipe dela. Detalhes na página 6.</td></tr>
+    <tr><td>Qui 26/11</td><td>Carrossel</td><td><span class="pill p-causa">Causa</span></td><td><b>Manifesto</b> (pendente da semana 1): o que o perfil é daqui pra frente.</td></tr>
+    <tr><td>Na semana</td><td>Stories</td><td><span class="pill p-util">Utilidade</span></td><td>Dica de plaquinha de identificação / microchip, no template de dicas. Caixinha "pergunta pra Zoe".</td></tr>
+  </table>
+  <p class="small"><b>Até 27/11:</b> falar com a Ventos do Sul (Collab no dia 16 + o que eles mais precisam).</p>
+
+  <div class="phase" style="margin-top:8px"><h2>Fase 2 · Contar a adoção</h2><span class="dates">30/11 a 15/12</span></div>
+  <table>
+    <tr><th>Data</th><th>Formato</th><th>Pilar</th><th>Conteúdo</th></tr>
+    <tr class="star"><td>Seg 30/11</td><td>Carrossel</td><td><span class="pill p-arq">Arquivo</span></td><td><b>"Antes de eu sumir, eu fui encontrada."</b> A Zoe conta a adoção card a card. Roteiro na página 7.</td></tr>
+    <tr><td>Qui 3/12</td><td>Reel</td><td><span class="pill p-causa">Causa</span></td><td><b>"Antes de mim, essa casa era lar temporário"</b>: o que é LT e por que ele importa (com a ONG).</td></tr>
+    <tr><td>Na semana</td><td>Stories</td><td><span class="pill p-causa">Causa</span></td><td>Caixinha "Você adotou? Qual o dia?": coleta dos adoversários dos seguidores para o dia 16.</td></tr>
+    <tr><td>Seg 7/12</td><td>Reel simples</td><td><span class="pill p-zoe">Zoe</span></td><td><b>Primeiro ano × hoje</b>, com as fotos da pasta "dia da adoção".</td></tr>
+    <tr><td>7 a 15/12</td><td>Stories</td><td><span class="pill p-zoe">Zoe</span></td><td><b>Contagem "faltam N dias"</b>: uma foto antiga por dia + comentário à mão da Zoe.</td></tr>
+    <tr><td>Qui 10/12</td><td>Carrossel</td><td><span class="pill p-util">Utilidade</span></td><td><b>"Adotou? Os primeiros 30 dias"</b>: o que fizemos com a Zoe filhote.</td></tr>
+    <tr><td>Sex 11/12</td><td>Stories</td><td><span class="pill p-causa">Causa</span></td><td>Anúncio do <b>presente de aniversário da Zoe</b> (ação com a ONG).</td></tr>
+  </table>
+  <div class="foot"><span>Zoe | Causas Animais · plano de conteúdo</span><span>4</span></div>
+</section>
+
+<!-- 5. CALENDÁRIO 2 -->
+<section class="page">
+  <span class="tag pink">16/12 · quarta-feira</span>
+  <h2>O dia dos 2 anos</h2>
+  <div class="grid3">
+    <div class="card ink"><div class="num">1</div><b>Reel em Collab</b><p class="small" style="margin:4px 0 0;color:#DDD6E6">Com a Isabela e a @ongventosdosul. Do Story da ONG ao primeiro dia em casa, o ano, um flash da busca e a Zoe segura em casa hoje.</p></div>
+    <div class="card ink"><div class="num">2</div><b>Stories o dia todo</b><p class="small" style="margin:4px 0 0;color:#DDD6E6">Comemoração, figurinha "Adicione o seu" (mostra o seu adotado), repost dos adoversários e o fun fact do aniversário da "vó".</p></div>
+    <div class="card ink"><div class="num">3</div><b>O presente da Zoe</b><p class="small" style="margin:4px 0 0;color:#DDD6E6">A ação com a Ventos do Sul vai ao ar: divulgação dos animais ou arrecadação entregue direto na ONG.</p></div>
+  </div>
+  <div class="card lilac"><b>Gancho:</b> "Eu fui encontrada duas vezes." · <b>Fecho:</b> "Há 2 anos eu ganhei uma família. Este ano, uma cidade inteira me devolveu pra ela."</div>
+
+  <div class="phase" style="margin-top:12px"><h2>Fase 3 · Fim de ano</h2><span class="dates">17 a 31/12</span></div>
+  <table>
+    <tr><th>Data</th><th>Formato</th><th>Pilar</th><th>Conteúdo</th></tr>
+    <tr><td>Qui 17/12</td><td>Stories</td><td><span class="pill p-causa">Causa</span></td><td>Resultado do presente: quanto foi arrecadado, quem foi divulgado.</td></tr>
+    <tr><td>Seg 21/12</td><td>Carrossel</td><td><span class="pill p-util">Utilidade</span></td><td><b>"Animal não é presente surpresa"</b> (Natal, adoção responsável).</td></tr>
+    <tr><td>Qua 23/12</td><td>Stories</td><td><span class="pill p-zoe">Zoe</span></td><td>O Natal da Zoe.</td></tr>
+    <tr><td>Seg 28/12</td><td>Carrossel</td><td><span class="pill p-util">Utilidade</span></td><td><b>"Fogos: como evitar que seu cachorro fuja"</b>: identificação, portão, lugar seguro, quem fica em casa.</td></tr>
+    <tr><td>Qua 30/12</td><td>Reel</td><td><span class="pill p-util">Utilidade</span></td><td><b>"Se ele fugir no réveillon: as primeiras horas"</b>, com o que aprendemos nos 6 dias. CTA: salvar e mandar pra alguém.</td></tr>
+    <tr><td>Qui 31/12</td><td>Stories</td><td><span class="pill p-zoe">Zoe</span></td><td>Retrospectiva do ano em fotos.</td></tr>
+  </table>
+
+  <h3>Durante todo o período</h3>
+  <ul>
+    <li>Alertas de desaparecidos e encontrados nos Stories, <b>só depois de checar</b> o caso (templates prontos).</li>
+    <li>No TikTok, os mesmos Reels com títulos pesquisáveis ("cachorro fugiu com fogos: o que fazer").</li>
+    <li>Collab só no dia 16. Rotina e humor saem só no perfil da Zoe.</li>
+  </ul>
+  <div class="foot"><span>Zoe | Causas Animais · plano de conteúdo</span><span>5</span></div>
+</section>
+
+<!-- 6. POR TRÁS -->
+<section class="page">
+  <span class="tag">04 · Post novo</span>
+  <h2>"Por trás do @souazoe.pf"</h2>
+  <p class="lead">Vale fazer, sim. Depois de um tempo parado, mostrar quem cuida do perfil aproxima as pessoas e explica, sem pedir desculpa, por que ele existe.</p>
+
+  <div class="grid2" style="margin-top:8px">
+    <div class="card">
+      <b>Por que funciona</b>
+      <ul class="small" style="margin-top:4px">
+        <li>Gente segue gente: dá rosto a quem responde as DMs e checa os alertas.</li>
+        <li>Reforça a credibilidade da causa (quem checa, quem divulga).</li>
+        <li>É fácil de gravar: celular, sem roteiro longo.</li>
+      </ul>
+    </div>
+    <div class="card">
+      <b>Os cuidados</b>
+      <ul class="small" style="margin-top:4px">
+        <li><b>A Zoe narra.</b> A equipe aparece pelos olhos dela, como no resto do perfil.</li>
+        <li>O post é sobre o propósito, não sobre os bastidores em si.</li>
+        <li>Só uma vez. Não vira série nem tira o foco da Zoe.</li>
+      </ul>
+    </div>
+  </div>
+
+  <h3>Proposta: Reel simples, ~30 s · seg 23/11</h3>
+  <table>
+    <tr><th>Tempo</th><th>Imagem</th><th style="width:auto" colspan="2">Texto na tela (voz da Zoe)</th></tr>
+    <tr><td>0–3 s</td><td>A Zoe olhando pra câmera</td><td colspan="2"><b>"Esse perfil não se posta sozinho."</b> <span class="hand" style="font-size:13pt">(eu não tenho dedo)</span></td></tr>
+    <tr><td>3–9 s</td><td>A Isabela</td><td colspan="2">"Essa é a Isabela." + o que ela faz no perfil</td></tr>
+    <tr><td>9–15 s</td><td>O Guilherme</td><td colspan="2">"Esse é o Guilherme." + o que ele faz no perfil</td></tr>
+    <tr><td>15–21 s</td><td>A irmã da Isabela</td><td colspan="2">"E essa é a [nome]." + o que ela faz no perfil</td></tr>
+    <tr><td>21–30 s</td><td>A Zoe em casa, com os três</td><td colspan="2"><b>"Uma cidade me trouxe de volta. Agora a gente ajuda a trazer os outros."</b> + @souazoe.pf</td></tr>
+  </table>
+  <div class="card lilac small"><b>Para fechar o roteiro, preciso de:</b> o nome da irmã da Isabela e o que cada um faz no perfil (ex.: quem grava, quem edita, quem responde as DMs, quem checa os alertas). Se a Gabriela Fabian (estratégia) quiser aparecer, ela entra como mais uma.</div>
+  <div class="foot"><span>Zoe | Causas Animais · plano de conteúdo</span><span>6</span></div>
+</section>
+
+<!-- 7. CARROSSEL -->
+<section class="page">
+  <span class="tag">05 · Roteiro</span>
+  <h2>Carrossel "Antes de eu sumir, eu fui encontrada"</h2>
+  <p class="muted small">Seg 30/11 · narrado pela Zoe · template do carrossel 1 (1080×1350) · <span style="font-family:Caveat;color:var(--pink);font-size:12pt">rosa = comentário à mão</span></p>
+  <div class="cards" style="margin-top:8px">
+    <div class="cc dark"><span class="n">1</span><div class="t" style="font-size:12pt">Antes de eu sumir, eu fui encontrada.</div><div class="f" style="color:#BDB5C9">foto dela filhote</div></div>
+    <div class="cc"><span class="n">2</span><div class="t">Eu e minha irmã fomos abandonadas num terreno baldio. Na chuva.</div><div class="f">marcar a moça que achou as duas</div></div>
+    <div class="cc"><span class="n">3</span><div class="t">A @ongventosdosul compartilhou. A Isabela viu o Story…</div><div class="f">print do Story, se existir</div></div>
+    <div class="cc"><span class="n">4</span><div class="t">…e viu a Luma. A Luma foi a cachorra da família dela. Eu era igual.</div><div class="h">igualzinha</div><div class="f">foto lado a lado: Luma × Zoe</div></div>
+    <div class="cc"><span class="n">5</span><div class="t">O Guilherme não queria. Achava que ser lar temporário já bastava.</div><div class="h">spoiler: não bastava</div></div>
+    <div class="cc"><span class="n">6</span><div class="t">Eu tinha um mês e pouco. Nem caninos eu tinha.</div></div>
+    <div class="cc"><span class="n">7</span><div class="t" style="font-size:11pt">16/12/2024. Eles foram me buscar.</div><div class="h">e ainda era aniversário da mãe da Isabela. festa em dobro</div><div class="f">foto do dia da adoção</div></div>
+    <div class="cc"><span class="n">8</span><div class="t">Minha irmã também ganhou uma família. E eu faço 2 anos de casa daqui a 2 semanas.</div></div>
+    <div class="cc dark"><span class="n">9</span><div class="t">Chamada para seguir</div><div class="f" style="color:#BDB5C9">o mesmo card final do carrossel 1</div></div>
+  </div>
+
+  <h3 style="margin-top:14px">Banco de ideias (para quando faltar assunto)</h3>
+  <div class="grid2">
+    <div class="card small"><span class="pill p-zoe">Zoe</span><p style="margin:5px 0 0">Uma mania dela narrada em texto na tela · "coisas que a Zoe acha que são dela" · a Zoe na creche · reação a barulhos (sem dramatizar) · "o Guilherme que não queria adotar" e a rotina dos dois hoje · a Zoe × a Luma.</p></div>
+    <div class="card small"><span class="pill p-causa">Causa</span><p style="margin:5px 0 0">Um animal da Ventos do Sul por semana nos Stories · "como funciona um lar temporário" · os reencontros dos alertas que a Zoe divulgou (destaque "Em casa").</p></div>
+    <div class="card small"><span class="pill p-util">Utilidade</span><p style="margin:5px 0 0">O cartaz que funciona · como pedir as câmeras aos vizinhos · golpes durante buscas · plaquinha e microchip.</p></div>
+    <div class="card small"><span class="pill p-arq">Arquivo</span><p style="margin:5px 0 0">Bastidores dos 6 dias que ainda não saíram: o estado clínico, a retirada dos cartazes.</p></div>
+  </div>
+  <div class="foot"><span>Zoe | Causas Animais · plano de conteúdo</span><span>7</span></div>
+</section>
+
+<!-- 8. PENDÊNCIAS -->
+<section class="page">
+  <span class="tag">06 · Próximos passos</span>
+  <h2>O que precisa acontecer</h2>
+
+  <div class="grid2">
+    <div class="card">
+      <b>Até domingo, 15/11</b>
+      <ul class="check small" style="margin-top:6px">
+        <li>Gravar o Reel "Como está a Zoe agora" (um dia comum dela)</li>
+        <li>Definir quem posta e quem responde as DMs em cada dia</li>
+      </ul>
+    </div>
+    <div class="card">
+      <b>Até 22/11</b>
+      <ul class="check small" style="margin-top:6px">
+        <li>Nome da irmã da Isabela e o que cada um faz no perfil</li>
+        <li>Gravar os takes do "Por trás do @souazoe.pf"</li>
+      </ul>
+    </div>
+    <div class="card">
+      <b>Até 27/11</b>
+      <ul class="check small" style="margin-top:6px">
+        <li>Conversar com a Ventos do Sul: Collab no dia 16 e o formato do presente</li>
+        <li>Achar o @ da moça que encontrou as filhotes e pedir para marcar</li>
+        <li>Subir no Drive as pastas "dia da adoção" e "Luma"</li>
+        <li>Contar quantos lares temporários vocês já fizeram</li>
+      </ul>
+    </div>
+    <div class="card">
+      <b>Até 10/12</b>
+      <ul class="check small" style="margin-top:6px">
+        <li>Separar as fotos da contagem regressiva (uma por dia, de 7 a 15/12)</li>
+        <li>Gravar e aprovar o Reel do dia 16 (com a Isabela e a ONG)</li>
+      </ul>
+    </div>
+  </div>
+
+  <h3>O que NÃO fazer</h3>
+  <ul>
+    <li>Inventar fatos: se faltar informação, perguntar antes.</li>
+    <li>Publicidade, monetização ou pedido de dinheiro passando pela conta da Zoe.</li>
+    <li>Divulgar pedido de ajuda sem checagem.</li>
+    <li>Prender o perfil ao desaparecimento: a busca aparece só de passagem.</li>
+    <li>Impulsionar post antes de entender o que converte.</li>
+  </ul>
+
+  <h3>O que acompanhar</h3>
+  <p>Alcance e views · visitas ao perfil · seguidores por conteúdo · compartilhamentos · salvamentos · retenção dos Reels · DMs. Vale anotar os números de cada post no fim da semana para ver o que puxou mais seguidores.</p>
+
+  <div class="card ink" style="margin-top:12px">
+    <p class="hand" style="color:var(--lilac);font-size:19pt;margin:0">A Zoe não será a cachorra que viralizou porque sumiu.</p>
+    <p class="small" style="margin:4px 0 0;color:#DDD6E6">Ela será a cachorra que voltou porque uma comunidade se mobilizou, e que agora mobiliza essa comunidade por outros animais.</p>
+  </div>
+  <div class="foot"><span>Zoe | Causas Animais · plano de conteúdo</span><span>8</span></div>
+</section>
+
+</body>
+</html>

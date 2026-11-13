@@ -40,7 +40,7 @@ tudo o que der é produzido em lote (1 dia por semana para gravar/montar a seman
 | Qui 19/11 | Carrossel | UTILIDADE | **"5 coisas que faríamos diferente"** (pendente da semana 1). CTA: salvar. |
 | Sáb 21/11 | Stories | ZOE | **"De onde veio meu nome"**: a Zoë Doce-Amarga, Caçadora de Ártemis em *Percy Jackson*. Enquete: "qual nome de livro você daria pro seu pet?". |
 | Stories | — | ZOE | Caixinha "pergunta pra Zoe" + enquetes de rotina. |
-| Seg 23/11 | Reel simples | ZOE | Humor: uma mania dela narrada em texto na tela, na lógica da Zoe. |
+| Seg 23/11 | Reel simples | ZOE | **"Por trás do @souazoe.pf"**: a Zoe apresenta a equipe dela (Isabela, Guilherme e a irmã da Isabela), quem faz o quê, e fecha no propósito: "a gente faz isso porque uma cidade me trouxe de volta". |
 | Qui 26/11 | Carrossel | CAUSA | **Manifesto** (pendente da semana 1): o que o perfil é daqui pra frente. |
 | Stories | Template dicas | UTILIDADE | Plaquinha de identificação / microchip (`templates/dicas/`). |
 
@@ -84,7 +84,7 @@ tudo o que der é produzido em lote (1 dia por semana para gravar/montar a seman
 
 ## Banco de ideias (para quando faltar ideia)
 
-- **ZOE:** "coisas que a Zoe acha que são dela", a Zoe na creche, reação a barulhos (sem dramatizar),
+- **ZOE:** uma mania dela narrada em texto na tela (Reel de humor), "coisas que a Zoe acha que são dela", a Zoe na creche, reação a barulhos (sem dramatizar),
   "o Guilherme que não queria adotar" (rotina dos dois hoje), a Zoe x a Luma (se liberado).
 - **CAUSA:** um animal da Ventos do Sul por semana nos Stories; "como funciona um lar temporário"; reencontros
   dos alertas que a Zoe divulgou (destaque "Em casa").
