@@ -23,8 +23,16 @@ tudo o que der é produzido em lote (1 dia por semana para gravar/montar a seman
 ### Ainda falta
 
 - [ ] O @ da moça que encontrou as filhotes.
-- [ ] Quantos lares temporários vocês já fizeram (e se dá para mostrar algum)?
-- [ ] Fotos e vídeos das pastas **"dia da adoção"** e **"Luma"** no Drive.
+- [x] Fotos das pastas **"dia da adoção"**, **"Luma"** e **"lares temporários"** (baixadas em 13/11 para `drive/`).
+- [ ] A história de cada lar temporário (ver abaixo).
+
+### Lares temporários (6, na ordem em que ficaram com a Isabela, de ONGs diferentes)
+
+1. Theodor · 2. Rocco · 3. Heitor · 4. Camélia · 5. Mocca · 6. Mia
+(fotos em `drive/lares temporários/<Nome> - N.jpg`)
+
+Falta, de cada um: ONG (e @), quando e por quanto tempo ficou, de onde veio e como chegou, uma lembrança ou
+mania, se foi adotado (e se a família pode ser marcada). E: foram antes ou depois da Zoe?
 
 ## Ritmo
 
@@ -51,7 +59,8 @@ tudo o que der é produzido em lote (1 dia por semana para gravar/montar a seman
 | Data | Formato | Pilar | Conteúdo |
 |---|---|---|---|
 | Seg 30/11 | Carrossel | ARQUIVO/ZOE | **"Antes de eu sumir, eu fui encontrada."** A Zoe conta, card a card: duas filhotinhas na chuva num terreno baldio (marcar a moça) → o Story da Ventos do Sul → a Isabela vê a Luma no meu rosto (foto lado a lado) → o Guilherme achava que lar temporário bastava → "eu tinha uns 40 dias e nem caninos" → minha irmã também ganhou uma família → "dia 16/12 eles foram me buscar". |
-| Qui 3/12 | Reel | CAUSA | **"Antes de mim, essa casa era lar temporário"**: o que é LT e por que ele importa (com a ONG). |
+| Qui 3/12 | Reel | CAUSA | **"Essa casa já foi lar temporário de 6"**: os 6 passando na ordem (foto, nome, ONG, "hoje: adotado"), o que é LT e por que ele importa. |
+| 1 a 6/12 | Stories | CAUSA | **Um lar temporário por dia**, na ordem (Theodor, Rocco, Heitor, Camélia, Mocca, Mia): a história curta de cada um, marcando a ONG e a família. Destaque novo "Lar temporário". |
 | Stories | — | CAUSA | "Você adotou? Qual o dia?" (caixinha) → coleta dos adoversários dos seguidores. |
 | Seg 7/12 | Reel simples | ZOE | Primeiro ano x hoje (fotos da pasta "dia da adoção"). |
 | 7 a 15/12 | Stories | ZOE | **Contagem "faltam N dias"**: uma foto antiga por dia + comentário à mão da Zoe (template novo, padrão dos destaques). |
