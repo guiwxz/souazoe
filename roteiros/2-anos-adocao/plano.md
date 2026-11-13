@@ -40,7 +40,7 @@ tudo o que der é produzido em lote (1 dia por semana para gravar/montar a seman
 | Qui 19/11 | Carrossel | UTILIDADE | **"5 coisas que faríamos diferente"** (pendente da semana 1). CTA: salvar. |
 | Sáb 21/11 | Stories | ZOE | **"De onde veio meu nome"**: a Zoë Doce-Amarga, Caçadora de Ártemis em *Percy Jackson*. Enquete: "qual nome de livro você daria pro seu pet?". |
 | Stories | — | ZOE | Caixinha "pergunta pra Zoe" + enquetes de rotina. |
-| Seg 23/11 | Reel simples | ZOE | **"Por trás do @souazoe.pf"**: a Zoe apresenta a equipe dela (Isabela, Guilherme e a irmã da Isabela), quem faz o quê, e fecha no propósito: "a gente faz isso porque uma cidade me trouxe de volta". |
+| Seg 23/11 | Reel simples | ZOE | **"Por trás do @souazoe.pf"**: a Zoe apresenta a equipe dela: Isabela (grava, DMs), Guilherme (edita, DMs) e a tia Gabi, Gabriela Fabian, @gabrielafabianpersonal (checa os alertas, sugere os posts e queria o perfil desde a adoção; o casal achou que não era a hora), e fecha no propósito: "a gente faz isso porque uma cidade me trouxe de volta". |
 | Qui 26/11 | Carrossel | CAUSA | **Manifesto** (pendente da semana 1): o que o perfil é daqui pra frente. |
 | Stories | Template dicas | UTILIDADE | Plaquinha de identificação / microchip (`templates/dicas/`). |
 
