@@ -2,13 +2,17 @@
 <html lang="pt-BR">
 <head>
 <meta charset="utf-8">
-<title>Lar temporário · 6 Stories</title>
+<title>Lar temporário · abertura + 6 Stories</title>
 <!--
-  Série de Stories (1 a 6/12): os 6 lares temporários que a Isabela e o Guilherme fizeram antes da Zoe, um por dia, na ordem.
-  Fatos contados pela Isabela em 13/11/2026 (ver roteiros/2-anos-adocao/plano.md). Nada além disso.
-  Foto em cartão com a sombra rosa (como os avisos de encontrado), nada por cima do cachorro; nome, "hoje: …",
-  texto curto e o comentário à mão da Zoe embaixo; a ONG marcada no pé. Tag em top 225, texto termina a ~210 px do pé.
-  Fotos: python templates/lar-temporario/fotos.py. Render: ./render.sh lar-temporario
+  Série de Stories (1 a 6/12): os 6 lares temporários que a Isabela e o Guilherme fizeram ANTES da Zoe, um por dia.
+  Fatos contados pela Isabela em 13 e 14/11/2026 (ver roteiros/2-anos-adocao/plano.md). Nada além disso.
+
+  Visual de ÁLBUM DE LEMBRANÇAS, de propósito diferente dos alertas de desaparecido/encontrado (lilás + cartão com
+  sombra rosa): fundo creme, foto em polaroide com fita lilás, nome à mão na borda da polaroide e o carimbo "ADOTADO"
+  na borda (nunca por cima do cachorro). Pedido da Gabriela (14/11): ninguém pode achar que eles estão para adoção
+  hoje nem que ainda têm a idade da foto. Por isso também a abertura ("Antes de mim…", todos já adotados) e a tag
+  "Antes da Zoe · N de 6". Tag em top 225; texto termina a ~210 px do pé.
+  Fotos: python templates/lar-temporario/fotos.py. Render: ./render.sh lar-temporario (1 = abertura, 2..7 = os seis)
 -->
 <style>
 @font-face{font-family:P;src:url(../fonts/Poppins-Medium.ttf);font-weight:500}
@@ -16,39 +20,69 @@
 @font-face{font-family:P;src:url(../fonts/Poppins-Bold.ttf);font-weight:700}
 @font-face{font-family:P;src:url(../fonts/Poppins-ExtraBold.ttf);font-weight:800}
 @font-face{font-family:C;src:url(../fonts/Caveat.ttf);font-weight:400 700}
-:root{--ink:#17131F;--cream:#F6F1E9;--lilac:#B9A7F3;--pink:#EC4899}
+:root{--ink:#17131F;--cream:#F6F1E9;--lilac:#B9A7F3;--pink:#EC4899;--muted:#6E667A}
 *{box-sizing:border-box;margin:0;padding:0}
 body{background:#000;font-family:P,sans-serif;-webkit-font-smoothing:antialiased}
 .card{width:1080px;height:1920px;position:relative;overflow:hidden;color:var(--ink);
-  background:radial-gradient(ellipse 70% 40% at 50% 30%,#C9BAF6 0%,var(--lilac) 100%)}
-.tag{position:absolute;top:225px;left:50%;transform:translateX(calc(-50% - 5px));background:var(--ink);color:var(--cream);
-  font-weight:800;font-size:44px;line-height:1;letter-spacing:.06em;text-transform:uppercase;padding:16px 26px 15px;
-  box-shadow:10px 10px 0 var(--pink);white-space:nowrap}
+  background:radial-gradient(ellipse 80% 50% at 50% 40%,#FBF8F2 0%,var(--cream) 70%,#EDE5D8 100%)}
+.tag{position:absolute;top:225px;left:50%;transform:translateX(-50%);background:var(--ink);color:var(--cream);
+  font-weight:800;font-size:42px;line-height:1;letter-spacing:.06em;text-transform:uppercase;padding:16px 26px 15px;white-space:nowrap}
 .tag b{color:var(--lilac);font-weight:800}
-.dots{position:absolute;top:322px;left:0;right:0;display:flex;justify-content:center;gap:12px}
-.dots i{width:16px;height:16px;border-radius:50%;background:rgba(23,19,31,.22)}
-.dots i.on{background:var(--ink)}
-.foto{position:absolute;left:110px;top:385px;width:860px;height:860px;object-fit:cover;border-radius:28px;
-  box-shadow:14px 14px 0 var(--pink)}
-.foto.mocca{left:194px;width:692px;height:865px}
-.txt{position:absolute;left:84px;right:84px;top:1300px;bottom:210px;display:flex;flex-direction:column}
-.linha{display:flex;align-items:center;justify-content:space-between;gap:20px}
-.nome{font-weight:800;font-size:96px;line-height:1;letter-spacing:-.025em}
-.nome small{font-family:C;font-weight:700;font-size:64px;letter-spacing:0;color:var(--pink);margin-left:12px}
-.hoje{background:var(--pink);color:#fff;font-weight:700;font-size:34px;line-height:1;padding:14px 22px;border-radius:40px;white-space:nowrap}
-.info{margin-top:26px;font-weight:600;font-size:40px;line-height:1.3;text-wrap:pretty}
-.zoe{margin-top:22px;font-family:C;font-weight:700;font-size:66px;line-height:1.02;transform:rotate(-2deg);transform-origin:left}
-.ong{margin-top:auto;font-weight:700;font-size:32px;letter-spacing:.02em;opacity:.75}
+
+/* polaroide */
+.pola{position:absolute;left:50%;top:330px;--w:760px;--h:760px;width:calc(var(--w) + 60px);
+  transform:translateX(-50%) rotate(var(--r,-2deg));background:#fff;padding:30px 30px 0;
+  box-shadow:0 18px 40px rgba(23,19,31,.18),0 3px 8px rgba(23,19,31,.12)}
+.pola img{display:block;width:var(--w);height:var(--h);object-fit:cover}
+.pola .rod{height:140px;display:flex;align-items:center;justify-content:space-between;padding:0 6px}
+.pola .nome{font-family:C;font-weight:700;font-size:84px;line-height:1;color:var(--ink)}
+.pola .nome small{font-size:54px;color:var(--muted)}
+.fita{position:absolute;top:-26px;left:50%;width:220px;height:56px;transform:translateX(-50%) rotate(3deg);
+  background:rgba(185,167,243,.82)}
+.selo{border:6px solid var(--pink);color:var(--pink);border-radius:14px;padding:8px 18px 6px;transform:rotate(-7deg);
+  text-align:center;font-weight:800;font-size:44px;line-height:1;letter-spacing:.08em;text-transform:uppercase;background:rgba(255,255,255,.6)}
+.selo small{display:block;font-weight:700;font-size:26px;letter-spacing:.02em;text-transform:none;margin-top:6px}
+
+.txt{position:absolute;left:96px;right:96px;bottom:210px}
+.info{font-weight:600;font-size:40px;line-height:1.3;text-wrap:pretty}
+.zoe{margin-top:22px;font-family:C;font-weight:700;font-size:64px;line-height:1.02;color:var(--pink);transform:rotate(-2deg);transform-origin:left}
+.ong{margin-top:26px;font-weight:700;font-size:32px;letter-spacing:.02em;color:var(--muted)}
+
+/* abertura */
+.ab .h{position:absolute;left:84px;right:84px;top:330px;font-weight:800;font-size:82px;line-height:1.04;letter-spacing:-.025em}
+.ab .h em{font-style:normal;color:var(--pink)}
+.mini{position:absolute;left:84px;right:84px;top:820px;display:grid;grid-template-columns:repeat(3,1fr);gap:34px 30px}
+.mini figure{background:#fff;padding:14px 14px 0;box-shadow:0 10px 22px rgba(23,19,31,.16);transform:rotate(var(--r))}
+.mini img{display:block;width:100%;aspect-ratio:1;object-fit:cover}
+.mini figcaption{height:62px;display:flex;align-items:center;justify-content:center;font-family:C;font-weight:700;font-size:42px}
+.ab .todos{position:absolute;left:84px;right:84px;bottom:300px;font-weight:800;font-size:64px;line-height:1.05;letter-spacing:-.02em}
+.ab .todos em{font-style:normal;color:var(--pink)}
+.ab .zoe{position:absolute;left:84px;right:84px;bottom:200px}
 </style>
 </head>
 <body>
 
+<!-- ABERTURA (1/12, antes do Theodor) -->
+<section class="card ab">
+  <div class="tag">Antes da Zoe</div>
+  <div class="h">Antes de mim, minha casa foi <em>lar temporário</em> de outros 6 cachorrinhos.</div>
+  <div class="mini">
+    <figure style="--r:-3deg"><img src="img/1.jpg" alt=""><figcaption>Theodor</figcaption></figure>
+    <figure style="--r:2deg"><img src="img/2.jpg" alt=""><figcaption>Rocco</figcaption></figure>
+    <figure style="--r:-1deg"><img src="img/3.jpg" alt=""><figcaption>Heitor</figcaption></figure>
+    <figure style="--r:2deg"><img src="img/4.jpg" alt=""><figcaption>Camélia</figcaption></figure>
+    <figure style="--r:-2deg"><img src="img/5.jpg" alt="" style="object-position:50% 20%"><figcaption>Mocca</figcaption></figure>
+    <figure style="--r:3deg"><img src="img/6.jpg" alt=""><figcaption>Mia</figcaption></figure>
+  </div>
+  <div class="todos">Todos já foram <em>adotados.</em></div>
+  <div class="zoe">um por dia, começando agora.</div>
+</section>
+
 <section class="card">
-  <div class="tag">Lar temporário <b>· 1 de 6</b></div>
-  <div class="dots"><i class="on"></i><i></i><i></i><i></i><i></i><i></i></div>
-  <img class="foto" src="img/1.jpg" alt="" style="object-position:50% 50%">
+  <div class="tag">Antes da Zoe <b>· 1 de 6</b></div>
+  <div class="pola" style="--r:-2deg"><div class="fita"></div><img src="img/1.jpg" alt="">
+    <div class="rod"><div class="nome">Theodor <small>(o TT)</small></div><div class="selo">Adotado<small>hoje é Churros</small></div></div></div>
   <div class="txt">
-    <div class="linha"><div class="nome">Theodor<small>o TT</small></div><div class="hoje">hoje: Churros</div></div>
     <div class="info">O primeiro. Chegou bem filhotinho e aprendeu tudo no tapetinho. Ficou menos de um mês.</div>
     <div class="zoe">Churros! que nome bom</div>
     <div class="ong">via @pataviralata</div>
@@ -56,11 +90,10 @@ body{background:#000;font-family:P,sans-serif;-webkit-font-smoothing:antialiased
 </section>
 
 <section class="card">
-  <div class="tag">Lar temporário <b>· 2 de 6</b></div>
-  <div class="dots"><i class="on"></i><i class="on"></i><i></i><i></i><i></i><i></i></div>
-  <img class="foto" src="img/2.jpg" alt="">
+  <div class="tag">Antes da Zoe <b>· 2 de 6</b></div>
+  <div class="pola" style="--r:2deg"><div class="fita"></div><img src="img/2.jpg" alt="">
+    <div class="rod"><div class="nome">Rocco</div><div class="selo">Adotado<small>continua Rocco</small></div></div></div>
   <div class="txt">
-    <div class="linha"><div class="nome">Rocco</div><div class="hoje">hoje: continua Rocco</div></div>
     <div class="info">Tinha por volta de um ano e nunca fez nenhuma necessidade dentro de casa. Foi adotado em menos de um mês.</div>
     <div class="zoe">ele não gostava muito do Guilherme</div>
     <div class="ong">via @pataviralata</div>
@@ -68,11 +101,10 @@ body{background:#000;font-family:P,sans-serif;-webkit-font-smoothing:antialiased
 </section>
 
 <section class="card">
-  <div class="tag">Lar temporário <b>· 3 de 6</b></div>
-  <div class="dots"><i class="on"></i><i class="on"></i><i class="on"></i><i></i><i></i><i></i></div>
-  <img class="foto" src="img/3.jpg" alt="">
+  <div class="tag">Antes da Zoe <b>· 3 de 6</b></div>
+  <div class="pola" style="--r:-1.5deg"><div class="fita"></div><img src="img/3.jpg" alt="">
+    <div class="rod"><div class="nome">Heitor</div><div class="selo">Adotado</div></div></div>
   <div class="txt">
-    <div class="linha"><div class="nome">Heitor</div><div class="hoje">hoje: adotado</div></div>
     <div class="info">Tinha por volta de um ano. Agitado, mas nunca agressivo. Foi adotado em menos de um mês.</div>
     <div class="zoe">se ainda é Heitor, ninguém sabe</div>
     <div class="ong">via @pataviralata</div>
@@ -80,11 +112,10 @@ body{background:#000;font-family:P,sans-serif;-webkit-font-smoothing:antialiased
 </section>
 
 <section class="card">
-  <div class="tag">Lar temporário <b>· 4 de 6</b></div>
-  <div class="dots"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i></i><i></i></div>
-  <img class="foto" src="img/4.jpg" alt="">
+  <div class="tag">Antes da Zoe <b>· 4 de 6</b></div>
+  <div class="pola" style="--r:2deg;--w:690px;--h:690px"><div class="fita"></div><img src="img/4.jpg" alt="">
+    <div class="rod"><div class="nome">Camélia</div><div class="selo">Adotada<small>hoje é Lorna, irmã de gatos</small></div></div></div>
   <div class="txt">
-    <div class="linha"><div class="nome">Camélia</div><div class="hoje">hoje: Lorna, irmã de gatos</div></div>
     <div class="info">A mais medrosa. Foi resgatada com os filhotes dela e outra mãezinha com filhotes: todos adotados.</div>
     <div class="zoe">a família veio conhecer num domingo… e ela já ficou</div>
     <div class="ong">via @pataviralata</div>
@@ -92,11 +123,10 @@ body{background:#000;font-family:P,sans-serif;-webkit-font-smoothing:antialiased
 </section>
 
 <section class="card">
-  <div class="tag">Lar temporário <b>· 5 de 6</b></div>
-  <div class="dots"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i></i></div>
-  <img class="foto mocca" src="img/5.jpg" alt="">
+  <div class="tag">Antes da Zoe <b>· 5 de 6</b></div>
+  <div class="pola" style="--r:-2deg;--w:640px;--h:800px"><div class="fita"></div><img src="img/5.jpg" alt="">
+    <div class="rod"><div class="nome">Mocca</div><div class="selo">Adotada</div></div></div>
   <div class="txt">
-    <div class="linha"><div class="nome">Mocca</div><div class="hoje">hoje: adotada</div></div>
     <div class="info">Na ONG ela era Eva. Aqui aprendeu o tapetinho e os comandos, e ficou um ou dois meses.</div>
     <div class="zoe">Eva? não combinava</div>
     <div class="ong">via @pataviralata</div>
@@ -104,11 +134,10 @@ body{background:#000;font-family:P,sans-serif;-webkit-font-smoothing:antialiased
 </section>
 
 <section class="card">
-  <div class="tag">Lar temporário <b>· 6 de 6</b></div>
-  <div class="dots"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i></div>
-  <img class="foto" src="img/6.jpg" alt="">
+  <div class="tag">Antes da Zoe <b>· 6 de 6</b></div>
+  <div class="pola" style="--r:1.5deg"><div class="fita"></div><img src="img/6.jpg" alt="">
+    <div class="rod"><div class="nome">Mia</div><div class="selo">Adotada<small>hoje é Tequila</small></div></div></div>
   <div class="txt">
-    <div class="linha"><div class="nome">Mia</div><div class="hoje">hoje: Tequila</div></div>
     <div class="info">Chegou com uns 45 dias, a primeira no apartamento novo. Aprendeu os comandos rapidinho.</div>
     <div class="zoe">e depois dela… cheguei eu</div>
     <div class="ong">via @projetosocialventosdosul</div>

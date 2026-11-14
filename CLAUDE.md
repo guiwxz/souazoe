@@ -140,9 +140,11 @@ templates/    # templates reutilizáveis na identidade da Zoe, sem o nome escrit
                   # assunto novo → <nome>.html com uma <section class="card"> por Story, na ordem em que vão ao ar
     render.sh     # Chrome headless → saida/<nome>-1.png, -2.png... (ex.: ./render.sh tapete-de-lambida)
   lar-temporario/ # Stories (1080x1920) da série dos 6 lares temporários que a casa fez antes da Zoe, um por dia
-    lar-temporario.html # lilás, tag ink "Lar temporário · N de 6", foto quadrada em cartão com sombra rosa, nome + "hoje: …", texto, comentário à mão e a ONG
-    fotos.py      # drive/lares temporários → img/1..6.jpg (corta o pé no Theodor; desfoca o fundo do Heitor com rembg por causa da logo de um pet shop)
-    render.sh     # → saida/lar-temporario-1..6.png (./render.sh lar-temporario)
+    lar-temporario.html # visual de ÁLBUM DE LEMBRANÇAS (creme, polaroide com fita lilás, nome à mão e carimbo "ADOTADO" na borda),
+                  # de propósito diferente dos alertas de desaparecido/encontrado, para ninguém achar que estão para adoção hoje.
+                  # 1º Story = abertura "Antes de mim, minha casa foi lar temporário de outros 6 cachorrinhos. Todos já foram adotados."
+    fotos.py      # drive/lares temporários → img/1..6.jpg (corta o pé no Theodor; fundo do Heitor levemente desfocado com rembg; Mocca em 4:5)
+    render.sh     # → saida/lar-temporario-1..7.png (1 = abertura) + o guia de marcações em saida/lar-temporario-legendas.txt
   etiqueta/       # etiqueta dos saquinhos de petisco (lembrancinha da comemoração da volta da Zoe na creche), 9 x 5 cm, tudo em mm
     index.html    # lilás com a Zoe recortada (sombra rosa), tag "Voltei pra casa!", agradecimento, comentário à mão e caixa ink
                   # com o QR code + @souazoe.pf; o #hash escolhe o modo: #png, #grafica (2 mm de sangria) ou #folha (A4)

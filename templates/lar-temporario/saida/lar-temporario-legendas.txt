@@ -3,6 +3,12 @@
 Stories não têm legenda: o que vai em cada um são as marcações e as figurinhas.
 Salvar todos num destaque novo, "Lar temporário" (a capa pode sair do templates/destaques/).
 
+Arquivos: lar-temporario-1.png = abertura; -2.png a -7.png = Theodor, Rocco, Heitor, Camélia, Mocca e Mia.
+
+ABERTURA · lar-temporario-1.png (ter 1/12, logo antes do Theodor)
+  "Antes de mim, minha casa foi lar temporário de outros 6 cachorrinhos. Todos já foram adotados."
+  Sem marcação. É ela que evita que alguém ache que eles estão para adoção hoje (ideia da Gabriela).
+
 1/6 · Theodor (ter 1/12)
   Marcar @pataviralata. Figurinha de enquete: "Você já foi lar temporário?" → "Já fui 🙋" / "Quero ser 👀"
 
@@ -11,6 +17,7 @@ Salvar todos num destaque novo, "Lar temporário" (a capa pode sair do templates
 
 3/6 · Heitor (qui 3/12, mesmo dia do Reel)
   Marcar @pataviralata. Repostar o Reel "Antes de mim, essa casa foi lar temporário de 6" logo depois.
+  (O carimbo "ADOTADO" em cada polaroide reforça: nenhum deles está para adoção.)
 
 4/6 · Camélia (sex 4/12)
   Marcar @pataviralata e a família da Lorna (só se autorizarem).
@@ -23,7 +30,7 @@ Salvar todos num destaque novo, "Lar temporário" (a capa pode sair do templates
   Figurinha de caixinha: "Pergunta pra gente sobre lar temporário". Responder nos dias seguintes.
 
 
-=== TIKTOK ===  (dom 6/12 · modo foto com os 6 Stories, na ordem)
+=== TIKTOK ===  (dom 6/12 · modo foto com a abertura + os 6 Stories, na ordem)
 
 Título: Fomos lar temporário de 6 cachorros antes de adotar a Zoe
 

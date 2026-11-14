@@ -12,7 +12,7 @@ CHROME=$(command -v google-chrome || command -v chrome || command -v chromium ||
 # ambiente remoto: Chromium do Playwright
 [ -x "$CHROME" ] || for c in /opt/pw-browsers/chromium-*/chrome-linux/chrome; do [ -x "$c" ] && CHROME="$c"; done
 win() { cygpath -m "$1" 2>/dev/null || echo "$1"; }
-N=$(grep -c '<section class="card"' "$PAGINA")
+N=$(grep -c '<section class="card' "$PAGINA")
 TMP=$(mktemp -d)
 SHOT="$(win "$TMP")/dica.png"
 DIR=$(win "$PWD")
