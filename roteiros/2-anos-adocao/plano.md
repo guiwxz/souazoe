@@ -15,6 +15,11 @@ tudo o que der é produzido em lote (1 dia por semana para gravar/montar a seman
 - **A irmã também foi adotada.**
 - **O nome:** a Isabela queria um nome de personagem de livro, mas sem ser óbvio. Escolheu a **Zoë Doce-Amarga**,
   de *Percy Jackson*, uma das **Caçadoras de Ártemis**. O Guilherme gostou do nome que ela sugeriu.
+- **A Luma também foi adotada (contado em 14/11).** Os pais da Isabela e da Gabriela moram no interior de Erechim, onde é
+  comum abandonarem cachorros. A **Gabi** encontrou a Luma bem filhotinha, como a Zoe, na entrada da propriedade, voltando
+  da faculdade, e a levou para casa enrolada no moletom. A Luma foi abandonada com uma irmãzinha (que o pai delas depois
+  encontrou morta, atropelada) e com a mãe, que fugiu quando tentaram resgatá-la e nunca mais foi encontrada.
+  A Luma morreu atropelada em 2016. → Detalhes pesados (a irmã, a mãe): só com cuidado e num conteúdo próprio, se for o caso.
 - **A Luma pode ser citada**, com fotos (a Isabela vai subir no Drive numa pasta com o nome dela).
 - **A moça que encontrou as filhotes pode ser marcada** (falta achar o Instagram dela).
 - Fogos: a Zoe nunca teve grande reação a fogos; ela se assusta com barulhos em geral.
