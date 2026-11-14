@@ -1,0 +1,196 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<title>Carrossel 3 · 5 coisas que a gente faria diferente</title>
+<style>
+@font-face{font-family:P;src:url(fonts/Poppins-Regular.ttf);font-weight:400}
+@font-face{font-family:P;src:url(fonts/Poppins-Medium.ttf);font-weight:500}
+@font-face{font-family:P;src:url(fonts/Poppins-SemiBold.ttf);font-weight:600}
+@font-face{font-family:P;src:url(fonts/Poppins-Bold.ttf);font-weight:700}
+@font-face{font-family:P;src:url(fonts/Poppins-ExtraBold.ttf);font-weight:800}
+@font-face{font-family:C;src:url(fonts/Caveat.ttf);font-weight:400 700}
+
+:root{
+  --ink:#17131F; --cream:#F6F1E9; --lilac:#B9A7F3; --pink:#EC4899; --muted:#6E667A;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:#000;font-family:P,sans-serif;-webkit-font-smoothing:antialiased}
+
+.card{width:1080px;height:1350px;position:relative;overflow:hidden;background:var(--cream);color:var(--ink)}
+.card.dark{background:var(--ink);color:var(--cream)}
+
+/* barra de progresso do carrossel */
+.bar{position:absolute;top:44px;left:72px;right:72px;display:flex;gap:10px;z-index:5}
+.bar i{flex:1;height:6px;border-radius:3px;background:rgba(255,255,255,.35)}
+.bar i.on{background:#fff}
+
+.tag{position:absolute;top:76px;left:72px;z-index:5;font-weight:700;font-size:26px;letter-spacing:.14em;text-transform:uppercase;color:#fff;
+  text-shadow:0 2px 12px rgba(0,0,0,.35)}
+.tag b{color:var(--lilac)}
+
+/* layout A: foto inteira + texto sobre degradê */
+.full img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.full::after{content:"";position:absolute;inset:0;
+  background:linear-gradient(180deg,rgba(15,11,20,.45) 0%,rgba(15,11,20,0) 22%,rgba(15,11,20,0) 42%,rgba(15,11,20,.88) 78%,rgba(15,11,20,.96) 100%)}
+.full .txt{position:absolute;left:72px;right:72px;bottom:96px;z-index:3;color:#fff}
+
+/* layout B: foto em cima, painel de texto embaixo */
+.split img{position:absolute;top:0;left:0;width:100%;height:var(--ph,760px);object-fit:cover}
+.split::before{content:"";position:absolute;top:0;left:0;right:0;height:260px;z-index:1;
+  background:linear-gradient(180deg,rgba(15,11,20,.55),rgba(15,11,20,0))}
+.split .txt{position:absolute;left:72px;right:72px;top:calc(var(--ph,760px) + 56px);bottom:80px;z-index:3;display:flex;flex-direction:column;justify-content:center}
+
+/* tipografia */
+.h{font-weight:800;font-size:84px;line-height:1.02;letter-spacing:-.025em}
+.h2{font-weight:800;font-size:62px;line-height:1.06;letter-spacing:-.02em}
+.p{font-weight:500;font-size:40px;line-height:1.3;letter-spacing:-.005em}
+.p.s{font-size:36px}
+.lead{font-weight:400;font-size:40px;line-height:1.3;opacity:.92}
+.hand{font-family:C;font-weight:700;font-size:62px;line-height:1;color:var(--pink);transform:rotate(-2deg);transform-origin:left}
+.full .hand{color:var(--lilac)}
+.sp{height:28px}.sp2{height:44px}
+.hl{color:var(--pink)} .full .hl, .dark .hl{color:var(--lilac)}
+.mk{background:linear-gradient(transparent 58%,rgba(185,167,243,.55) 58%);padding:0 .06em}
+.dark .mk{background:linear-gradient(transparent 60%,rgba(236,72,153,.55) 60%)}
+
+.swipe{position:absolute;right:72px;bottom:100px;z-index:4;font-weight:600;font-size:26px;letter-spacing:.12em;text-transform:uppercase;color:#fff;opacity:.85}
+.foot{position:absolute;left:72px;right:72px;bottom:56px;z-index:4;display:flex;justify-content:space-between;font-weight:600;font-size:24px;letter-spacing:.12em;text-transform:uppercase;opacity:.55}
+
+/* card 6: estética documental */
+.doc img{filter:grayscale(1) contrast(1.1) brightness(.9)}
+.rec{position:absolute;top:118px;right:72px;z-index:5;display:flex;align-items:center;gap:12px;color:#fff;font-weight:700;font-size:26px;letter-spacing:.12em}
+.rec::before{content:"";width:18px;height:18px;border-radius:50%;background:#FF3B3B}
+.big6{font-weight:800;font-size:150px;line-height:.9;letter-spacing:-.04em;color:var(--lilac)}
+
+/* card 5: cartaz */
+.poster img{filter:none}
+.chips{display:flex;flex-wrap:wrap;gap:12px}
+.chips span{font-weight:600;font-size:28px;padding:10px 22px;border-radius:40px;border:2px solid rgba(246,241,233,.35)}
+
+/* card 9: chamada para seguir */
+.follow{display:flex;align-items:center;gap:22px;padding:18px 18px 18px 18px;border-radius:28px;background:rgba(246,241,233,.12);border:2px solid rgba(246,241,233,.22);backdrop-filter:blur(8px)}
+.follow .av{width:92px;height:92px;border-radius:50%;object-fit:cover;position:static;border:3px solid var(--lilac)}
+.follow .nm{flex:1;font-weight:700;font-size:34px;line-height:1.15}
+.follow .nm small{display:block;font-weight:500;font-size:24px;opacity:.7;letter-spacing:.02em}
+.follow .bt{font-weight:700;font-size:32px;padding:18px 40px;border-radius:18px;background:var(--pink);color:#fff}
+.list{font-weight:500;font-size:36px;line-height:1.45;opacity:.9}
+.list b{color:var(--lilac);font-weight:700;margin-right:12px}
+
+/* carrossel 3: utilidade, cards tipográficos numerados */
+.cover{background:radial-gradient(ellipse 80% 55% at 70% 75%,#C9BAF6 0%,var(--lilac) 100%)}
+.cover .bar i{background:rgba(23,19,31,.22)} .cover .bar i.on{background:var(--ink)}
+.cover .recorte{position:absolute;right:-40px;bottom:-170px;width:640px;filter:drop-shadow(18px 18px 0 var(--pink))}
+.cover .txt{position:absolute;left:72px;right:72px;top:150px}
+.selo{display:inline-block;background:var(--ink);color:var(--cream);font-weight:800;font-size:30px;letter-spacing:.1em;text-transform:uppercase;padding:12px 20px 11px;box-shadow:8px 8px 0 var(--pink)}
+.item .txt{position:absolute;left:72px;right:72px;top:150px;bottom:110px;display:flex;flex-direction:column;justify-content:center}
+.num{font-weight:800;font-size:300px;line-height:.8;letter-spacing:-.05em;color:var(--lilac);margin-bottom:40px}
+.dark .num{color:var(--pink)}
+.item .h2{font-size:76px}
+.item .p{margin-top:36px}
+.item .hand{margin-top:44px}
+.cream-bar .bar i{background:rgba(23,19,31,.18)} .cream-bar .bar i.on{background:var(--ink)}
+.serie{position:absolute;left:72px;bottom:56px;font-weight:700;font-size:24px;letter-spacing:.12em;text-transform:uppercase;opacity:.45}
+</style>
+</head>
+<body>
+
+<!-- 1 · CAPA -->
+<section class="card cover">
+  <div class="bar"><i class="on"></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+  <img class="recorte" src="img/carrossel3/zoe-recorte.png" alt="">
+  <div class="txt">
+    <div class="selo">Salva esse post</div>
+    <div class="sp2"></div>
+    <div class="h" style="font-size:96px">5 coisas que<br>a gente faria<br><span class="hl">diferente.</span></div>
+    <div class="sp"></div>
+    <div class="lead" style="opacity:1">Se eu sumisse de novo.</div>
+    <div class="sp"></div>
+    <div class="hand">(não vou.)</div>
+  </div>
+</section>
+
+<!-- 2 · CÂMERAS -->
+<section class="card split dark doc" style="--ph:560px">
+  <img src="img/6.jpg" alt="" style="object-position:50% 50%">
+  <div class="bar"><i class="on"></i><i class="on"></i><i></i><i></i><i></i><i></i><i></i></div>
+  <div class="rec">REC</div>
+  <div class="txt" style="top:600px;justify-content:flex-start">
+    <div class="num" style="font-size:200px;margin-bottom:24px">1</div>
+    <div class="h2">Ir atrás das câmeras no primeiro dia.</div>
+    <div class="sp"></div>
+    <div class="p s" style="opacity:.85">Muitas câmeras gravam por cima depois de alguns dias. Foram elas que mostraram por onde eu passei.</div>
+    <div class="sp"></div>
+    <div class="hand" style="color:var(--lilac)">eu apareci em várias. sem querer.</div>
+  </div>
+</section>
+
+<!-- 3 · COLEIRA -->
+<section class="card item cream-bar">
+  <div class="bar"><i class="on"></i><i class="on"></i><i class="on"></i><i></i><i></i><i></i><i></i></div>
+  <div class="txt">
+    <div class="num">2</div>
+    <div class="h2">Coleira com nome e <span class="mk">telefone.</span></div>
+    <div class="p">Quem me visse poderia ligar na hora, sem depender de post, de grupo ou de sorte.</div>
+    <div class="hand">um telefone no pescoço resolve muita coisa.</div>
+  </div>
+  <div class="serie">5 coisas · Zoe</div>
+</section>
+
+<!-- 4 · VETERINÁRIAS -->
+<section class="card item dark">
+  <div class="bar"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i></i><i></i><i></i></div>
+  <div class="txt">
+    <div class="num">3</div>
+    <div class="h2">Avisar clínicas veterinárias e pet shops.</div>
+    <div class="p" style="opacity:.85">Quem me reconheceu foi uma veterinária. Elas veem muito bicho, todo dia.</div>
+    <div class="hand" style="color:var(--lilac)">obrigada, doutora.</div>
+  </div>
+  <div class="serie">5 coisas · Zoe</div>
+</section>
+
+<!-- 5 · FOTOS -->
+<section class="card item cream-bar">
+  <div class="bar"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i></i><i></i></div>
+  <div class="txt">
+    <div class="num">4</div>
+    <div class="h2">Ter fotos boas e <span class="mk">atuais.</span></div>
+    <div class="p">De corpo inteiro, de frente e de lado, mostrando as marcas. Ajuda a separar quem é parecida de quem é você.</div>
+    <div class="hand">teve muita cachorra parecida comigo. não era eu.</div>
+  </div>
+  <div class="serie">5 coisas · Zoe</div>
+</section>
+
+<!-- 6 · DINHEIRO -->
+<section class="card item dark">
+  <div class="bar"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i></i></div>
+  <div class="txt">
+    <div class="num">5</div>
+    <div class="h2">Nunca mandar dinheiro antes de ver o animal.</div>
+    <div class="p" style="opacity:.85">Durante a minha busca, pediram dinheiro pra gasolina. Depois, pra um problema no carro. <span class="hl" style="font-weight:700">Era golpe.</span></div>
+    <div class="hand" style="color:var(--lilac)">quem achou de verdade manda foto.</div>
+  </div>
+  <div class="serie">5 coisas · Zoe</div>
+</section>
+
+<!-- 7 · SALVA E SEGUE -->
+<section class="card split dark" style="--ph:560px">
+  <img src="img/1.jpg" alt="" style="object-position:50% 30%">
+  <div class="bar"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i></div>
+  <div class="txt" style="top:600px;bottom:60px">
+    <div class="h2">Salva esse post.</div>
+    <div class="sp"></div>
+    <div class="p s" style="opacity:.85">E manda pra quem tem bicho em casa. Tomara que nunca precise.</div>
+    <div class="sp2"></div>
+    <div class="follow">
+      <img class="av" src="img/1.jpg" alt="" style="object-position:30% 30%">
+      <div class="nm">Zoe | Causas Animais<small>Passo Fundo/RS</small></div>
+      <div class="bt">Seguir</div>
+    </div>
+    <div class="sp2"></div>
+    <div class="hand" style="font-size:54px;color:var(--lilac)">eu aprendi do jeito difícil. você não precisa.</div>
+  </div>
+</section>
+
+</body>
+</html>

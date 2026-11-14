@@ -87,6 +87,7 @@ carrossel/    # template padronizado dos carrosséis (versionado)
   render.sh     # Chrome headless → saida/carrossel/<nome>/zoe-XX.png + _preview.jpg (ex.: ./render.sh carrossel2; padrão carrossel1); usa <nome>.html se existir, senão o index.html
   carrossel2.html # carrossel 2 "Antes de eu sumir, eu fui encontrada" (a adoção, 16/12/2024), 9 cards no padrão do index.html
   fotos_carrossel2.py # fotos do carrossel 2 (drive/dia da adoção, drive/Luma) → img/carrossel2/
+  carrossel3.html # carrossel 3 "5 coisas que a gente faria diferente" (utilidade): capa lilás com a Zoe recortada, cards numerados
   img/          # fotos já recortadas para cada card (1.jpg..9.jpg; as do carrossel 2 em img/carrossel2/)
   fonts/        # Poppins + Caveat (manuscrita)
 capa/         # template HTML da capa do Reel 01 v2 (1080x1920, texto dentro do recorte 3:4 do grid); os Reels 02+ usam editor/capa_0N.py
@@ -151,6 +152,7 @@ templates/    # templates reutilizáveis na identidade da Zoe, sem o nome escrit
 saida/        # renders finais (versionado), um agrupamento por peça
   carrossel/carrossel1/   # zoe-01..09.png + _preview.jpg (carrossel de apresentação)
   carrossel/carrossel2/   # zoe-01..09.png + _preview.jpg ("Antes de eu sumir, eu fui encontrada", a adoção)
+  carrossel/carrossel3/   # zoe-01..07.png + _preview.jpg ("5 coisas que a gente faria diferente")
   video/video1/           # 01-como-encontraram-a-zoe-v2.mp4 + capa-01-v2.png: o Reel 01 PUBLICADO (build_01_v2.py + capa/)
                           # e 01-como-encontramos-a-zoe.mp4 + legendas-01.ass: a versão narrada (build_01.py), que não está em drive/posts/
   video/video3/           # 03-os-6-dias-parte-1.mp4 (+ -sem-musica.mp4) + legendas-03.ass + capa-03.png + legenda-03.txt (texto do post: Instagram e TikTok)
