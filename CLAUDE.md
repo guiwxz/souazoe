@@ -84,8 +84,10 @@ editor/       # pipeline dos Reels em ffmpeg
   fonts/        # Poppins + Caveat
 carrossel/    # template padronizado dos carrosséis (versionado)
   index.html    # 9 cards de 1080x1350, com a identidade visual (o 9º é a chamada para seguir)
-  render.sh     # Chrome headless → saida/carrossel/<nome>/zoe-XX.png + _preview.jpg (ex.: ./render.sh carrossel2; padrão carrossel1); conta os cards do index.html
-  img/          # fotos já recortadas para cada card (1.jpg..9.jpg)
+  render.sh     # Chrome headless → saida/carrossel/<nome>/zoe-XX.png + _preview.jpg (ex.: ./render.sh carrossel2; padrão carrossel1); usa <nome>.html se existir, senão o index.html
+  carrossel2.html # carrossel 2 "Antes de eu sumir, eu fui encontrada" (a adoção, 16/12/2024), 9 cards no padrão do index.html
+  fotos_carrossel2.py # fotos do carrossel 2 (drive/dia da adoção, drive/Luma) → img/carrossel2/
+  img/          # fotos já recortadas para cada card (1.jpg..9.jpg; as do carrossel 2 em img/carrossel2/)
   fonts/        # Poppins + Caveat (manuscrita)
 capa/         # template HTML da capa do Reel 01 v2 (1080x1920, texto dentro do recorte 3:4 do grid); os Reels 02+ usam editor/capa_0N.py
   index.html    # foto + título (mesma identidade do carrossel)
@@ -93,6 +95,8 @@ capa/         # template HTML da capa do Reel 01 v2 (1080x1920, texto dentro do 
   img/capa.jpg  # foto usada na capa
 roteiros/     # roteiros de trabalho (versionado)
   serie-6-dias/   # série de 3 Reels narrados pela Isabela (dias 1-2, 3-5, 6-encontro): roteiro.md, README.md (status e como continuar) + painéis de mídia por episódio
+  2-anos-adocao/  # plano de volta do perfil + 2 anos de adoção (16/12): plano.md (fatos da adoção, dos 6 lares temporários e o calendário),
+                  # plano.html → plano-2-anos-zoe.pdf (o PDF enviado à equipe: Isabela, Guilherme e Gabriela)
 perdidos/     # artes recebidas de animais desaparecidos ou encontrados (ex.: garibaldi.jpeg, bob.jpeg, thor.jpeg, bola.jpeg, vila-luiza-1..3.jpeg, bidi.jpeg, bidi-print.jpeg, chiquinha-1..2.jpeg)
 templates/    # templates reutilizáveis na identidade da Zoe, sem o nome escrito (versionado)
   fonts/        # Poppins + Caveat compartilhadas pelos templates
@@ -134,6 +138,10 @@ templates/    # templates reutilizáveis na identidade da Zoe, sem o nome escrit
     tapete-de-lambida.html  # 2 Stories: 1) benefícios (Zoe lambendo o tapete) 2) o que colocar + congelar (tapete com recheio e floco de neve)
                   # assunto novo → <nome>.html com uma <section class="card"> por Story, na ordem em que vão ao ar
     render.sh     # Chrome headless → saida/<nome>-1.png, -2.png... (ex.: ./render.sh tapete-de-lambida)
+  lar-temporario/ # Stories (1080x1920) da série dos 6 lares temporários que a casa fez antes da Zoe, um por dia
+    lar-temporario.html # lilás, tag ink "Lar temporário · N de 6", foto quadrada em cartão com sombra rosa, nome + "hoje: …", texto, comentário à mão e a ONG
+    fotos.py      # drive/lares temporários → img/1..6.jpg (corta o pé no Theodor; desfoca o fundo do Heitor com rembg por causa da logo de um pet shop)
+    render.sh     # → saida/lar-temporario-1..6.png (./render.sh lar-temporario)
   etiqueta/       # etiqueta dos saquinhos de petisco (lembrancinha da comemoração da volta da Zoe na creche), 9 x 5 cm, tudo em mm
     index.html    # lilás com a Zoe recortada (sombra rosa), tag "Voltei pra casa!", agradecimento, comentário à mão e caixa ink
                   # com o QR code + @souazoe.pf; o #hash escolhe o modo: #png, #grafica (2 mm de sangria) ou #folha (A4)
@@ -142,6 +150,7 @@ templates/    # templates reutilizáveis na identidade da Zoe, sem o nome escrit
     qr.py         # QR code do Instagram (segno) → img/qr-instagram.svg
 saida/        # renders finais (versionado), um agrupamento por peça
   carrossel/carrossel1/   # zoe-01..09.png + _preview.jpg (carrossel de apresentação)
+  carrossel/carrossel2/   # zoe-01..09.png + _preview.jpg ("Antes de eu sumir, eu fui encontrada", a adoção)
   video/video1/           # 01-como-encontraram-a-zoe-v2.mp4 + capa-01-v2.png: o Reel 01 PUBLICADO (build_01_v2.py + capa/)
                           # e 01-como-encontramos-a-zoe.mp4 + legendas-01.ass: a versão narrada (build_01.py), que não está em drive/posts/
   video/video3/           # 03-os-6-dias-parte-1.mp4 (+ -sem-musica.mp4) + legendas-03.ass + capa-03.png + legenda-03.txt (texto do post: Instagram e TikTok)

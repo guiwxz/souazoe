@@ -1,19 +1,24 @@
 #!/bin/sh
 # Renderiza os cards (1080x1350) em ../saida/carrossel/<nome>/ (padrão: carrossel1)
-# Uso: ./render.sh [carrossel2]
+# Uso: ./render.sh [carrossel2]   (usa <nome>.html se existir; senão, o index.html)
 cd "$(dirname "$0")"
 OUT="../saida/carrossel/${1:-carrossel1}"
 mkdir -p "$OUT"
-N=$(grep -c "<section class=\"card" index.html)
+PAGINA=index.html
+[ -n "$1" ] && [ -f "$1.html" ] && PAGINA="$1.html"
+N=$(grep -c "<section class=\"card" "$PAGINA")
 # no Windows (Git Bash) o Chrome não está no PATH e o Python nativo não enxerga /tmp nem /c/...
-CHROME=$(command -v google-chrome || command -v chrome || echo "/c/Program Files/Google/Chrome/Application/chrome.exe")
+CHROME=$(command -v google-chrome || command -v chrome || command -v chromium || echo "/c/Program Files/Google/Chrome/Application/chrome.exe")
+# ambiente remoto: Chromium do Playwright
+[ -x "$CHROME" ] || for c in /opt/pw-browsers/chromium-*/chrome-linux/chrome; do [ -x "$c" ] && CHROME="$c"; done
 win() { cygpath -m "$1" 2>/dev/null || echo "$1"; }
 TMP=$(mktemp -d)
 SHOT="$(win "$TMP")/zoe_full.png"
 DIR=$(win "$PWD")
-case "$DIR" in /*) URL="file://$DIR/index.html" ;; *) URL="file:///$DIR/index.html" ;; esac
+case "$DIR" in /*) URL="file://$DIR/$PAGINA" ;; *) URL="file:///$DIR/$PAGINA" ;; esac
 export OUT SHOT N
-"$CHROME" --headless=new --disable-gpu --hide-scrollbars --force-device-scale-factor=1 \
+SANDBOX=; [ "$(id -u 2>/dev/null)" = 0 ] && SANDBOX=--no-sandbox  # Chrome como root (container) exige
+"$CHROME" $SANDBOX --headless=new --disable-gpu --hide-scrollbars --force-device-scale-factor=1 \
   --virtual-time-budget=4000 --window-size=1080,$((N*1350+400)) --screenshot="$SHOT" "$URL" 2>/dev/null
 python3 - <<'PY'
 import os
