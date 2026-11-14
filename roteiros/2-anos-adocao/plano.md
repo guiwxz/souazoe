@@ -35,7 +35,7 @@ eles dormiam na cama (só a Camélia não: a família veio conhecê-la num domin
 1. **Theodor ("TT")** · @pataviralata · resgatado bem filhotinho, adaptação com tapetinho; menos de 1 mês; adotado, hoje **Churros**. Sem contato com a família.
 2. **Rocco** · @pataviralata · ~1 ano; não fazia as necessidades dentro de casa; não gostava muito do Guilherme; menos de 1 mês; adotado, manteve o nome. Sem contato.
 3. **Heitor** · @pataviralata · ~1 ano; agitado, mas não agressivo; menos de 1 mês; adotado (não se sabe se manteve o nome). Sem contato.
-4. **Camélia** · @pataviralata · ~2 anos; resgatada com outra cadela e um filhote; medrosa; a de maior porte; fazia as necessidades fora; ~2 meses (a kitnet provavelmente foi o único motivo de não ficarem com ela); adotada, virou **Lorna**, irmã de gatos. Contato com a família: pedir autorização para marcar.
+4. **Camélia** · @pataviralata · ~2 anos; resgatada com os filhotes dela e com outra mãe com filhotes (todos adotados, confirmado no Instagram da ONG); medrosa; a de maior porte; fazia as necessidades fora; ~2 meses (a kitnet provavelmente foi o único motivo de não ficarem com ela); adotada, virou **Lorna**, irmã de gatos. Contato com a família: pedir autorização para marcar.
 5. **Mocca** · @pataviralata · 6 meses a 1 ano; na ONG era "Eva"; aprendeu tapetinho e comandos; 1 a 2 meses; adotada. Sem contato.
 6. **Mia** · @projetosocialventosdosul · ~45 dias; agitada e inteligente, aprendeu comandos rápido; ~1 mês; adotada, virou **Tequila**. Contato com a família: pedir autorização para marcar.
 
