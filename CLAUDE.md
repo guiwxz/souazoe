@@ -170,6 +170,10 @@ templates/    # templates reutilizáveis na identidade da Zoe, sem o nome escrit
     tapete-de-lambida.html  # 2 Stories: 1) benefícios (Zoe lambendo o tapete) 2) o que colocar + congelar (tapete com recheio e floco de neve)
                   # assunto novo → <nome>.html com uma <section class="card"> por Story, na ordem em que vão ao ar
     render.sh     # Chrome headless → saida/<nome>-1.png, -2.png... (ex.: ./render.sh tapete-de-lambida)
+  campanhas/      # Stories de CAMPANHA (pilar CAUSA), 1080x1920, no visual dos Stories de dica (usa ../dicas/dica.css)
+    tupancireta.html # 3 Stories da arrecadação da @projetosocialventosdosul para os animais de Tupanciretã (nov/2026): o alerta
+                  # (5 bairros, protetor Márcio), o que falta (ração, limpeza, potes, coleiras) e o ponto de coleta; só itens, nada de PIX
+    render.sh     # Chrome headless → saida/<nome>-1.png, -2.png... (ex.: sh render.sh tupancireta)
   etiqueta/       # etiqueta dos saquinhos de petisco (lembrancinha da comemoração da volta da Zoe na creche), 9 x 5 cm, tudo em mm
     index.html    # lilás com a Zoe recortada (sombra rosa), tag "Voltei pra casa!", agradecimento, comentário à mão e caixa ink
                   # com o QR code + @souazoe.pf; o #hash escolhe o modo: #png, #grafica (2 mm de sangria) ou #folha (A4)
