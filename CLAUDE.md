@@ -88,6 +88,9 @@ carrossel/    # template padronizado dos carrosséis (versionado)
   zoe-vi.html   # carrossel-meme "ZOE VI" (carrossel2, 6 cards), na onda do GTA 6: a fuga como missões de jogo (capa em painéis, HUD com
                 # objetivo/relógio/estrelas, recorde 2 km em 7 min, "carregando" para os dias que ninguém sabe, missão cumprida, nova missão)
                 # só no tom: nada de logo, fonte ou arte da Rockstar. Fotos de img/ + img/zoe-vi/ (Zoe recortada da etiqueta e o mapa do Ep. 3)
+                # as fotos entram com o efeito "arte do GTA VI" (img/zoe-vi/fx-*), e o "VI" do título no degradê pôr do sol
+  gta_fx.py     # efeito "arte de capa do GTA VI" nas fotos reais: pintura (edgePreservingFilter + k-means), contorno ink, saturação
+                # e mapa de gradiente pôr do sol (roxo → rosa → laranja) → img/zoe-vi/fx-<nome>; opencv-python-headless num venv temporário
   img/          # fotos já recortadas para cada card (1.jpg..9.jpg)
   fonts/        # Poppins + Caveat (manuscrita)
 capa/         # template HTML da capa do Reel 01 v2 (1080x1920, texto dentro do recorte 3:4 do grid); os Reels 02+ usam editor/capa_0N.py

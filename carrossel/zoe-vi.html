@@ -67,7 +67,10 @@ body{background:#000;font-family:P,sans-serif;-webkit-font-smoothing:antialiased
 .c1 .logo{position:absolute;left:0;right:0;top:930px;text-align:center;z-index:3}
 .c1 .zoe{font-size:250px;color:#fff}
 .c1 .vi{font-size:250px;margin-left:24px;
-  background:linear-gradient(180deg,#FFB4A2 0%,var(--pink) 45%,var(--lilac) 100%);-webkit-background-clip:text;background-clip:text;color:transparent;text-shadow:8px 8px 0 var(--lilac)}
+  /* o "VI" no degradê pôr do sol (laranja → rosa → roxo → azul), como o numeral da arte do GTA VI; a sombra vai no .logo (drop-shadow) */
+  background:linear-gradient(165deg,#FFC37A 0%,#FF8A8A 25%,var(--pink) 48%,#9B5CF0 75%,#5F7CFF 100%);
+  -webkit-background-clip:text;background-clip:text;color:transparent;-webkit-text-stroke:0;text-shadow:none;
+  filter:drop-shadow(0 0 0 var(--ink)) drop-shadow(8px 8px 0 var(--ink))}
 .c1 .sub{position:absolute;left:0;right:0;top:1196px;text-align:center;font-weight:700;font-size:30px;letter-spacing:.16em;text-transform:uppercase;color:var(--cream)}
 .c1 .sub b{color:var(--pink)}
 .c1 .stamp{position:absolute;right:46px;top:842px;z-index:4;background:var(--pink);color:#fff;font-weight:800;font-size:30px;
@@ -148,9 +151,9 @@ body{background:#000;font-family:P,sans-serif;-webkit-font-smoothing:antialiased
 
 <!-- 1: capa -->
 <section class="card c1">
-  <div class="pn a"><img src="img/zoe-vi/zoe-creche.png" alt=""></div>
-  <div class="pn b"><img src="img/4.jpg" alt=""></div>
-  <div class="pn c"><img src="img/3.jpg" alt=""></div>
+  <div class="pn a"><img src="img/zoe-vi/fx-zoe-creche.png" alt=""></div>
+  <div class="pn b"><img src="img/zoe-vi/fx-4.jpg" alt=""></div>
+  <div class="pn c"><img src="img/zoe-vi/fx-3.jpg" alt=""></div>
   <div class="stamp">Já disponível</div>
   <div class="logo"><span class="game zoe">Zoe</span><span class="game vi">VI</span></div>
   <div class="sub">6 dias de campanha · <b>Passo Fundo/RS</b></div>
@@ -159,7 +162,7 @@ body{background:#000;font-family:P,sans-serif;-webkit-font-smoothing:antialiased
 
 <!-- 2: a missão -->
 <section class="card c2 fade">
-  <img class="bg" src="img/3.jpg" alt="">
+  <img class="bg" src="img/zoe-vi/fx-3.jpg" alt="">
   <div class="help"><small>Objetivo</small>Escape da guia na porta da creche. Chegue ao <b>Instituto Menino Deus</b>.</div>
   <div class="hud">
     <div class="clock">SEX 08:43</div>
@@ -214,7 +217,7 @@ body{background:#000;font-family:P,sans-serif;-webkit-font-smoothing:antialiased
 
 <!-- 5: missão cumprida -->
 <section class="card c5">
-  <img class="bg" src="img/7.jpg" alt="">
+  <img class="bg" src="img/zoe-vi/fx-7.jpg" alt="">
   <div class="top">
     <div class="game done">Missão<br><em>cumprida!</em></div>
     <div class="loc">Instituto Menino Deus · qui 24/09 · 16h</div>
@@ -228,7 +231,7 @@ body{background:#000;font-family:P,sans-serif;-webkit-font-smoothing:antialiased
 
 <!-- 6: nova missão -->
 <section class="card c6">
-  <img class="bg" src="img/9.jpg" alt="">
+  <img class="bg" src="img/zoe-vi/fx-9.jpg" alt="">
   <div class="unlock">Nova missão desbloqueada</div>
   <div class="txt">
     <div class="h">Ajudar outros animais<br>a <span>voltar pra casa.</span></div>
