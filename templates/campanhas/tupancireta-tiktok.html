@@ -1,0 +1,112 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<title>TikTok Tupanciretã</title>
+<!--
+  Versão TikTok (carrossel de fotos 1080x1920) dos Stories de tupancireta.html: o mesmo conteúdo, com as margens da
+  interface do TikTok (abas no topo, botões na lateral direita e legenda no pé ocupam mais que no Instagram):
+  tag em top 270, texto a 430 px do pé e 170 px da direita. No TikTok o @ da ONG é do Instagram, então vira
+  "no Instagram". Legenda em saida/tupancireta-tiktok-legenda.txt.
+  Render: sh templates/campanhas/render.sh tupancireta-tiktok → saida/tupancireta-tiktok-1..3.png
+-->
+<link rel="stylesheet" href="../dicas/dica.css">
+<style>
+.ilustra svg{stroke:currentColor}
+.info{margin-top:30px;font-weight:600;font-size:42px;line-height:1.3;color:var(--cream)}
+.info b{color:var(--lilac);font-weight:800}
+.sub{margin-top:22px;font-weight:500;font-size:34px;line-height:1.35;color:rgba(246,241,233,.75)}
+.end{font-weight:800;font-size:92px;line-height:1.02;letter-spacing:-.025em}
+.loja{display:inline-block;margin-top:22px;background:var(--pink);color:#fff;font-weight:800;font-size:54px;line-height:1;padding:16px 24px 14px}
+.acao{margin-top:40px;display:flex;flex-direction:column;gap:22px;font-weight:600;font-size:38px;line-height:1.3;color:var(--cream)}
+.acao b{color:var(--lilac);font-weight:800}
+/* margens do TikTok */
+.card{--top:270px;--bottom:430px}
+.txt{right:170px}
+.ilustra{top:400px}
+.h{font-size:84px}
+.end{font-size:84px}
+.info{font-size:38px}
+.acao{font-size:34px;margin-top:30px}
+.lista{margin-top:34px;gap:22px}
+.lista b{font-size:48px}
+.lista span{font-size:32px}
+</style>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="pata" viewBox="152 146 206 204">
+    <path d="M255 232c-38 0-78 44-78 80 0 26 20 36 42 36 14 0 24-8 36-8s22 8 36 8c22 0 42-10 42-36 0-36-40-80-78-80z"/>
+    <ellipse cx="183" cy="228" rx="24" ry="31" transform="rotate(-24 183 228)"/>
+    <ellipse cx="226" cy="182" rx="24" ry="32" transform="rotate(-8 226 182)"/>
+    <ellipse cx="284" cy="182" rx="24" ry="32" transform="rotate(8 284 182)"/>
+    <ellipse cx="327" cy="228" rx="24" ry="31" transform="rotate(24 327 228)"/>
+  </symbol>
+  <!-- pote vazio -->
+  <g id="pote">
+    <path d="M60 250h480l-50 150a44 44 0 0 1-42 30H152a44 44 0 0 1-42-30z" fill="none" stroke-width="44" stroke-linejoin="round"/>
+    <use href="#pata" x="230" y="40" width="140" height="138" fill="currentColor" stroke="none"/>
+  </g>
+  <!-- caixa de doação -->
+  <g id="caixa">
+    <path d="M100 210h400v230H100z" fill="none" stroke-width="44" stroke-linejoin="round"/>
+    <path d="M100 210l50-110h300l50 110" fill="none" stroke-width="44" stroke-linejoin="round"/>
+    <use href="#pata" x="235" y="260" width="130" height="128" fill="currentColor" stroke="none"/>
+  </g>
+  <!-- pino do mapa -->
+  <g id="pino">
+    <path d="M300 560C190 430 120 340 120 250a180 180 0 0 1 360 0c0 90-70 180-180 310z" fill="none" stroke-width="44" stroke-linejoin="round"/>
+    <use href="#pata" x="228" y="176" width="144" height="142" fill="currentColor" stroke="none"/>
+  </g>
+</svg>
+
+<!-- 1 · O ALERTA -->
+<section class="card" style="--ih:330px">
+  <div class="tag">Urgente · Tupanciretã</div>
+  <div class="ilustra"><svg viewBox="0 0 616 470" aria-hidden="true">
+    <use href="#pote" class="sombra" transform="translate(16 16)"/><use href="#pote" class="frente"/>
+  </svg></div>
+  <div class="mao" style="right:190px;top:680px;color:#fff">eu confio<br>nessa turma.</div>
+  <div class="txt">
+    <div class="h">Os animais de Tupanciretã <em>precisam da gente.</em></div>
+    <div class="info">O <b>Projeto Social Ventos do Sul</b> foi aos bairros Moraes, Olho da Cobra, Pedreira, Severo e Chiaretta e viu animais com fome, sem pote pra água e sem coleira.</div>
+    <div class="sub">O protetor Márcio está lá todos os dias.</div>
+  </div>
+</section>
+
+<!-- 2 · O QUE FALTA -->
+<section class="card" style="--ih:230px">
+  <div class="tag">O que falta</div>
+  <div class="ilustra"><svg viewBox="0 0 616 470" aria-hidden="true">
+    <use href="#caixa" class="sombra" transform="translate(16 16)"/><use href="#caixa" class="frente"/>
+  </svg></div>
+  <div class="txt">
+    <div class="h" style="font-size:84px">Roupa já tem bastante. <em>Falta:</em></div>
+    <ul class="lista">
+      <li><div class="n">1</div><div><b>Ração</b><span>pra cão e gato, qualquer marca</span></div></li>
+      <li><div class="n">2</div><div><b>Material de limpeza</b><span>água sanitária, desinfetante, sabão, sacos de lixo</span></div></li>
+      <li><div class="n">3</div><div><b>Potes</b><span>pra água e comida</span></div></li>
+      <li><div class="n">4</div><div><b>Coleiras e guias</b></div></li>
+    </ul>
+  </div>
+</section>
+
+<!-- 3 · ONDE ENTREGAR -->
+<section class="card" style="--ih:360px">
+  <div class="tag">Ponto de coleta</div>
+  <div class="ilustra"><svg viewBox="0 0 616 590" aria-hidden="true">
+    <use href="#pino" class="sombra" transform="translate(16 16)"/><use href="#pino" class="frente"/>
+  </svg></div>
+  <div class="mao" style="right:200px;top:640px;color:#fff">ninguém fica<br>pra trás.</div>
+  <div class="txt">
+    <div class="end">Rua Presidente Vargas, 827</div>
+    <div class="loja">Loja O Cesto · Passo Fundo</div>
+    <div class="acao">
+      <div>Não pode doar? <b>Compartilha.</b> Um compartilhamento encontra quem pode ajudar.</div>
+      <div>Quer ajudar na entrega? Chama a <b>@projetosocialventosdosul</b> no Instagram.</div>
+    </div>
+  </div>
+</section>
+
+</body>
+</html>

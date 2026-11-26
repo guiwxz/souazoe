@@ -173,6 +173,9 @@ templates/    # templates reutilizáveis na identidade da Zoe, sem o nome escrit
   campanhas/      # Stories de CAMPANHA (pilar CAUSA), 1080x1920, no visual dos Stories de dica (usa ../dicas/dica.css)
     tupancireta.html # 3 Stories da arrecadação da @projetosocialventosdosul para os animais de Tupanciretã (nov/2026): o alerta
                   # (5 bairros, protetor Márcio), o que falta (ração, limpeza, potes, coleiras) e o ponto de coleta; só itens, nada de PIX
+    tupancireta-tiktok.html # a mesma campanha para o TikTok (carrossel de fotos 1080x1920): margens da interface do TikTok
+                  # (tag em top 270, texto a 430 px do pé e 170 px da direita) e o @ da ONG como "no Instagram"
+                  # + saida/tupancireta-tiktok-legenda.txt
     render.sh     # Chrome headless → saida/<nome>-1.png, -2.png... (ex.: sh render.sh tupancireta)
   etiqueta/       # etiqueta dos saquinhos de petisco (lembrancinha da comemoração da volta da Zoe na creche), 9 x 5 cm, tudo em mm
     index.html    # lilás com a Zoe recortada (sombra rosa), tag "Voltei pra casa!", agradecimento, comentário à mão e caixa ink
@@ -244,4 +247,8 @@ No Windows (Git Bash), o ffmpeg e o rclone vêm do winget (`Gyan.FFmpeg`, `Rclon
 - Alertas de desaparecidos/encontrados: a foto do cachorro é a prioridade. Ele aparece inteiro e grande, sem cortar e sem nada por
   cima (degradê, nome e texto ficam fora dele). Não reconstruir partes escondidas: usar só o que foi enviado. Uma segunda foto
   (ex.: onde ele foi visto) vai num Story separado, nunca na mesma arte.
+- **Padrão de entrega: toda peça nova ganha uma pasta no Google Drive com as artes finais e as legendas.** A pasta fica dentro
+  de `posts/` do Drive da Zoe (id `1msr9snn6u1Am034m_v-qw8t927mdmnmj`, do souazoe.pf@gmail.com), com um nome curto da peça
+  (ex.: `campanha tupanciretã`). Subir pelo conector do Google Drive (create_file; PNG com disableConversionToGoogleType)
+  os PNGs de cada formato (Instagram feed/Stories e TikTok) e as legendas em .txt, e passar o link da pasta na resposta.
 - Mídia bruta (drive/, videos/, audios/) não vai para o git. Renders finais em saida/ vão, assim como scripts, templates, fontes, imagens recortadas e documentos.
