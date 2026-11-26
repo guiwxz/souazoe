@@ -22,7 +22,7 @@ AQUI = Path(__file__).resolve().parent
 IMG = AQUI / "img"
 OUT = IMG / "zoe-vi"
 
-FOTOS = [IMG / "3.jpg", IMG / "4.jpg", IMG / "7.jpg", IMG / "9.jpg", OUT / "zoe-creche.png"]
+FOTOS = [IMG / f"{n}.jpg" for n in (1, 2, 3, 4, 5, 6, 7, 8, 9)] + [OUT / "zoe-creche.png"]
 
 # mapa de gradiente pôr do sol, da sombra para a luz
 GRAD = [(0.00, "#1B1035"), (0.30, "#5B2A8C"), (0.55, "#D9408F"), (0.78, "#FF9E7A"), (1.00, "#FFF1DC")]

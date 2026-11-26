@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<title>Capa Zoe VI</title>
+<!--
+  ZOE VI em UMA imagem só, montada como a capa de um GTA: grade de painéis separados por filetes ink, as fotos reais
+  com o efeito de arte do GTA VI (img/zoe-vi/fx-*, do gta_fx.py) e o logo numa faixa no meio. Substitui o carrossel
+  zoe-vi.html para quem não quer mais um carrossel (o carrossel continua no repositório).
+  Paródia só no formato: nenhum logo, fonte ou arte da Rockstar; o "VI" são os 6 dias.
+  Etiquetas curtas nos painéis com os fatos já publicados (a fuga, 2 km em 7 minutos, a cidade procurando, o reencontro).
+
+  Dois formatos no mesmo arquivo: feed 1080x1350 (#feed) e Stories/TikTok 1080x1920 (#story, com uma fileira a mais).
+  Render: sh carrossel/render_capa_vi.sh → saida/carrossel/carrossel2/zoe-vi-capa-feed.png e -story.png
+-->
+<style>
+@font-face{font-family:P;src:url(fonts/Poppins-SemiBold.ttf);font-weight:600}
+@font-face{font-family:P;src:url(fonts/Poppins-Bold.ttf);font-weight:700}
+@font-face{font-family:P;src:url(fonts/Poppins-ExtraBold.ttf);font-weight:800}
+@font-face{font-family:C;src:url(fonts/Caveat.ttf);font-weight:400 700}
+
+:root{--ink:#17131F;--cream:#F6F1E9;--lilac:#B9A7F3;--pink:#EC4899}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:#000;font-family:P,sans-serif;-webkit-font-smoothing:antialiased}
+
+.card{width:1080px;height:1350px;background:var(--ink);padding:14px;display:grid;gap:14px;
+  grid-template-columns:repeat(3,1fr);grid-template-rows:370px 370px 236px 304px;
+  grid-template-areas:"a a b" "a a c" "logo logo logo" "d e f"}
+.card.story{height:1920px;grid-template-rows:440px 440px 270px 400px 286px;
+  grid-template-areas:"a a b" "a a c" "logo logo logo" "d e f" "g g h"}
+
+.pn{position:relative;overflow:hidden;border-radius:4px;background:#2A1B4A}
+.pn > img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+
+/* painel principal: pôr do sol com o sol atrás da Zoe recortada */
+.a{grid-area:a;background:linear-gradient(180deg,#2A1B4A 0%,#6B3FC4 30%,#EC4899 66%,#FFB47A 100%)}
+.a::before{content:"";position:absolute;left:52%;top:44%;width:460px;height:460px;margin:-230px 0 0 -230px;border-radius:50%;
+  background:radial-gradient(circle,#FFE2C8 0%,#FFB47A 42%,rgba(255,180,122,0) 70%)}
+.a::after{content:"";position:absolute;left:0;right:0;top:60%;height:3px;background:rgba(255,226,200,.35);box-shadow:0 26px 0 rgba(255,226,200,.22),0 56px 0 rgba(255,226,200,.12)}
+.a > img{position:absolute;inset:auto auto 0 50%;width:auto;height:100%;transform:translateX(-46%);object-fit:contain;z-index:1}
+.b{grid-area:b}.c{grid-area:c}.d{grid-area:d}.e{grid-area:e}.f{grid-area:f}.g{grid-area:g}.h{grid-area:h}
+
+/* etiqueta no pé do painel */
+.lb{position:absolute;left:12px;bottom:14px;z-index:2;background:var(--ink);color:#fff;font-weight:800;font-size:21px;line-height:1.1;
+  letter-spacing:.04em;text-transform:uppercase;padding:8px 12px 7px;box-shadow:5px 5px 0 var(--pink);transform:skewX(-9deg);max-width:calc(100% - 30px)}
+.lb b{color:var(--pink)}
+
+/* faixa do logo */
+.logo{grid-area:logo;position:relative;display:flex;align-items:center;justify-content:center;gap:40px;border-radius:4px;
+  background:radial-gradient(ellipse 60% 120% at 50% 100%,#3A2160 0%,var(--ink) 70%)}
+.marca{display:flex;align-items:baseline;transform:skewX(-9deg)}
+.marca span{font-weight:800;font-size:200px;line-height:.86;letter-spacing:-.02em;text-transform:uppercase}
+.zoe{color:#fff;-webkit-text-stroke:12px var(--ink);paint-order:stroke fill;text-shadow:8px 8px 0 var(--pink)}
+.vi{margin-left:20px;background:linear-gradient(165deg,#FFC37A 0%,#FF8A8A 25%,var(--pink) 48%,#9B5CF0 75%,#5F7CFF 100%);
+  -webkit-background-clip:text;background-clip:text;color:transparent;filter:drop-shadow(8px 8px 0 #000)}
+.lado{display:flex;flex-direction:column;gap:10px;max-width:300px}
+.lado .k{font-weight:700;font-size:22px;letter-spacing:.16em;text-transform:uppercase;color:var(--cream);line-height:1.35}
+.lado .k b{color:var(--pink);font-weight:800}
+.lado .hd{font-family:C;font-weight:700;font-size:46px;line-height:1;color:var(--lilac);transform:rotate(-3deg);transform-origin:left}
+.story .marca span{font-size:220px}
+</style>
+</head>
+<body>
+
+<section class="card" id="feed">
+  <div class="pn a"><img src="img/zoe-vi/fx-zoe-creche.png" alt=""></div>
+  <div class="pn b"><img src="img/zoe-vi/fx-1.jpg" alt="" style="object-position:40% 30%"></div>
+  <div class="pn c"><img src="img/zoe-vi/fx-3.jpg" alt="" style="object-position:55% 45%"><div class="lb">Missão 1:<br><b>a grande fuga</b></div></div>
+  <div class="logo">
+    <div class="marca"><span class="zoe">Zoe</span><span class="vi">VI</span></div>
+    <div class="lado">
+      <div class="k">6 dias de campanha<br><b>Passo Fundo/RS</b></div>
+      <div class="hd">lançado antes<br>do GTA 6.</div>
+    </div>
+  </div>
+  <div class="pn d"><img src="img/zoe-vi/ep3-mapa.jpg" alt="" style="object-position:22% 30%"><div class="lb">Recorde:<br><b>2 km em 7 min</b></div></div>
+  <div class="pn e"><img src="img/zoe-vi/fx-7.jpg" alt="" style="object-position:50% 45%"><div class="lb">Missão<br><b>cumprida</b></div></div>
+  <div class="pn f"><img src="img/zoe-vi/fx-9.jpg" alt="" style="object-position:50% 45%"><div class="lb">Nova missão:<br><b>ajudar outros</b></div></div>
+</section>
+
+<script>
+  // Stories/TikTok: o mesmo card com uma fileira a mais (o cartaz = a cidade procurando, e ela em casa)
+  const s = document.getElementById('feed').cloneNode(true);
+  s.id = 'story'; s.classList.add('story');
+  s.insertAdjacentHTML('beforeend',
+    '<div class="pn g"><img src="img/zoe-vi/fx-5.jpg" alt="" style="object-position:50% 45%"><div class="lb">Nível de procura:<br><b>a cidade inteira</b></div></div>' +
+    '<div class="pn h"><img src="img/zoe-vi/fx-8.jpg" alt="" style="object-position:60% 50%"></div>');
+  document.body.append(s);
+</script>
+</body>
+</html>
