@@ -1,0 +1,219 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<title>Carrossel Manifesto</title>
+<style>
+@font-face{font-family:P;src:url(fonts/Poppins-Regular.ttf);font-weight:400}
+@font-face{font-family:P;src:url(fonts/Poppins-Medium.ttf);font-weight:500}
+@font-face{font-family:P;src:url(fonts/Poppins-SemiBold.ttf);font-weight:600}
+@font-face{font-family:P;src:url(fonts/Poppins-Bold.ttf);font-weight:700}
+@font-face{font-family:P;src:url(fonts/Poppins-ExtraBold.ttf);font-weight:800}
+@font-face{font-family:C;src:url(fonts/Caveat.ttf);font-weight:400 700}
+
+:root{
+  --ink:#17131F; --cream:#F6F1E9; --lilac:#B9A7F3; --pink:#EC4899; --muted:#6E667A;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:#000;font-family:P,sans-serif;-webkit-font-smoothing:antialiased}
+
+.card{width:1080px;height:1350px;position:relative;overflow:hidden;background:var(--cream);color:var(--ink)}
+.card.dark{background:var(--ink);color:var(--cream)}
+
+/* barra de progresso do carrossel */
+.bar{position:absolute;top:44px;left:72px;right:72px;display:flex;gap:10px;z-index:5}
+.bar i{flex:1;height:6px;border-radius:3px;background:rgba(255,255,255,.35)}
+.bar i.on{background:#fff}
+
+.tag{position:absolute;top:76px;left:72px;z-index:5;font-weight:700;font-size:26px;letter-spacing:.14em;text-transform:uppercase;color:#fff;
+  text-shadow:0 2px 12px rgba(0,0,0,.35)}
+.tag b{color:var(--lilac)}
+
+/* layout A: foto inteira + texto sobre degradê */
+.full img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.full::after{content:"";position:absolute;inset:0;
+  background:linear-gradient(180deg,rgba(15,11,20,.45) 0%,rgba(15,11,20,0) 22%,rgba(15,11,20,0) 42%,rgba(15,11,20,.88) 78%,rgba(15,11,20,.96) 100%)}
+.full .txt{position:absolute;left:72px;right:72px;bottom:96px;z-index:3;color:#fff}
+
+/* layout B: foto em cima, painel de texto embaixo */
+.split img{position:absolute;top:0;left:0;width:100%;height:var(--ph,760px);object-fit:cover}
+.split::before{content:"";position:absolute;top:0;left:0;right:0;height:260px;z-index:1;
+  background:linear-gradient(180deg,rgba(15,11,20,.55),rgba(15,11,20,0))}
+.split .txt{position:absolute;left:72px;right:72px;top:calc(var(--ph,760px) + 56px);bottom:80px;z-index:3;display:flex;flex-direction:column;justify-content:center}
+
+/* tipografia */
+.h{font-weight:800;font-size:84px;line-height:1.02;letter-spacing:-.025em}
+.h2{font-weight:800;font-size:62px;line-height:1.06;letter-spacing:-.02em}
+.p{font-weight:500;font-size:40px;line-height:1.3;letter-spacing:-.005em}
+.p.s{font-size:36px}
+.lead{font-weight:400;font-size:40px;line-height:1.3;opacity:.92}
+.hand{font-family:C;font-weight:700;font-size:62px;line-height:1;color:var(--pink);transform:rotate(-2deg);transform-origin:left}
+.full .hand{color:var(--lilac)}
+.sp{height:28px}.sp2{height:44px}
+.hl{color:var(--pink)} .full .hl, .dark .hl{color:var(--lilac)}
+.mk{background:linear-gradient(transparent 58%,rgba(185,167,243,.55) 58%);padding:0 .06em}
+.dark .mk{background:linear-gradient(transparent 60%,rgba(236,72,153,.55) 60%)}
+
+.swipe{position:absolute;right:72px;bottom:100px;z-index:4;font-weight:600;font-size:26px;letter-spacing:.12em;text-transform:uppercase;color:#fff;opacity:.85}
+.foot{position:absolute;left:72px;right:72px;bottom:56px;z-index:4;display:flex;justify-content:space-between;font-weight:600;font-size:24px;letter-spacing:.12em;text-transform:uppercase;opacity:.55}
+
+/* card 6: estética documental */
+.doc img{filter:grayscale(1) contrast(1.1) brightness(.9)}
+.rec{position:absolute;top:118px;right:72px;z-index:5;display:flex;align-items:center;gap:12px;color:#fff;font-weight:700;font-size:26px;letter-spacing:.12em}
+.rec::before{content:"";width:18px;height:18px;border-radius:50%;background:#FF3B3B}
+.big6{font-weight:800;font-size:150px;line-height:.9;letter-spacing:-.04em;color:var(--lilac)}
+
+/* card 5: cartaz */
+.poster img{filter:none}
+.chips{display:flex;flex-wrap:wrap;gap:12px}
+.chips span{font-weight:600;font-size:28px;padding:10px 22px;border-radius:40px;border:2px solid rgba(246,241,233,.35)}
+
+/* card 9: chamada para seguir */
+.follow{display:flex;align-items:center;gap:22px;padding:18px 18px 18px 18px;border-radius:28px;background:rgba(246,241,233,.12);border:2px solid rgba(246,241,233,.22);backdrop-filter:blur(8px)}
+.follow .av{width:92px;height:92px;border-radius:50%;object-fit:cover;position:static;border:3px solid var(--lilac)}
+.follow .nm{flex:1;font-weight:700;font-size:34px;line-height:1.15}
+.follow .nm small{display:block;font-weight:500;font-size:24px;opacity:.7;letter-spacing:.02em}
+.follow .bt{font-weight:700;font-size:32px;padding:18px 40px;border-radius:18px;background:var(--pink);color:#fff}
+.list{font-weight:500;font-size:36px;line-height:1.45;opacity:.9}
+.list b{color:var(--lilac);font-weight:700;margin-right:12px}
+</style>
+<!--
+  Carrossel 3: o MANIFESTO da causa (7º conteúdo da semana 1 da estratégia: "Encontraram a Zoe. Agora a Zoe vai ajudar outros.").
+  Mesmo template do index.html (carrossel1), com a Zoe narrando. Base: a tese da marca e a "promessa do perfil" da estratégia
+  (vontade de acompanhar a vida dela, informação útil para uma busca futura e oportunidades concretas de ajudar outros animais).
+  Só fatos já contados: 6 dias, a cidade procurando (cartazes, compartilhamentos, ligações, câmeras liberadas), o reencontro.
+  Render: ./render.sh carrossel3 manifesto.html
+-->
+<style>
+.lilac{background:radial-gradient(ellipse 75% 50% at 50% 38%,#C9BAF6 0%,var(--lilac) 100%);color:var(--ink)}
+.lilac .bar i{background:rgba(23,19,31,.18)} .lilac .bar i.on{background:var(--ink)}
+.lilac .tagm{position:absolute;top:96px;left:72px;z-index:5;background:var(--ink);color:#fff;font-weight:800;font-size:34px;letter-spacing:.12em;
+  text-transform:uppercase;padding:14px 24px 13px;box-shadow:10px 10px 0 var(--pink)}
+.lilac .zoe{position:absolute;right:-30px;bottom:0;height:760px;filter:drop-shadow(18px 0 0 var(--pink))}
+.lilac .txt{position:absolute;left:72px;top:210px;z-index:3;width:620px}
+.lilac .h{font-size:96px}
+.lilac .hand{color:var(--ink)}
+.textonly .txt{position:absolute;left:72px;right:72px;top:150px;bottom:110px;display:flex;flex-direction:column;justify-content:center}
+.big{font-weight:800;font-size:104px;line-height:.98;letter-spacing:-.035em}
+.num{counter-reset:n;display:flex;flex-direction:column;gap:30px}
+.num div{display:flex;gap:26px;align-items:flex-start;font-weight:600;font-size:38px;line-height:1.22}
+.num div::before{counter-increment:n;content:counter(n);flex:none;width:62px;height:62px;display:grid;place-items:center;
+  background:var(--pink);color:#fff;font-weight:800;font-size:36px;margin-top:-4px}
+.num small{display:block;font-weight:500;font-size:30px;opacity:.7;margin-top:6px}
+.dark .num small{opacity:.65}
+</style>
+<body>
+
+<!-- 1 · CAPA -->
+<section class="card lilac">
+  <div class="bar"><i class="on"></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+  <div class="tagm">Manifesto</div>
+  <img class="zoe" src="../templates/etiqueta/img/zoe-creche.png" alt="">
+  <div class="txt">
+    <div class="h">Eu voltei<br>pra casa.</div>
+    <div class="sp"></div>
+    <div class="h hl" style="font-size:84px">Agora é a vez deles.</div>
+    <div class="sp2"></div>
+    <div class="hand" style="font-size:58px">senta que eu tenho<br>uma coisa pra dizer.</div>
+  </div>
+</section>
+
+<!-- 2 · A CIDADE -->
+<section class="card split dark poster" style="--ph:640px">
+  <img src="img/5.jpg" alt="" style="object-position:50% 40%">
+  <div class="bar"><i class="on"></i><i class="on"></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+  <div class="txt">
+    <div class="h2">Por 6 dias, uma cidade inteira <span class="hl">procurou por mim.</span></div>
+    <div class="sp2"></div>
+    <div class="p s" style="line-height:1.4">Gente que eu nunca tinha visto compartilhou, ligou, colou cartaz, liberou imagem de câmera.</div>
+  </div>
+</section>
+
+<!-- 3 · A VOLTA -->
+<section class="card full">
+  <img src="img/7.jpg" alt="" style="object-position:50% 35%">
+  <div class="bar"><i class="on"></i><i class="on"></i><i class="on"></i><i></i><i></i><i></i><i></i><i></i></div>
+  <div class="txt">
+    <div class="h2">Eu não voltei sozinha.</div>
+    <div class="sp"></div>
+    <div class="h hl" style="font-size:76px">Voltei porque uma comunidade se mobilizou.</div>
+  </div>
+</section>
+
+<!-- 4 · A VIRADA -->
+<section class="card dark textonly">
+  <div class="bar"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i></i><i></i><i></i><i></i></div>
+  <div class="txt">
+    <div class="p" style="opacity:.7">Por isso, este perfil não é sobre</div>
+    <div class="h2" style="margin-top:10px">a cachorra que sumiu.</div>
+    <div class="sp2"></div><div class="sp2"></div>
+    <div class="p" style="opacity:.7">É sobre</div>
+    <div class="big hl" style="margin-top:10px">os que ainda estão longe de casa.</div>
+    <div class="sp2"></div><div class="sp2"></div>
+    <div class="hand" style="color:var(--pink)">e sobre como trazer eles de volta.</div>
+  </div>
+</section>
+
+<!-- 5 · O QUE EU PROMETO -->
+<section class="card textonly">
+  <div class="bar" style="--x:0"><i class="on" style="background:var(--ink)"></i><i class="on" style="background:var(--ink)"></i><i class="on" style="background:var(--ink)"></i><i class="on" style="background:var(--ink)"></i><i class="on" style="background:var(--ink)"></i><i style="background:rgba(23,19,31,.15)"></i><i style="background:rgba(23,19,31,.15)"></i><i style="background:rgba(23,19,31,.15)"></i></div>
+  <div class="txt">
+    <div class="h2">O que eu prometo:</div>
+    <div class="sp2"></div>
+    <div class="num">
+      <div><span>Divulgar quem sumiu e quem foi achado em Passo Fundo.</span></div>
+      <div><span>Contar o que a gente aprendeu nos 6 dias.<small>busca, cartazes, câmeras, golpes, prevenção</small></span></div>
+      <div><span>Dar espaço pra adoção e pra quem cuida.<small>ONGs, lares temporários, protetores</small></span></div>
+      <div><span>Só compartilhar o que for checado.</span></div>
+    </div>
+    <div class="sp2"></div>
+    <div class="hand">e continuar sendo eu, né.</div>
+  </div>
+</section>
+
+<!-- 6 · O QUE EU APRENDI -->
+<section class="card dark textonly">
+  <div class="bar"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i></i><i></i></div>
+  <div class="txt">
+    <div class="p" style="opacity:.7">Uma coisa que eu aprendi na rua:</div>
+    <div class="sp"></div>
+    <div class="big">Um animal perdido não volta <span class="hl">sozinho.</span></div>
+    <div class="sp2"></div>
+    <div class="p s" style="line-height:1.4">Ele volta quando alguém olha duas vezes. Quando alguém compartilha. Quando alguém avisa.</div>
+  </div>
+</section>
+
+<!-- 7 · COMO VOCÊ ENTRA -->
+<section class="card split" style="--ph:560px">
+  <img src="img/6.jpg" alt="" style="object-position:50% 50%">
+  <div class="bar"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i></i></div>
+  <div class="txt" style="top:610px;bottom:70px">
+    <div class="h2">E é aqui que você entra.</div>
+    <div class="sp2"></div>
+    <div class="num">
+      <div><span>Perdeu ou achou um animal em Passo Fundo?<small>me chama no direct</small></span></div>
+      <div><span>Viu um alerta por aqui?<small>compartilha: cada Story é um par de olhos a mais</small></span></div>
+    </div>
+  </div>
+</section>
+
+<!-- 8 · FECHO -->
+<section class="card split dark" style="--ph:640px">
+  <img src="img/9.jpg" alt="" style="object-position:50% 40%">
+  <div class="bar"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i></div>
+  <div class="txt" style="top:690px;bottom:50px">
+    <div class="h2">Uma cidade me trouxe de volta.</div>
+    <div class="h2 hl" style="margin-top:6px">Agora a gente traz os outros.</div>
+    <div class="sp2"></div>
+    <div class="follow">
+      <img class="av" src="img/1.jpg" alt="" style="object-position:30% 30%">
+      <div class="nm">Zoe | Causas Animais<small>@souazoe.pf</small></div>
+      <div class="bt">Seguir</div>
+    </div>
+    <div class="sp"></div>
+    <div class="hand" style="font-size:54px;color:var(--lilac)">agora eu também procuro.</div>
+  </div>
+</section>
+
+</body>
+</html>
