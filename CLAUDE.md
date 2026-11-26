@@ -95,6 +95,8 @@ carrossel/    # template padronizado dos carrosséis (versionado)
   manifesto.html # carrossel do MANIFESTO da causa (carrossel3, 8 cards, 7º conteúdo da semana 1), no template do index.html:
                 # capa lilás com a Zoe recortada, a cidade procurando, "não voltei sozinha", o perfil é sobre os que ainda estão longe
                 # de casa, as 4 promessas, o que ela aprendeu, como você entra (direct + compartilhar) e o fecho com o seguir
+  tempestades.html # carrossel de UTILIDADE sobre temporais e alagamentos (carrossel4, só 4 cards: carrosséis longos cansam):
+                # capa lilás com a nuvem de raio, ANTES (5 itens), DEPOIS (4 itens + sinais de leptospirose) e 193/199 + direct da Zoe
   gta_fx.py     # efeito "arte de capa do GTA VI" nas fotos reais: pintura (edgePreservingFilter + k-means), contorno ink, saturação
                 # e mapa de gradiente pôr do sol (roxo → rosa → laranja) → img/zoe-vi/fx-<nome>; opencv-python-headless num venv temporário
   img/          # fotos já recortadas para cada card (1.jpg..9.jpg)
@@ -176,6 +178,7 @@ saida/        # renders finais (versionado), um agrupamento por peça
   carrossel/carrossel2/   # zoe-01..06.png + _preview.jpg + legenda.txt (carrossel-meme "ZOE VI", Instagram e TikTok)
                           # + zoe-vi-capa-feed.png e -story.png: a versão em imagem única (capa de GTA), com a mesma legenda
   carrossel/carrossel3/   # zoe-01..08.png + _preview.jpg + legenda.txt (carrossel do manifesto, Instagram e TikTok)
+  carrossel/carrossel4/   # zoe-01..04.png + _preview.jpg + legenda.txt (cuidados com o pet em temporais e alagamentos)
   video/video1/           # 01-como-encontraram-a-zoe-v2.mp4 + capa-01-v2.png: o Reel 01 PUBLICADO (build_01_v2.py + capa/)
                           # e 01-como-encontramos-a-zoe.mp4 + legendas-01.ass: a versão narrada (build_01.py), que não está em drive/posts/
   video/video3/           # 03-os-6-dias-parte-1.mp4 (+ -sem-musica.mp4) + legendas-03.ass + capa-03.png + legenda-03.txt (texto do post: Instagram e TikTok)
