@@ -1,0 +1,245 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<title>Carrossel Zoe VI</title>
+<!--
+  Carrossel-meme "ZOE VI" (carrossel2), na onda dos posts sobre o GTA 6: a fuga da Zoe contada como as missões de um jogo.
+  VI = os 6 dias. Paródia só no tom e na linguagem de jogo (capa em painéis, HUD, missão, recorde, "missão cumprida"):
+  nenhum logo, fonte ou arte da Rockstar; tudo na identidade da Zoe (ink, lilás, rosa, creme, Poppins + Caveat).
+
+  Só fatos já publicados (roteiros/serie-6-dias e o Reel 05):
+  - sex 18/09: na chegada à creche ela se assustou, escapou da guia e disparou;
+  - as câmeras mostram 2 km em 7 minutos (08h43 a 08h50): Lava Pés, Coronel Chicuta, Avenida Brasil, 15 de Novembro,
+    Morom e Teixeira Soares, e nenhum carro a pegou;
+  - depois das 08h50 ninguém sabe (não inventar nada: o card 4 é o "carregando" sem cutscene);
+  - qui 24/09, 16h: o reencontro perto do Instituto Menino Deus.
+  O humor vem da lógica dela, sem diminuir o susto (o "não tentem isso em casa" do card 3).
+
+  Render: ./render.sh carrossel2 zoe-vi.html
+-->
+<style>
+@font-face{font-family:P;src:url(fonts/Poppins-Medium.ttf);font-weight:500}
+@font-face{font-family:P;src:url(fonts/Poppins-SemiBold.ttf);font-weight:600}
+@font-face{font-family:P;src:url(fonts/Poppins-Bold.ttf);font-weight:700}
+@font-face{font-family:P;src:url(fonts/Poppins-ExtraBold.ttf);font-weight:800}
+@font-face{font-family:C;src:url(fonts/Caveat.ttf);font-weight:400 700}
+
+:root{--ink:#17131F;--cream:#F6F1E9;--lilac:#B9A7F3;--pink:#EC4899;--muted:#6E667A;
+  --sunset:linear-gradient(180deg,#2A1B4A 0%,#7B4FD0 34%,#EC4899 72%,#FFB4A2 100%)}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:#000;font-family:P,sans-serif;-webkit-font-smoothing:antialiased}
+
+.card{width:1080px;height:1350px;position:relative;overflow:hidden;background:var(--ink);color:#fff}
+.bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+
+/* texto "de jogo": caixa alta inclinada com contorno ink e sombra rosa deslocada */
+.game{font-weight:800;text-transform:uppercase;letter-spacing:-.01em;line-height:.92;font-style:normal;
+  display:inline-block;transform:skewX(-9deg);-webkit-text-stroke:14px var(--ink);paint-order:stroke fill;
+  text-shadow:8px 8px 0 var(--pink)}
+.hand{font-family:C;font-weight:700;line-height:1.02;transform:rotate(-3deg);transform-origin:left}
+
+/* HUD */
+.hud{position:absolute;top:64px;right:64px;z-index:5;text-align:right}
+.clock{font-weight:800;font-size:46px;letter-spacing:.02em;-webkit-text-stroke:8px var(--ink);paint-order:stroke fill}
+.stars{margin-top:8px;display:flex;gap:6px;justify-content:flex-end}
+.stars svg{width:52px;height:52px}
+.help{position:absolute;top:64px;left:64px;z-index:5;width:560px;background:rgba(23,19,31,.84);border-radius:14px;
+  padding:26px 30px;font-weight:600;font-size:34px;line-height:1.3;color:var(--cream)}
+.help b{color:var(--pink);font-weight:800}
+.help small{display:block;font-weight:700;font-size:22px;letter-spacing:.16em;text-transform:uppercase;color:var(--lilac);margin-bottom:10px}
+.fade::after{content:"";position:absolute;inset:0;z-index:1;
+  background:linear-gradient(180deg,rgba(23,19,31,.35) 0%,rgba(23,19,31,0) 22%,rgba(23,19,31,0) 48%,rgba(23,19,31,.9) 80%,var(--ink) 100%)}
+.bottom{position:absolute;left:72px;right:72px;bottom:84px;z-index:3}
+.kicker{font-weight:700;font-size:28px;letter-spacing:.18em;text-transform:uppercase;color:var(--lilac)}
+.handle{position:absolute;right:64px;bottom:56px;z-index:4;font-weight:700;font-size:26px;letter-spacing:.08em;opacity:.7}
+
+/* 1: capa em painéis */
+.c1 .pn{position:absolute;overflow:hidden;border-radius:6px}
+.c1 .pn img{width:100%;height:100%;object-fit:cover;display:block}
+.c1 .a{left:24px;top:24px;width:548px;height:880px;background:var(--sunset)}
+.c1 .a::before{content:"";position:absolute;left:50%;top:44%;width:420px;height:420px;margin:-210px 0 0 -210px;border-radius:50%;
+  background:radial-gradient(circle,#FFD6C2 0%,#FFB4A2 45%,rgba(255,180,162,0) 70%)}
+.c1 .a img{position:absolute;left:-30px;bottom:-10px;width:620px;height:auto;filter:drop-shadow(0 0 0 transparent)}
+.c1 .b{left:586px;top:24px;width:470px;height:430px}
+.c1 .c{left:586px;top:468px;width:470px;height:436px}
+.c1 .c img{object-position:40% 55%}
+.c1 .logo{position:absolute;left:0;right:0;top:930px;text-align:center;z-index:3}
+.c1 .zoe{font-size:250px;color:#fff}
+.c1 .vi{font-size:250px;margin-left:24px;
+  background:linear-gradient(180deg,#FFB4A2 0%,var(--pink) 45%,var(--lilac) 100%);-webkit-background-clip:text;background-clip:text;color:transparent;text-shadow:8px 8px 0 var(--lilac)}
+.c1 .sub{position:absolute;left:0;right:0;top:1196px;text-align:center;font-weight:700;font-size:30px;letter-spacing:.16em;text-transform:uppercase;color:var(--cream)}
+.c1 .sub b{color:var(--pink)}
+.c1 .stamp{position:absolute;right:46px;top:842px;z-index:4;background:var(--pink);color:#fff;font-weight:800;font-size:30px;
+  letter-spacing:.06em;text-transform:uppercase;padding:12px 20px 11px;transform:rotate(-6deg);box-shadow:8px 8px 0 var(--ink)}
+.c1 .hand{position:absolute;left:0;right:0;top:1258px;text-align:center;transform:rotate(-2deg);transform-origin:center;font-size:52px;color:var(--lilac)}
+
+/* 2: missão */
+.c2 .bg{object-position:50% 40%}
+.c2 .title{font-size:132px;color:#fff;margin-top:14px}
+.c2 .hand{margin-top:40px;font-size:60px;color:var(--lilac)}
+
+/* 3: recorde em cima do mapa */
+.c3 .bg{object-position:20% 50%;filter:saturate(1.1)}
+.c3::before{content:"";position:absolute;inset:0;z-index:1;
+  background:linear-gradient(180deg,rgba(23,19,31,.15) 0%,rgba(23,19,31,.1) 30%,rgba(23,19,31,.88) 52%,var(--ink) 70%)}
+.c3 .bottom{bottom:72px}
+.c3 .rec{display:inline-block;background:var(--pink);color:#fff;font-weight:800;font-size:34px;letter-spacing:.1em;text-transform:uppercase;
+  padding:12px 22px 11px;box-shadow:8px 8px 0 var(--lilac);transform:skewX(-9deg)}
+.c3 .big{font-size:140px;color:#fff;margin-top:30px}
+.c3 .big em{font-style:normal;color:var(--lilac)}
+.c3 ul{list-style:none;margin-top:36px;display:grid;grid-template-columns:1fr 1fr;gap:6px 30px;font-weight:600;font-size:32px;color:var(--cream)}
+.c3 li::before{content:"✓";color:var(--pink);font-weight:800;margin-right:14px}
+.c3 .zero{margin-top:30px;font-weight:800;font-size:40px}
+.c3 .zero b{color:var(--pink)}
+.c3 .hand{margin-top:26px;font-size:58px;color:var(--lilac)}
+
+/* 4: carregando (o que ninguém sabe) */
+.c4{background:radial-gradient(ellipse 80% 60% at 50% 40%,#2A2238 0%,var(--ink) 75%)}
+.c4 .in{position:absolute;left:72px;right:72px;top:150px}
+.c4 .load{display:flex;gap:12px;margin-top:30px}
+.c4 .load i{flex:1;height:22px;background:var(--pink);transform:skewX(-12deg)}
+.c4 .load i.off{background:rgba(246,241,233,.15)}
+.c4 .six{font-size:210px;color:#fff;margin-top:40px}
+.c4 .six em{font-style:normal;color:var(--lilac)}
+.c4 .q{margin-top:44px;font-weight:700;font-size:52px;line-height:1.12;letter-spacing:-.01em}
+.c4 .q span{color:var(--lilac)}
+.c4 .wanted{position:absolute;left:72px;right:72px;bottom:96px;border-top:2px solid rgba(246,241,233,.18);padding-top:40px}
+.c4 .stars{justify-content:flex-start;gap:10px}
+.c4 .stars svg{width:84px;height:84px}
+.c4 .wl{margin-top:22px;font-weight:800;font-size:40px;text-transform:uppercase;letter-spacing:.02em}
+.c4 .wl small{display:block;font-weight:600;font-size:32px;text-transform:none;letter-spacing:0;color:var(--cream);opacity:.85;margin-top:6px}
+.c4 .hand{position:absolute;right:72px;top:640px;font-size:56px;color:var(--pink);transform:rotate(-5deg);transform-origin:right}
+
+/* 5: missão cumprida */
+.c5 .bg{object-position:50% 35%}
+.c5::before{content:"";position:absolute;inset:0;z-index:1;
+  background:linear-gradient(180deg,rgba(23,19,31,.55) 0%,rgba(23,19,31,0) 30%,rgba(23,19,31,0) 52%,rgba(23,19,31,.88) 78%,var(--ink) 100%)}
+.c5 .top{position:absolute;left:0;right:0;top:64px;z-index:3;text-align:center}
+.c5 .done{font-size:128px;color:#fff}
+.c5 .done em{font-style:normal;color:var(--pink);-webkit-text-stroke:14px var(--ink);text-shadow:8px 8px 0 var(--lilac)}
+.c5 .loc{margin-top:26px;font-weight:700;font-size:30px;letter-spacing:.14em;text-transform:uppercase;text-shadow:0 2px 12px rgba(0,0,0,.6)}
+.c5 .rw{font-weight:800;font-size:58px;line-height:1.08;letter-spacing:-.015em}
+.c5 .rw b{color:var(--pink)}
+.c5 .rw + .rw{margin-top:6px}
+.c5 .hand{margin-top:30px;font-size:62px;color:var(--lilac)}
+
+/* 6: nova missão (chamada para seguir) */
+.c6{background:var(--cream);color:var(--ink)}
+.c6 .bg{height:700px;object-position:50% 40%}
+.c6 .unlock{position:absolute;left:72px;top:640px;z-index:3;background:var(--ink);color:#fff;font-weight:800;font-size:34px;letter-spacing:.08em;
+  text-transform:uppercase;padding:14px 24px 13px;box-shadow:10px 10px 0 var(--pink);transform:skewX(-9deg)}
+.c6 .txt{position:absolute;left:72px;right:72px;top:780px}
+.c6 .h{font-weight:800;font-size:72px;line-height:1.04;letter-spacing:-.025em}
+.c6 .h span{color:var(--pink)}
+.c6 .follow{margin-top:44px;display:flex;align-items:center;gap:22px;padding:18px;border-radius:28px;background:var(--ink);color:#fff}
+.c6 .av{width:92px;height:92px;border-radius:50%;object-fit:cover;object-position:30% 30%;border:3px solid var(--lilac)}
+.c6 .nm{flex:1;font-weight:700;font-size:34px;line-height:1.15}
+.c6 .nm small{display:block;font-weight:500;font-size:24px;opacity:.7}
+.c6 .bt{font-weight:700;font-size:32px;padding:18px 40px;border-radius:18px;background:var(--pink)}
+.c6 .hand{margin-top:34px;font-size:60px;color:var(--pink)}
+</style>
+</head>
+<body>
+
+<svg width="0" height="0" style="position:absolute">
+  <symbol id="st" viewBox="0 0 24 24"><path d="M12 2.2l2.95 6.3 6.85.8-5.07 4.7 1.37 6.8L12 17.4l-6.1 3.4 1.37-6.8L2.2 9.3l6.85-.8z"/></symbol>
+</svg>
+
+<!-- 1: capa -->
+<section class="card c1">
+  <div class="pn a"><img src="img/zoe-vi/zoe-creche.png" alt=""></div>
+  <div class="pn b"><img src="img/4.jpg" alt=""></div>
+  <div class="pn c"><img src="img/3.jpg" alt=""></div>
+  <div class="stamp">Já disponível</div>
+  <div class="logo"><span class="game zoe">Zoe</span><span class="game vi">VI</span></div>
+  <div class="sub">6 dias de campanha · <b>Passo Fundo/RS</b></div>
+  <div class="hand">lançado antes do GTA 6.</div>
+</section>
+
+<!-- 2: a missão -->
+<section class="card c2 fade">
+  <img class="bg" src="img/3.jpg" alt="">
+  <div class="help"><small>Objetivo</small>Escape da guia na porta da creche. Chegue ao <b>Instituto Menino Deus</b>.</div>
+  <div class="hud">
+    <div class="clock">SEX 08:43</div>
+    <div class="stars" style="color:#fff">
+      <svg fill="none" stroke="#fff" stroke-width="1.6"><use href="#st"/></svg><svg fill="none" stroke="#fff" stroke-width="1.6"><use href="#st"/></svg>
+      <svg fill="none" stroke="#fff" stroke-width="1.6"><use href="#st"/></svg><svg fill="none" stroke="#fff" stroke-width="1.6"><use href="#st"/></svg>
+      <svg fill="none" stroke="#fff" stroke-width="1.6"><use href="#st"/></svg><svg fill="none" stroke="#fff" stroke-width="1.6"><use href="#st"/></svg>
+    </div>
+  </div>
+  <div class="bottom">
+    <div class="kicker">Missão 1</div>
+    <div class="game title">A grande<br>fuga</div>
+    <div class="hand">plano? nenhum. eu só me assustei.</div>
+  </div>
+  <div class="handle">@souazoe.pf</div>
+</section>
+
+<!-- 3: o recorde -->
+<section class="card c3">
+  <img class="bg" src="img/zoe-vi/ep3-mapa.jpg" alt="">
+  <div class="hud"><div class="clock">08:43 → 08:50</div></div>
+  <div class="bottom">
+    <div class="rec">Novo recorde!</div><br>
+    <div class="game big">2 km em<br><em>7 minutos</em></div>
+    <ul>
+      <li>Lava Pés</li><li>15 de Novembro</li>
+      <li>Coronel Chicuta</li><li>Morom</li>
+      <li>Avenida Brasil</li><li>Teixeira Soares</li>
+    </ul>
+    <div class="zero">Carros que me pegaram: <b>0</b></div>
+    <div class="hand">não tentem isso em casa. sério.</div>
+  </div>
+</section>
+
+<!-- 4: o que ninguém sabe -->
+<section class="card c4">
+  <div class="in">
+    <div class="kicker">Carregando próxima cena…</div>
+    <div class="load"><i></i><i></i><i></i><i></i><i></i><i class="off"></i></div>
+    <div class="game six">6 <em>dias</em></div>
+    <div class="q">O que eu fiz depois das 8h50?<br><span>Nem o jogo sabe.</span></div>
+  </div>
+  <div class="hand">essa parte do mapa<br>é segredo meu.</div>
+  <div class="wanted">
+    <div class="stars">
+      <svg fill="#EC4899"><use href="#st"/></svg><svg fill="#EC4899"><use href="#st"/></svg><svg fill="#EC4899"><use href="#st"/></svg>
+      <svg fill="#EC4899"><use href="#st"/></svg><svg fill="#EC4899"><use href="#st"/></svg><svg fill="#EC4899"><use href="#st"/></svg>
+    </div>
+    <div class="wl">Nível de procura: máximo<small>uma cidade inteira atrás de mim.</small></div>
+  </div>
+</section>
+
+<!-- 5: missão cumprida -->
+<section class="card c5">
+  <img class="bg" src="img/7.jpg" alt="">
+  <div class="top">
+    <div class="game done">Missão<br><em>cumprida!</em></div>
+    <div class="loc">Instituto Menino Deus · qui 24/09 · 16h</div>
+  </div>
+  <div class="bottom">
+    <div class="rw">Recompensa: <b>voltar pra casa.</b></div>
+    <div class="rw">Respeito + uma cidade inteira.</div>
+    <div class="hand">obrigada, Passo Fundo!</div>
+  </div>
+</section>
+
+<!-- 6: nova missão -->
+<section class="card c6">
+  <img class="bg" src="img/9.jpg" alt="">
+  <div class="unlock">Nova missão desbloqueada</div>
+  <div class="txt">
+    <div class="h">Ajudar outros animais<br>a <span>voltar pra casa.</span></div>
+    <div class="follow">
+      <img class="av" src="img/1.jpg" alt="">
+      <div class="nm">Zoe | Causas Animais<small>@souazoe.pf</small></div>
+      <div class="bt">Seguir</div>
+    </div>
+    <div class="hand">player 2? é você.</div>
+  </div>
+</section>
+
+</body>
+</html>
