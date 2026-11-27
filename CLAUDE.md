@@ -146,6 +146,8 @@ templates/    # templates reutilizáveis na identidade da Zoe, sem o nome escrit
                   # quadrada (ela de pé) e o contato pelo direct de quem a acolheu (@adoteumcachorrinhopf, @ longo: 56 px nos dois formatos)
     perdido-benjamin-lava-pes.html # aviso de cachorro PERDIDO visto solto na rua (tag "Cachorro perdido", "De quem é esse cachorro?"),
                   # no modelo do encontrada-loteamento-pampa.html com a polaroide horizontal (3:2) e o contato pelo direct da Zoe
+    pegasus-atualizacao.html # Story AUXILIAR do mesmo caso (tag "Atualização"): o nome dele (Pegasus) na polaroide, a hora da foto,
+                  # a referência de onde ele mora (sem o número da casa) e o contato da @meupetvaipf, que vai buscar
     recorte.py    # recorta os cães da arte recebida (rembg + opencv num venv temporário) → img/
     recorte_thor.py # recorte do Thor: foto de 371 px ampliada 4x com EDSR (opencv-contrib) + rembg + limpeza da borda → img/thor.png
     foto_bola.py  # foto da Bola tirada do print do Story: apaga a sirene da arte (inpaint no piso) + EDSR 4x → img/bola.jpg
