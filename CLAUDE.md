@@ -148,6 +148,9 @@ templates/    # templates reutilizáveis na identidade da Zoe, sem o nome escrit
                   # no modelo do encontrada-loteamento-pampa.html com a polaroide horizontal (3:2) e o contato pelo direct da Zoe
     pegasus-atualizacao.html # Story AUXILIAR do mesmo caso (tag "Atualização"): o nome dele (Pegasus) na polaroide, a hora da foto,
                   # a referência de onde ele mora (sem o número da casa) e o contato da @meupetvaipf, que vai buscar
+                  # (não foi ao ar: ele voltou antes)
+    pegasus-em-casa.html # fecho do caso: "O Pegasus voltou pra casa" (voltou sozinho), no modelo do frida-encontrada.html com a foto 3:2;
+                  # o texto se explica sozinho para quem não viu o alerta
     recorte.py    # recorta os cães da arte recebida (rembg + opencv num venv temporário) → img/
     recorte_thor.py # recorte do Thor: foto de 371 px ampliada 4x com EDSR (opencv-contrib) + rembg + limpeza da borda → img/thor.png
     foto_bola.py  # foto da Bola tirada do print do Story: apaga a sirene da arte (inpaint no piso) + EDSR 4x → img/bola.jpg

@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<title>Em casa: Pegasus</title>
+<!--
+  Aviso de "em casa" do caso Benjamin/Lava-Pés: o Pegasus voltou pra casa sozinho, por conta própria (informado pela
+  Isabela, antes de a atualização pegasus-atualizacao.html ir ao ar). No modelo do frida-encontrada.html (tudo lilás, tag rosa,
+  foto em cartão com sombra rosa, comentário à mão da Zoe), com a mesma foto do alerta (img/benjamin-lava-pes.jpg, 3:2).
+  O texto se explica sozinho, para quem não viu o alerta. Só o que se sabe: o nome, onde ele foi visto e que voltou sozinho.
+  O mesmo conteúdo sai em dois formatos: Stories 1080x1920 e feed 1080x1350 (clonado pelo script).
+-->
+<style>
+@font-face{font-family:P;src:url(../fonts/Poppins-SemiBold.ttf);font-weight:600}
+@font-face{font-family:P;src:url(../fonts/Poppins-ExtraBold.ttf);font-weight:800}
+@font-face{font-family:C;src:url(../fonts/Caveat.ttf);font-weight:400 700}
+
+:root{--ink:#17131F;--cream:#F6F1E9;--lilac:#B9A7F3;--pink:#EC4899}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:#000;font-family:P,sans-serif;-webkit-font-smoothing:antialiased}
+
+/* --fw largura da foto (centrada, contando a sombra de 14 px); --fy topo; --txt topo do texto */
+.card{width:1080px;height:1350px;position:relative;overflow:hidden;color:var(--ink);
+  background:radial-gradient(ellipse 70% 40% at 50% 35%,#C9BAF6 0%,var(--lilac) 100%);
+  --top:56px;--fy:170px;--fw:840px;--txt:830px;--fx:calc((1080px - var(--fw) - 14px) / 2)}
+.card.story{height:1920px;--top:225px;--fy:370px;--fw:900px;--txt:1140px}
+
+/* tag invertida (boa notícia): caixa rosa com a sombra ink */
+.tag{position:absolute;top:var(--top);left:72px;z-index:3;background:var(--pink);color:#fff;
+  font-weight:800;font-size:46px;line-height:1;letter-spacing:.06em;text-transform:uppercase;padding:16px 26px 15px;
+  box-shadow:10px 10px 0 var(--ink);white-space:nowrap}
+.story .tag{font-size:52px;left:50%;transform:translateX(calc(-50% - 5px))}  /* centrada, contando a sombra */
+
+/* foto: cartão com a sombra rosa deslocada, a mesma do alerta, inteira */
+.foto{position:absolute;left:var(--fx);top:var(--fy);width:var(--fw);aspect-ratio:900/600;border-radius:28px;box-shadow:14px 14px 0 var(--pink)}
+/* nome à mão no canto de baixo à direita (só manta ali), saindo da foto como no alerta */
+.nome{position:absolute;z-index:4;font-family:C;font-weight:700;font-size:130px;line-height:1;color:#fff;
+  right:calc(var(--fx) - var(--fw) * .05);top:calc(var(--fy) + var(--fw) * .53);
+  transform:rotate(-6deg);-webkit-text-stroke:10px var(--ink);paint-order:stroke fill;
+  text-shadow:0 4px 0 rgba(23,19,31,.5)}
+.story .nome{font-size:150px}
+
+.txt{position:absolute;left:72px;right:72px;top:var(--txt);z-index:3}
+.h{font-weight:800;font-size:84px;line-height:1.02;letter-spacing:-.025em}
+.h em{font-style:normal;color:var(--pink)}
+.story .h{font-size:100px}
+.info{margin-top:22px;font-weight:600;font-size:36px;line-height:1.28;text-wrap:balance}
+.story .info{margin-top:30px;font-size:42px}
+/* comentário à mão da Zoe */
+.zoe{margin-top:26px;font-family:C;font-weight:700;font-size:62px;line-height:1.05;transform:rotate(-2deg);transform-origin:left}
+.story .zoe{margin-top:44px;font-size:78px}
+</style>
+</head>
+<body>
+
+<section class="card story" id="story">
+  <div class="tag">Em casa!</div>
+  <img class="foto" src="img/benjamin-lava-pes.jpg" alt="">
+  <div class="nome">Pegasus</div>
+  <div class="txt">
+    <div class="h">O Pegasus<br><em>voltou pra casa.</em></div>
+    <div class="info">Ele foi visto solto na esquina da Benjamin Constant com a Lava-Pés e voltou sozinho, por conta própria.</div>
+    <div class="zoe">eu levei 6 dias.<br>ele foi bem mais rápido.</div>
+  </div>
+</section>
+
+<script>
+  // o render.sh espera o feed em cima e o Stories embaixo: clona o Stories como feed e põe antes
+  const story = document.getElementById('story');
+  const feed = story.cloneNode(true);
+  feed.id = 'feed';
+  feed.classList.remove('story');
+  document.body.prepend(feed);
+</script>
+</body>
+</html>
